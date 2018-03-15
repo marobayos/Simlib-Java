@@ -368,7 +368,7 @@
       <workItem from="1521062623329" duration="9837000" />
       <workItem from="1521120674428" duration="13372000" />
       <workItem from="1521136631765" duration="143000" />
-      <workItem from="1521142758707" duration="846000" />
+      <workItem from="1521142758707" duration="900000" />
     </task>
     <task id="LOCAL-00001" summary="sebas pasó por aquí">
       <created>1521142840180</created>
@@ -391,15 +391,22 @@
       <option name="project" value="LOCAL" />
       <updated>1521143511725</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="sebas pasó por aquí">
+      <created>1521143630350</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1521143630350</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="44070000" />
+    <option name="totallyTimeSpent" value="44124000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
