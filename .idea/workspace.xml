@@ -2,8 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9ffc440-6bff-4ed7-aebe-716b57451ce8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/src/simlib/OrderedList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/UnorderedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -18,8 +17,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="281">
-              <caret line="153" column="25" lean-forward="true" selection-start-line="153" selection-start-column="25" selection-end-line="153" selection-end-column="25" />
+            <state relative-caret-position="1995">
+              <caret line="195" lean-forward="true" selection-start-line="195" selection-end-line="195" />
               <folding>
                 <element signature="method#inicializar#0;class#Main#0" />
                 <element signature="method#llegadaA#0;class#Main#0" />
@@ -28,8 +27,6 @@
                 <element signature="method#descarga#0;class#Main#0" />
                 <element signature="e#5633#5634#0" expanded="true" />
                 <element signature="e#5690#5691#0" expanded="true" />
-                <element signature="method#distC#0;class#Main#0" />
-                <element signature="method#disTriangular#0;class#Main#0" />
                 <element signature="e#6406#6407#0" expanded="true" />
                 <element signature="e#6476#6477#0" expanded="true" />
               </folding>
@@ -171,7 +168,7 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1521143244136</updated>
-      <workItem from="1521143245626" duration="1400000" />
+      <workItem from="1521143245626" duration="1822000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;version 2&quot;">
       <created>1521144267961</created>
@@ -194,14 +191,22 @@
       <option name="project" value="LOCAL" />
       <updated>1521144450380</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="&quot;version 3&quot;">
+      <created>1521145577730</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1521145577730</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1400000" />
+    <option name="totallyTimeSpent" value="1822000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1276" height="777" extended-state="0" />
+    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -263,8 +268,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="281">
-          <caret line="153" column="25" lean-forward="true" selection-start-line="153" selection-start-column="25" selection-end-line="153" selection-end-column="25" />
+        <state relative-caret-position="1995">
+          <caret line="195" lean-forward="true" selection-start-line="195" selection-end-line="195" />
           <folding>
             <element signature="method#inicializar#0;class#Main#0" />
             <element signature="method#llegadaA#0;class#Main#0" />
@@ -273,8 +278,6 @@
             <element signature="method#descarga#0;class#Main#0" />
             <element signature="e#5633#5634#0" expanded="true" />
             <element signature="e#5690#5691#0" expanded="true" />
-            <element signature="method#distC#0;class#Main#0" />
-            <element signature="method#disTriangular#0;class#Main#0" />
             <element signature="e#6406#6407#0" expanded="true" />
             <element signature="e#6476#6477#0" expanded="true" />
           </folding>
