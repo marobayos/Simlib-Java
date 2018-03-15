@@ -2,11 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9ffc440-6bff-4ed7-aebe-716b57451ce8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/uiDesigner.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/OrderedList.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/UnorderedList.java" beforeDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -21,8 +18,8 @@
       <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Main.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="419">
-              <caret line="147" column="54" lean-forward="true" selection-start-line="147" selection-start-column="54" selection-end-line="147" selection-end-column="54" />
+            <state relative-caret-position="281">
+              <caret line="153" column="25" lean-forward="true" selection-start-line="153" selection-start-column="25" selection-end-line="153" selection-end-column="25" />
               <folding>
                 <element signature="method#inicializar#0;class#Main#0" />
                 <element signature="method#llegadaA#0;class#Main#0" />
@@ -82,6 +79,18 @@
               <item name="SimlibJava" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimlibJava" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimlibJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimlibJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="Exception" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="SimlibJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimlibJava" type="462c0819:PsiDirectoryNode" />
+              <item name="src" type="462c0819:PsiDirectoryNode" />
+              <item name="simlib" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -162,16 +171,37 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1521143244136</updated>
-      <workItem from="1521143245626" duration="862000" />
+      <workItem from="1521143245626" duration="1400000" />
     </task>
+    <task id="LOCAL-00001" summary="&quot;version 2&quot;">
+      <created>1521144267961</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1521144267961</updated>
+    </task>
+    <task id="LOCAL-00002" summary="&quot;version 3&quot;">
+      <created>1521144425509</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1521144425509</updated>
+    </task>
+    <task id="LOCAL-00003" summary="&quot;version 3&quot;">
+      <created>1521144450380</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1521144450380</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="862000" />
+    <option name="totallyTimeSpent" value="1400000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1276" height="777" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -207,6 +237,11 @@
   <component name="VcsContentAnnotationSettings">
     <option name="myLimit" value="2678400000" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="&quot;version 2&quot;" />
+    <MESSAGE value="&quot;version 3&quot;" />
+    <option name="LAST_COMMIT_MESSAGE" value="&quot;version 3&quot;" />
+  </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
       <option name="time" value="3" />
@@ -219,10 +254,17 @@
     <entry file="file://$PROJECT_DIR$/SimlibJava.iml">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/UnorderedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="3" selection-start-column="3" selection-end-column="3" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Main.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="419">
-          <caret line="147" column="54" lean-forward="true" selection-start-line="147" selection-start-column="54" selection-end-line="147" selection-end-column="54" />
+        <state relative-caret-position="281">
+          <caret line="153" column="25" lean-forward="true" selection-start-line="153" selection-start-column="25" selection-end-line="153" selection-end-column="25" />
           <folding>
             <element signature="method#inicializar#0;class#Main#0" />
             <element signature="method#llegadaA#0;class#Main#0" />
