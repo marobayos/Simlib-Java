@@ -51,6 +51,7 @@ public class Main {
                     descarga();
                     break;
                 case REGRESO:
+                    regreso();
                     break;
                 case FIN_SIM:
                     break;
@@ -132,7 +133,19 @@ public class Main {
         cajasATransportar.clear();
     }
 
+    static void regreso(){
+        elevador.recordContin(IDLE, simTime.getTime());
+        for(Box caja : cajasFaltantes){
+            if (caja.getWeight() + pesoEnElevador <capacidad){
+                cajasATransportar.add(caja);
+                pesoEnElevador += caja.getWeight();
+                cajasFaltantes.remove(caja);
+            }
+        }
+    }
+
     static void cargarElevador(){
+        elevador.recordContin(BUSSY, simTime.getTime());
         for (Box caja : cajasATransportar){
             switch (caja.getBoxType()){
                 case 'B':
