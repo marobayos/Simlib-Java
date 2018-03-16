@@ -2,13 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9ffc440-6bff-4ed7-aebe-716b57451ce8" name="Default" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Output.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Output.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/ContinStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/ContinStat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/DiscreteStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/DiscreteStat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/SimList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/SimList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EjercicioElevador.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,15 +14,13 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <file leaf-file-name="EjercicioElevador.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/EjercicioElevador.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="292">
-              <caret line="150" column="70" selection-start-line="150" selection-start-column="70" selection-end-line="150" selection-end-column="70" />
+            <state relative-caret-position="30">
+              <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
               <folding>
                 <element signature="e#2579#4123#0" />
-                <element signature="e#5122#5970#0" />
-                <element signature="e#5976#6849#0" />
                 <element signature="e#10424#10425#0" expanded="true" />
                 <element signature="e#10483#10484#0" expanded="true" />
                 <element signature="e#10335#10716#0" />
@@ -288,7 +280,7 @@
       <option name="presentableId" value="Default" />
       <updated>1521143244136</updated>
       <workItem from="1521143245626" duration="3686000" />
-      <workItem from="1521226510556" duration="11025000" />
+      <workItem from="1521226510556" duration="11283000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;version 2&quot;">
       <created>1521144267961</created>
@@ -339,11 +331,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521232772016</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Corrección de erores">
+      <created>1521238799647</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1521238799648</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="14711000" />
+    <option name="totallyTimeSpent" value="14969000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1276" height="777" extended-state="0" />
@@ -358,11 +357,11 @@
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.4960815" side_tool="true" weight="0.32859176" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.50391847" visible="true" weight="0.32859176" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.50391847" visible="true" weight="0.32859176" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1637931" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1637931" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -390,7 +389,8 @@
     <MESSAGE value="&quot;Corrección a Sebas&quot;" />
     <MESSAGE value="Documentación de rutinas(inicialización, sincronización...)" />
     <MESSAGE value="Documentación de rutinas faltantes, y generación de reportes en continStat y discretStat" />
-    <option name="LAST_COMMIT_MESSAGE" value="Documentación de rutinas faltantes, y generación de reportes en continStat y discretStat" />
+    <MESSAGE value="Corrección de erores" />
+    <option name="LAST_COMMIT_MESSAGE" value="Corrección de erores" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -398,14 +398,12 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/EjercicioElevador.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1080">
           <caret line="133" selection-start-line="133" selection-end-line="133" />
           <folding>
             <element signature="e#2579#4123#0" />
-            <element signature="e#5122#5970#0" />
-            <element signature="e#5976#6849#0" />
             <element signature="e#10424#10425#0" expanded="true" />
             <element signature="e#10483#10484#0" expanded="true" />
             <element signature="e#10335#10716#0" />
@@ -588,14 +586,12 @@
     <entry file="file://$PROJECT_DIR$/Output.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
+    <entry file="file://$PROJECT_DIR$/src/EjercicioElevador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="292">
-          <caret line="150" column="70" selection-start-line="150" selection-start-column="70" selection-end-line="150" selection-end-column="70" />
+        <state relative-caret-position="30">
+          <caret line="6" column="30" selection-start-line="6" selection-start-column="30" selection-end-line="6" selection-end-column="30" />
           <folding>
             <element signature="e#2579#4123#0" />
-            <element signature="e#5122#5970#0" />
-            <element signature="e#5976#6849#0" />
             <element signature="e#10424#10425#0" expanded="true" />
             <element signature="e#10483#10484#0" expanded="true" />
             <element signature="e#10335#10716#0" />

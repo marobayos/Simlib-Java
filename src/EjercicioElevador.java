@@ -4,7 +4,7 @@ import java.io.*;
 import java.util.PriorityQueue;
 import java.util.Random;
 
-public class Main {
+public class EjercicioElevador {
     static final byte LLEGADA_A = 0, LLEGADA_B = 1, LLEGADA_C = 2, DESCARGA = 3, REGRESO = 4, FIN_SIM = 5;
     static final byte IDLE = 0, BUSSY = 1;
     static final int capacidad = 400;
