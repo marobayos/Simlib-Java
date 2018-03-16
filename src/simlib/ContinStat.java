@@ -1,5 +1,8 @@
 package simlib;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class ContinStat {
 	private float start;
 	private float area;
@@ -7,14 +10,16 @@ public class ContinStat {
 	private float prevTime;
 	private float max;
 	private float min;
+	private String name;
 
-	public ContinStat(float value, float present) {
+	public ContinStat(float value, float present, String name) {
 		start = present;
 		area = 0;
 		prevValue = value;
 		prevTime = present;
 		max = (float)-3.4E+38;
 		min = (float)3.4E+38;
+		this.name = name.toUpperCase();
 	}
 
 	public float getContinAve(float present) {
@@ -44,4 +49,11 @@ public class ContinStat {
 	public float getValue() {
 	    return prevValue;
     }
+
+    public void report(FileWriter out, float present) throws IOException {
+		out.write("REPORT DE "+name+" :\n");
+		out.write("Promedio:\t"+getContinAve( present )+"\n");
+		out.write("Valor mínimo: "+this.getContinMax()+"\n");
+		out.write("Valor máximo: "+this.getContinMin()+"\n");
+	}
 }

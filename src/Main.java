@@ -7,7 +7,7 @@ public class Main {
     static final byte LLEGADA_A = 0, LLEGADA_B = 1, LLEGADA_C = 2, DESCARGA = 3, REGRESO = 4, FIN_SIM = 5;
     static final byte IDLE = 0, BUSSY = 1;
     static final int capacidad = 400;
-    static int pesoEnElevador;
+    static int pesoATransportar;
     static Random random;
     static int maxA, minA, valB, distC;
     static double maxTime;
@@ -53,6 +53,7 @@ public class Main {
                     regreso();
                     break;
                 case FIN_SIM:
+                    finSim( output );
                     break;
             }
         } while ( eventos.getFirst( ).getType( ) != FIN_SIM );
@@ -106,11 +107,11 @@ public class Main {
         cajasFaltantes = new SimList("Cajas faltantes", 0, false);
 
         /* Inicializa las variables de estado y acumuladores */
-        elevador = new ContinStat(0, simTime.getTime());
-        transitoA = new DiscreteStat();
-        esperaB = new DiscreteStat();
+        elevador = new ContinStat(0, simTime.getTime(), "estado del elevador");
+        transitoA = new DiscreteStat("Tiempo de tránsito para cajas A");
+        esperaB = new DiscreteStat("Tiempo de espera para cajas B");
         totalC = 0;
-        pesoEnElevador = 0;
+        pesoATransportar = 0;
     }
 
     /**
@@ -126,11 +127,11 @@ public class Main {
     static void llegadaA() {
         /* Programa siguiente llegada de caja tipo A */
         eventos.add(new Event(LLEGADA_A, simTime.getTime() + distUniforme(maxA, minA)));
-
-        /**/
-        if(elevador.getValue() == IDLE && pesoEnElevador + 200 <= capacidad){
+        
+        if(elevador.getValue() == IDLE && pesoATransportar + 200 <= capacidad){
             cajasATransportar.add(new Box( simTime.getTime(), 'A'));
-            if (pesoEnElevador == capacidad){
+            pesoATransportar += 200;
+            if (pesoATransportar == capacidad){
                 cargarElevador();
                 eventos.add( new Event(DESCARGA, simTime.getTime()) );
             }
@@ -146,54 +147,89 @@ public class Main {
      */
     static void llegadaB() {
         eventos.add(new Event(LLEGADA_B, simTime.getTime() + valB));
-        Box estaCaja = new Box( simTime.getTime(), 'B');
-        if(elevador.getValue() == IDLE && pesoEnElevador + estaCaja.getWeight() <= capacidad){
-            cajasATransportar.add(estaCaja);
-            if (pesoEnElevador == capacidad){
+        
+        if(elevador.getValue() == IDLE && pesoATransportar + 100 <= capacidad){
+            cajasATransportar.add(new Box( simTime.getTime(), 'B'));
+            pesoATransportar += 100;
+            if (pesoATransportar == capacidad){
                 cargarElevador();
                 eventos.add( new Event(DESCARGA, simTime.getTime()) );
             }
         } else
-            cajasFaltantes.addLast(estaCaja);
+            cajasFaltantes.addLast(new Box( simTime.getTime(), 'B') );
     }
 
+    /**
+     * LLegada de una caja tipo B: Programa siguiente evento de este tipo. Si el
+     * elevador está disponible verifica si puede ingresar la caja y subirlo, en
+     * ese caso lo carga y programa su descarga, en caso contrario solo añade la
+     * caja a la cola de cajas faltantes.
+     */
     static void llegadaC() {
         eventos.add(new Event(LLEGADA_C, simTime.getTime() + distUniforme(maxA, minA)));
-        Box estaCaja = new Box( simTime.getTime(), 'C');
-        if(elevador.getValue() == IDLE && pesoEnElevador + estaCaja.getWeight() <= capacidad){
-            cajasATransportar.add(estaCaja);
-            if (pesoEnElevador == capacidad){
+        
+        if(elevador.getValue() == IDLE && pesoATransportar + 50 <= capacidad){
+            cajasATransportar.add( new Box( simTime.getTime(), 'C') );
+            pesoATransportar += 50;
+            if (pesoATransportar == capacidad){
                 cargarElevador();
                 eventos.add( new Event(DESCARGA, simTime.getTime() + 3) );
             }
         } else
-            cajasFaltantes.addLast(estaCaja);
+            cajasFaltantes.addLast( new Box( simTime.getTime(), 'C') );
     }
 
+    /**
+     * Descarga del elevador en 2do piso: programa regreso del elevador al 1er piso,
+     * actualiza acumuladores estadísticos y variables de estado del sistema. Vacía
+     * la cola de cajas a transportar.
+     */
     static void descarga(){
         eventos.add(new Event(REGRESO, simTime.getTime() + 1));
         for (Box caja : cajasATransportar){
             if (caja.getBoxType() == 'A'){
                 transitoA.recordDiscrete(simTime.getTime() - caja.getArriveTime());
             }
-            pesoEnElevador -= caja.getWeight();
+            pesoATransportar -= caja.getWeight();
         }
         cajasATransportar.clear();
     }
 
+    /**
+     * Regreso del elevador al 1er piso: marca el elevador disponible, mete las cajas
+     * que quepan en el elevador en la lista de cajas a transportar, si la capacidad
+     * se completa, carga el elevador y programa su descarga.
+     */
     static void regreso(){
         elevador.recordContin( IDLE, simTime.getTime() );
         for(Box caja : cajasFaltantes){
-            if (caja.getWeight() + pesoEnElevador <= capacidad){
+            if (caja.getWeight() + pesoATransportar <= capacidad){
                 cajasATransportar.add(caja);
-                pesoEnElevador += caja.getWeight();
+                pesoATransportar += caja.getWeight();
                 cajasFaltantes.remove(caja);
             }
         }
-        if ( pesoEnElevador == capacidad )
+        if ( pesoATransportar == capacidad )
             eventos.add( new Event( DESCARGA, simTime.getTime() + 3 ) );
     }
 
+    /**
+     * Fin de la simulación: Actualiza una última vez las variables del sistema, y
+     * guarda en el archivo los datos obtenidos para las medidas de desempeño.
+     *
+     * @param out   archivo en el que se guardarán los datos.
+     */
+    static void finSim( FileWriter out ) throws IOException {
+        elevador.report(out, simTime.getTime());
+        transitoA.report(out);
+        esperaB.report(out);
+        out.write("Promedio de cajas C transportadas por hora: "+totalC/simTime.getTime()*60);
+    }
+
+    /**
+     * SUB RUTINA Cargar elevador: Marca el elevador ocupado y actualiza acumuladores
+     * estadísticos.
+     */
     static void cargarElevador(){
         elevador.recordContin(BUSSY, simTime.getTime());
         for ( Box caja : cajasATransportar ){
@@ -208,10 +244,28 @@ public class Main {
         }
     }
 
+    /**********************************
+     *   DISTRIBUCIONES ESTADÍSTICAS  *
+     **********************************/
+
+    /**
+     * Distribución aleatoria con distribución uniforme
+     *
+     * @param max   valor máximo que puede retornar la distribución
+     * @param min   valor mínimo que puede retornar la distribución
+     * @return  valor aleatorio uniformemente distribuido en el rango [min, max)
+     */
     static float distUniforme( int max, int min ){
         return min + random.nextFloat()*( max-min );
     }
 
+    /**
+     * Distribución especial para la caja tipo C.
+     *      – Opción 1: Distribución de la forma P(x)=X
+     *      – Opción 2: Distribución de exponencial con media 6.
+     *
+     * @return variable aleatoria perteneciente a la distribución seleccionada.
+     */
     static float distC(){
         double rand = random.nextDouble();
         if(distC == 0){
@@ -239,6 +293,12 @@ public class Main {
         return (float)x;
     }
 
+    /**
+     * Distribución exponencial
+     *
+     * @param lambda    1/media
+     * @return  valor aleatorio con distribucuón exponencial.
+     */
     static float distExponencial( double lambda ){
         return (float)(-1/lambda*Math.log(random.nextFloat()));
     }

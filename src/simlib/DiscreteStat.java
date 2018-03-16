@@ -1,12 +1,16 @@
 package simlib;
 
+import java.io.FileWriter;
+import java.io.IOException;
+
 public class DiscreteStat {
 	private float sum;
 	private int numObs;
 	private float max;
 	private float min;
+	private String name;
 
-	public DiscreteStat() {
+	public DiscreteStat(String name) {
 		sum = 0;
 		numObs = 0;
 		max = (float)-3.4E+38;
@@ -40,5 +44,12 @@ public class DiscreteStat {
 	
 	public float getDiscreteAverage() {
 		return sum/numObs;
+	}
+
+	public void report(FileWriter out) throws IOException {
+		out.write("REPORT DE "+name+" :\n");
+		out.write("Promedio:\t"+getDiscreteAverage()+"\n");
+		out.write("Valor mínimo: "+this.min+"\n");
+		out.write("Valor máximo: "+this.max+"\n");
 	}
 }
