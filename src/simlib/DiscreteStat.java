@@ -16,7 +16,7 @@ public class DiscreteStat {
 		sum = 0;
 		numObs = 0;
 		max = min = prevValue = value;
-		this.name = name;
+		this.name = name.toUpperCase();
 	}
 
 	public DiscreteStat(String name) {

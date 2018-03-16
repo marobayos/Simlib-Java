@@ -38,16 +38,8 @@ public class EjercicioElevador {
         /* INICIALIZAR */
         inicializar();
         System.out.println("Init");
-        //out.write("init");
-        //out.newLine();
         do {
             sincronizar();
-            /*for ( int i = 0; i< eventos.size(); i++ ){
-                out.write(eventos.get(i).getTime()+" ");
-                out.newLine();
-            }
-            out.write("\n"+simTime.getTime()+" "+eventType);
-            out.newLine();*/
             switch ( eventType ) {
                 case LLEGADA_A:
                     llegadaA();
