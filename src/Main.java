@@ -32,7 +32,7 @@ public class Main {
         distC = Integer.parseInt( input.readLine() );
         maxTime = Double.parseDouble( input.readLine() );
 
-        //INICIALIZAR
+        /* INICIALIZAR */
         inicializar();
         do {
             sincronizar();
@@ -58,23 +58,54 @@ public class Main {
         } while ( eventos.getFirst( ).getType( ) != FIN_SIM );
     }
 
+    /*********************
+     *      RUTINAS      *
+     *********************/
+
+    /**
+     * Rutina de sincronización: elimina de la cola de eventos el evento ya realizado,
+     * actualiza el tiempo de la simulación y actualiza algunas variables.
+     **/
     static void sincronizar() {
+        // Elimina el evento ya procesado
         eventos.removeLast();
+
+        //Actualiza acumuladores estadísticos
         cajasFaltantes.update(simTime.getTime());
+
+        // Actualiza el tiempo de la simulación
         simTime.setTime(eventos.getFirst().getTime());
     }
 
+    /**
+     * Rutina de inicialización: inicializa todas las colas y variables de la
+     * simulación, programa en la lista de eventos la primera llegada de cada tipo
+     * de caja y el fin de la simulación.
+     */
     static void inicializar( ) {
+        /* Para tener datos diferentes en cada simulación */
         random = new Random( );
         random.setSeed( System.nanoTime() );
+
+        /* Inicializa el tiempo de la simulación en 0.0 */
         simTime = new Timer( );
+
+        /* Inicializa la lista de eventos */
         eventos = new SimList<Event>("Lista de Eventos", 0, true);
+
+        /* Programa la primera llevada de cada tipo de caja */
         eventos.add( new Event( LLEGADA_A , simTime.getTime()+distUniforme( maxA, minA ) ) );
         eventos.add( new Event( LLEGADA_B , simTime.getTime()+valB) );
         eventos.add( new Event( LLEGADA_C , simTime.getTime()+distC() ) );
+
+        /* Programa el fin de la simulación */
         eventos.add( new Event( FIN_SIM , (float)maxTime ) );
+
+        /* Inicializa las demás colas y listas */
         cajasATransportar = new SimList<Box>("Cajas a transportar", 0, false);
         cajasFaltantes = new SimList("Cajas faltantes", 0, false);
+
+        /* Inicializa las variables de estado y acumuladores */
         elevador = new ContinStat(0, simTime.getTime());
         transitoA = new DiscreteStat();
         esperaB = new DiscreteStat();
@@ -82,23 +113,41 @@ public class Main {
         pesoEnElevador = 0;
     }
 
+    /**
+     * RUTINAS DE EVENTOS
+     **********************/
+
+    /**
+     * LLegada de una caja tipo A: Programa siguiente evento de este tipo. Si el
+     * elevador está disponible verifica si puede ingresar la caja y subirlo, en
+     * ese caso lo carga y programa su descarga, en caso contrario solo añade la
+     * caja a la cola de cajas faltantes.
+     */
     static void llegadaA() {
+        /* Programa siguiente llegada de caja tipo A */
         eventos.add(new Event(LLEGADA_A, simTime.getTime() + distUniforme(maxA, minA)));
-        Box estaCaja = new Box( simTime.getTime(), 'A');
-        if(pesoEnElevador + estaCaja.getWeight() <= capacidad){
-            cajasATransportar.add(estaCaja);
+
+        /**/
+        if(elevador.getValue() == IDLE && pesoEnElevador + 200 <= capacidad){
+            cajasATransportar.add(new Box( simTime.getTime(), 'A'));
             if (pesoEnElevador == capacidad){
                 cargarElevador();
                 eventos.add( new Event(DESCARGA, simTime.getTime()) );
             }
         } else
-            cajasFaltantes.addLast(estaCaja);
+            cajasFaltantes.addLast(new Box( simTime.getTime(), 'A'));
     }
 
+    /**
+     * LLegada de una caja tipo B: Programa siguiente evento de este tipo. Si el
+     * elevador está disponible verifica si puede ingresar la caja y subirlo, en
+     * ese caso lo carga y programa su descarga, en caso contrario solo añade la
+     * caja a la cola de cajas faltantes.
+     */
     static void llegadaB() {
         eventos.add(new Event(LLEGADA_B, simTime.getTime() + valB));
         Box estaCaja = new Box( simTime.getTime(), 'B');
-        if(pesoEnElevador + estaCaja.getWeight() <= capacidad){
+        if(elevador.getValue() == IDLE && pesoEnElevador + estaCaja.getWeight() <= capacidad){
             cajasATransportar.add(estaCaja);
             if (pesoEnElevador == capacidad){
                 cargarElevador();
@@ -111,7 +160,7 @@ public class Main {
     static void llegadaC() {
         eventos.add(new Event(LLEGADA_C, simTime.getTime() + distUniforme(maxA, minA)));
         Box estaCaja = new Box( simTime.getTime(), 'C');
-        if(pesoEnElevador + estaCaja.getWeight() <= capacidad){
+        if(elevador.getValue() == IDLE && pesoEnElevador + estaCaja.getWeight() <= capacidad){
             cajasATransportar.add(estaCaja);
             if (pesoEnElevador == capacidad){
                 cargarElevador();
@@ -133,22 +182,24 @@ public class Main {
     }
 
     static void regreso(){
-        elevador.recordContin(IDLE, simTime.getTime());
+        elevador.recordContin( IDLE, simTime.getTime() );
         for(Box caja : cajasFaltantes){
-            if (caja.getWeight() + pesoEnElevador <capacidad){
+            if (caja.getWeight() + pesoEnElevador <= capacidad){
                 cajasATransportar.add(caja);
                 pesoEnElevador += caja.getWeight();
                 cajasFaltantes.remove(caja);
             }
         }
+        if ( pesoEnElevador == capacidad )
+            eventos.add( new Event( DESCARGA, simTime.getTime() + 3 ) );
     }
 
     static void cargarElevador(){
         elevador.recordContin(BUSSY, simTime.getTime());
-        for (Box caja : cajasATransportar){
-            switch (caja.getBoxType()){
+        for ( Box caja : cajasATransportar ){
+            switch ( caja.getBoxType() ){
                 case 'B':
-                    esperaB.recordDiscrete(simTime.getTime() - caja.getArriveTime());
+                    esperaB.recordDiscrete( simTime.getTime() - caja.getArriveTime() );
                     break;
                 case 'C':
                     totalC ++;
@@ -157,8 +208,8 @@ public class Main {
         }
     }
 
-    static float distUniforme(int max, int min){
-        return min + random.nextFloat()*(max-min);
+    static float distUniforme( int max, int min ){
+        return min + random.nextFloat()*( max-min );
     }
 
     static float distC(){
@@ -174,7 +225,7 @@ public class Main {
         }
     }
 
-    static float disTriangular(double a, double b, double c){
+    static float disTriangular( double a, double b, double c ){
         double rand = random.nextDouble();
         double x;
         double aux;
@@ -188,7 +239,7 @@ public class Main {
         return (float)x;
     }
 
-    static float distExponencial(double lambda){
+    static float distExponencial( double lambda ){
         return (float)(-1/lambda*Math.log(random.nextFloat()));
     }
 }
