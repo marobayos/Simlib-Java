@@ -1,6 +1,7 @@
 import simlib.*;
 
 import java.io.*;
+import java.util.PriorityQueue;
 import java.util.Random;
 
 public class Main {
@@ -14,15 +15,16 @@ public class Main {
     static Timer simTime;
     static DiscreteStat transitoA, esperaB;
     static int totalC;
-    static SimList<Box> cajasATransportar;
+    static SimList< Box > cajasATransportar;
     static SimList< Event > eventos;
     static SimList< Box > cajasFaltantes;
-    static ContinStat elevador;
+    static ContinStat <Byte>elevador;
+    static byte eventType;
 
     public static void main(String[]args)throws IOException {
         /* ABRIR ARCHIVOS */
-        FileWriter output = new FileWriter( "Output.txt" );
         BufferedReader input = new BufferedReader( new FileReader("Input.txt") );
+        BufferedWriter out = new BufferedWriter(new FileWriter("Output.txt"));
 
         /* LEER Y GUARDAR PARÁMETROS */
         String in = input.readLine();
@@ -32,11 +34,21 @@ public class Main {
         distC = Integer.parseInt( input.readLine() );
         maxTime = Double.parseDouble( input.readLine() );
 
+
         /* INICIALIZAR */
         inicializar();
+        System.out.println("Init");
+        //out.write("init");
+        //out.newLine();
         do {
             sincronizar();
-            switch ( eventos.getFirst().getType() ) {
+            /*for ( int i = 0; i< eventos.size(); i++ ){
+                out.write(eventos.get(i).getTime()+" ");
+                out.newLine();
+            }
+            out.write("\n"+simTime.getTime()+" "+eventType);
+            out.newLine();*/
+            switch ( eventType ) {
                 case LLEGADA_A:
                     llegadaA();
                     break;
@@ -53,10 +65,12 @@ public class Main {
                     regreso();
                     break;
                 case FIN_SIM:
-                    finSim( output );
+                    finSim( out );
                     break;
             }
-        } while ( eventos.getFirst( ).getType( ) != FIN_SIM );
+        } while ( eventType != FIN_SIM );
+        input.close();
+        out.close();
     }
 
     /*********************
@@ -68,14 +82,15 @@ public class Main {
      * actualiza el tiempo de la simulación y actualiza algunas variables.
      **/
     static void sincronizar() {
+        eventType = eventos.getFirst().getType();
+        simTime.setTime(eventos.getFirst().getTime());
         // Elimina el evento ya procesado
-        eventos.removeLast();
+        eventos.removeFirst();
 
         //Actualiza acumuladores estadísticos
         cajasFaltantes.update(simTime.getTime());
 
         // Actualiza el tiempo de la simulación
-        simTime.setTime(eventos.getFirst().getTime());
     }
 
     /**
@@ -107,7 +122,7 @@ public class Main {
         cajasFaltantes = new SimList("Cajas faltantes", 0, false);
 
         /* Inicializa las variables de estado y acumuladores */
-        elevador = new ContinStat(0, simTime.getTime(), "estado del elevador");
+        elevador = new ContinStat((float)0.0, simTime.getTime(), "estado del elevador");
         transitoA = new DiscreteStat("Tiempo de tránsito para cajas A");
         esperaB = new DiscreteStat("Tiempo de espera para cajas B");
         totalC = 0;
@@ -133,7 +148,7 @@ public class Main {
             pesoATransportar += 200;
             if (pesoATransportar == capacidad){
                 cargarElevador();
-                eventos.add( new Event(DESCARGA, simTime.getTime()) );
+                eventos.add( new Event(DESCARGA, simTime.getTime() + 3));
             }
         } else
             cajasFaltantes.addLast(new Box( simTime.getTime(), 'A'));
@@ -153,7 +168,7 @@ public class Main {
             pesoATransportar += 100;
             if (pesoATransportar == capacidad){
                 cargarElevador();
-                eventos.add( new Event(DESCARGA, simTime.getTime()) );
+                eventos.add( new Event(DESCARGA, simTime.getTime() + 3) );
             }
         } else
             cajasFaltantes.addLast(new Box( simTime.getTime(), 'B') );
@@ -202,13 +217,16 @@ public class Main {
      */
     static void regreso(){
         elevador.recordContin( IDLE, simTime.getTime() );
+        SimList<Box> cajasRestantes = new SimList<>();
         for(Box caja : cajasFaltantes){
             if (caja.getWeight() + pesoATransportar <= capacidad){
                 cajasATransportar.add(caja);
                 pesoATransportar += caja.getWeight();
-                cajasFaltantes.remove(caja);
-            }
+            } else
+                cajasRestantes.add(caja);
         }
+        cajasFaltantes.clear();
+        cajasFaltantes.addAll(cajasRestantes);
         if ( pesoATransportar == capacidad )
             eventos.add( new Event( DESCARGA, simTime.getTime() + 3 ) );
     }
@@ -217,13 +235,14 @@ public class Main {
      * Fin de la simulación: Actualiza una última vez las variables del sistema, y
      * guarda en el archivo los datos obtenidos para las medidas de desempeño.
      *
-     * @param out   archivo en el que se guardarán los datos.
+     * @param bw   archivo en el que se guardarán los datos.
      */
-    static void finSim( FileWriter out ) throws IOException {
-        elevador.report(out, simTime.getTime());
-        transitoA.report(out);
-        esperaB.report(out);
-        out.write("Promedio de cajas C transportadas por hora: "+totalC/simTime.getTime()*60);
+    static void finSim( BufferedWriter bw ) throws IOException {
+        elevador.report(bw, simTime.getTime());
+        transitoA.report(bw);
+        esperaB.report(bw);
+        bw.write("Promedio de cajas C transportadas por hora: "+totalC/simTime.getTime()*60);
+        //System.exit(0);
     }
 
     /**

@@ -1,43 +1,49 @@
 package simlib;
 
+import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class ContinStat {
-	private float start;
+public class ContinStat<E> {
+	private Float start;
 	private float area;
-	private float prevValue;
+	private Float prevValue;
 	private float prevTime;
-	private float max;
-	private float min;
+	private Float max;
+	private Float min;
 	private String name;
 
-	public ContinStat(float value, float present, String name) {
+	public ContinStat(Float value, float present, String name) {
 		start = present;
 		area = 0;
-		prevValue = value;
+		prevValue = max = min = value;
 		prevTime = present;
-		max = (float)-3.4E+38;
-		min = (float)3.4E+38;
 		this.name = name.toUpperCase();
 	}
 
-	public float getContinAve(float present) {
-		area += (present - prevTime)*prevValue;
+	public ContinStat(float present, String name) {
+		this(null, present, name);
+	}
+
+	public double getContinAve(float present) {
+		area += (present - prevTime)*(double)prevValue;
 		prevTime = present;
 		return area/(present - start);
 	}
 
-	public float getContinMax() {
+	public Float getContinMax() {
 		return max;
 	}
 
-	public float getContinMin() {
+	public Float getContinMin() {
 		return min;
 	}
 
 	public void recordContin(float value, float present) {
-		area += (present - prevTime)*prevValue;
+		area += (present - prevTime)*(double)prevValue;
+		if (this.prevValue == null){
+			min = value;
+		}
 		if (value > max)
 			max = value;
 		if (value < min)
@@ -50,10 +56,10 @@ public class ContinStat {
 	    return prevValue;
     }
 
-    public void report(FileWriter out, float present) throws IOException {
-		out.write("REPORT DE "+name+" :\n");
-		out.write("Promedio:\t"+getContinAve( present )+"\n");
-		out.write("Valor mínimo: "+this.getContinMax()+"\n");
-		out.write("Valor máximo: "+this.getContinMin()+"\n");
+    public void report(BufferedWriter out, float present) throws IOException {
+		out.write("REPORT DEL "+name+":\n");
+		out.write("\tPromedio:\t"+getContinAve( present )+"\n");
+		out.write("\tValor mínimo: "+this.getContinMax()+"\n");
+		out.write("\tValor máximo: "+this.getContinMin()+"\n\n");
 	}
 }

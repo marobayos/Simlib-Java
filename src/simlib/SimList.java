@@ -36,7 +36,8 @@ public class SimList <E> extends LinkedList<E> {
     public void report(){}
 
     public void sort(){
-        Arrays.sort(this.toArray());
+        this.sorted=true;
+        super.sort(null);
     }
 
     public void addFirst(E element){
