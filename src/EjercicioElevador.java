@@ -18,7 +18,7 @@ public class EjercicioElevador {
     static SimList< Box > cajasATransportar;
     static SimList< Event > eventos;
     static SimList< Box > cajasFaltantes;
-    static ContinStat <Byte>elevador;
+    static ContinStat elevador;
     static byte eventType;
     static int viajes = 0;
 
