@@ -1,12 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="f9ffc440-6bff-4ed7-aebe-716b57451ce8" name="Default" comment="/*Ahora solo tiene dos eventos y el archivo de entrada está corregido*/">
+    <list default="true" id="f9ffc440-6bff-4ed7-aebe-716b57451ce8" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Input9.txt" afterPath="$PROJECT_DIR$/Input9.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Output9.txt" afterPath="$PROJECT_DIR$/Output9.txt" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/EjercicioTelefonia.java" afterPath="$PROJECT_DIR$/src/EjercicioTelefonia.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/simlib/Event.java" afterPath="$PROJECT_DIR$/src/simlib/Event.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -578,7 +574,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521263505177</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="/*Ahora solo tiene dos eventos y el archivo de entrada está corregido*/">
+      <created>1521329867665</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1521329867665</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
