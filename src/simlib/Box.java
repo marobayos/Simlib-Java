@@ -40,4 +40,4 @@ public class Box implements Comparable<Box> {
     public String toString(){
         return this.boxType+"";
     }
-}//Ya no
+}
