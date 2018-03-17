@@ -17,6 +17,7 @@ public class SimList <E> extends LinkedList<E> {
         this.area = 0;
         this.lastUpdate  = timer;
         this.sorted = sorted;
+        this.name = name;
     }
 
     public SimList(){
@@ -114,5 +115,15 @@ public class SimList <E> extends LinkedList<E> {
 
     public boolean isSorted() {
         return sorted;
+    }
+
+    public String toString(){
+        String str = name + ": [";
+        for(int i = 0; i<this.size() ; i++){
+            str += this.get(i);
+            if(i!=this.size()-1)
+                str+=", ";
+        }
+        return str+"]";
     }
 }

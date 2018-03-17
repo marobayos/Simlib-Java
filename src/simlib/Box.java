@@ -36,4 +36,8 @@ public class Box implements Comparable<Box> {
     public int compareTo(Box box) {
         return (this.arriveTime > box.getArriveTime()) ? -1 : ((this.arriveTime == box.arriveTime) ? 0 : 1);
     }
+
+    public String toString(){
+        return this.boxType+"";
+    }
 }//Ya no

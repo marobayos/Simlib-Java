@@ -1,16 +1,16 @@
 REPORT DEL ESTADO DEL ELEVADOR:
-	Promedio:	0.3952395021915436
+	Promedio:	0.3583333194255829
 	Valor mínimo: 1.0
 	Valor máximo: 0.0
 
 REPORTE DEL TIEMPO DE TRÁNSITO PARA CAJAS A:
-	Promedio:	10.049273
+	Promedio:	10.726297
 	Valor mínimo: 3.0
-	Valor máximo: 18.617706
+	Valor máximo: 22.40476
 
 REPORTE DEL TIEMPO DE ESPERA PARA CAJAS B:
-	Promedio:	4.8066535
+	Promedio:	6.889346
 	Valor mínimo: 0.0
-	Valor máximo: 14.26297
+	Valor máximo: 19.40476
 
-Promedio de cajas C transportadas por hora: 11.25
+Promedio de cajas C transportadas por hora: 11.75

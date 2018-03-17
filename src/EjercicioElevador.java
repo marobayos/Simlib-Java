@@ -8,7 +8,7 @@ public class EjercicioElevador {
     static final byte LLEGADA_A = 0, LLEGADA_B = 1, LLEGADA_C = 2, DESCARGA = 3, REGRESO = 4, FIN_SIM = 5;
     static final byte IDLE = 0, BUSSY = 1;
     static final int capacidad = 400;
-    static int pesoATransportar;
+    static int pesoEnElevador;
     static Random random;
     static int maxA, minA, valB, distC;
     static double maxTime;
@@ -20,6 +20,7 @@ public class EjercicioElevador {
     static SimList< Box > cajasFaltantes;
     static ContinStat <Byte>elevador;
     static byte eventType;
+    static int viajes = 0;
 
     public static void main(String[]args)throws IOException {
         /* ABRIR ARCHIVOS */
@@ -61,6 +62,8 @@ public class EjercicioElevador {
                     break;
             }
         } while ( eventType != FIN_SIM );
+
+        /* CERRAR ARCHIVOS */
         input.close();
         out.close();
     }
@@ -74,15 +77,15 @@ public class EjercicioElevador {
      * actualiza el tiempo de la simulación y actualiza algunas variables.
      **/
     static void sincronizar() {
+        // Actualiza el tiempo y evento en curso en la simulación
         eventType = eventos.getFirst().getType();
         simTime.setTime(eventos.getFirst().getTime());
+
         // Elimina el evento ya procesado
         eventos.removeFirst();
 
         //Actualiza acumuladores estadísticos
         cajasFaltantes.update(simTime.getTime());
-
-        // Actualiza el tiempo de la simulación
     }
 
     /**
@@ -118,7 +121,7 @@ public class EjercicioElevador {
         transitoA = new DiscreteStat("Tiempo de tránsito para cajas A");
         esperaB = new DiscreteStat("Tiempo de espera para cajas B");
         totalC = 0;
-        pesoATransportar = 0;
+        pesoEnElevador = 0;
     }
 
     /**
@@ -134,16 +137,16 @@ public class EjercicioElevador {
     static void llegadaA() {
         /* Programa siguiente llegada de caja tipo A */
         eventos.add(new Event(LLEGADA_A, simTime.getTime() + distUniforme(maxA, minA)));
-        
-        if(elevador.getValue() == IDLE && pesoATransportar + 200 <= capacidad){
-            cajasATransportar.add(new Box( simTime.getTime(), 'A'));
-            pesoATransportar += 200;
-            if (pesoATransportar == capacidad){
-                cargarElevador();
-                eventos.add( new Event(DESCARGA, simTime.getTime() + 3));
+        if(elevador.getValue() == IDLE && pesoEnElevador + 200 <= capacidad){
+            cajasATransportar.add( new Box(simTime.getTime(), 'A') );
+            pesoEnElevador += 200;
+            if (pesoEnElevador == capacidad){
+                elevador.recordContin(BUSSY, simTime.getTime());
+                eventos.add( new Event(DESCARGA, simTime.getTime() + 3) );
             }
-        } else
-            cajasFaltantes.addLast(new Box( simTime.getTime(), 'A'));
+        } else {
+            cajasFaltantes.addLast( new Box(simTime.getTime(), 'A') );
+        }
     }
 
     /**
@@ -154,16 +157,16 @@ public class EjercicioElevador {
      */
     static void llegadaB() {
         eventos.add(new Event(LLEGADA_B, simTime.getTime() + valB));
-        
-        if(elevador.getValue() == IDLE && pesoATransportar + 100 <= capacidad){
-            cajasATransportar.add(new Box( simTime.getTime(), 'B'));
-            pesoATransportar += 100;
-            if (pesoATransportar == capacidad){
-                cargarElevador();
+        if(elevador.getValue() == IDLE && pesoEnElevador + 100 <= capacidad){
+            cajasATransportar.add( new Box(simTime.getTime(), 'B' ));
+            pesoEnElevador += 100;
+            if (pesoEnElevador == capacidad){
+                elevador.recordContin(BUSSY, simTime.getTime());
                 eventos.add( new Event(DESCARGA, simTime.getTime() + 3) );
             }
-        } else
-            cajasFaltantes.addLast(new Box( simTime.getTime(), 'B') );
+        } else {
+            cajasFaltantes.addLast( new Box(simTime.getTime(), 'B') );
+        }
     }
 
     /**
@@ -174,16 +177,16 @@ public class EjercicioElevador {
      */
     static void llegadaC() {
         eventos.add(new Event(LLEGADA_C, simTime.getTime() + distUniforme(maxA, minA)));
-        
-        if(elevador.getValue() == IDLE && pesoATransportar + 50 <= capacidad){
-            cajasATransportar.add( new Box( simTime.getTime(), 'C') );
-            pesoATransportar += 50;
-            if (pesoATransportar == capacidad){
-                cargarElevador();
+        if(elevador.getValue() == IDLE && pesoEnElevador + 50 <= capacidad){
+            cajasATransportar.add( new Box(simTime.getTime(), 'C') );
+            pesoEnElevador += 50;
+            if (pesoEnElevador == capacidad){
+                elevador.recordContin(BUSSY, simTime.getTime());
                 eventos.add( new Event(DESCARGA, simTime.getTime() + 3) );
             }
-        } else
-            cajasFaltantes.addLast( new Box( simTime.getTime(), 'C') );
+        } else {
+            cajasFaltantes.addLast( new Box(simTime.getTime(), 'C') );
+        }
     }
 
     /**
@@ -194,10 +197,16 @@ public class EjercicioElevador {
     static void descarga(){
         eventos.add(new Event(REGRESO, simTime.getTime() + 1));
         for (Box caja : cajasATransportar){
-            if (caja.getBoxType() == 'A'){
-                transitoA.recordDiscrete(simTime.getTime() - caja.getArriveTime());
+            switch (caja.getBoxType()){
+                case 'A':
+                    transitoA.recordDiscrete(simTime.getTime() - caja.getArriveTime());
+                case 'B':
+                    esperaB.recordDiscrete(simTime.getTime()-caja.getArriveTime()-3);
+                    break;
+                case 'C':
+                    totalC ++;
             }
-            pesoATransportar -= caja.getWeight();
+            pesoEnElevador -= caja.getWeight();
         }
         cajasATransportar.clear();
     }
@@ -211,15 +220,15 @@ public class EjercicioElevador {
         elevador.recordContin( IDLE, simTime.getTime() );
         SimList<Box> cajasRestantes = new SimList<>();
         for(Box caja : cajasFaltantes){
-            if (caja.getWeight() + pesoATransportar <= capacidad){
+            if (caja.getWeight() + pesoEnElevador <= capacidad){
                 cajasATransportar.add(caja);
-                pesoATransportar += caja.getWeight();
+                pesoEnElevador += caja.getWeight();
             } else
                 cajasRestantes.add(caja);
         }
         cajasFaltantes.clear();
         cajasFaltantes.addAll(cajasRestantes);
-        if ( pesoATransportar == capacidad )
+        if ( pesoEnElevador == capacidad )
             eventos.add( new Event( DESCARGA, simTime.getTime() + 3 ) );
     }
 
@@ -234,25 +243,6 @@ public class EjercicioElevador {
         transitoA.report(bw);
         esperaB.report(bw);
         bw.write("Promedio de cajas C transportadas por hora: "+totalC/simTime.getTime()*60);
-        //System.exit(0);
-    }
-
-    /**
-     * SUB RUTINA Cargar elevador: Marca el elevador ocupado y actualiza acumuladores
-     * estadísticos.
-     */
-    static void cargarElevador(){
-        elevador.recordContin(BUSSY, simTime.getTime());
-        for ( Box caja : cajasATransportar ){
-            switch ( caja.getBoxType() ){
-                case 'B':
-                    esperaB.recordDiscrete( simTime.getTime() - caja.getArriveTime() );
-                    break;
-                case 'C':
-                    totalC ++;
-                    break;
-            }
-        }
     }
 
     /**********************************
@@ -311,6 +301,6 @@ public class EjercicioElevador {
      * @return  valor aleatorio con distribucuón exponencial.
      */
     static float distExponencial( double lambda ){
-        return (float)(-1/lambda*Math.log(random.nextFloat()));
+        return (float)(-1*lambda*Math.log(random.nextFloat()));
     }
 }
