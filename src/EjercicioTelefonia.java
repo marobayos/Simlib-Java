@@ -30,6 +30,8 @@ public class EjercicioTelefonia {
         min = Integer.parseInt( in.split("-")[1] );
         max = Integer.parseInt( in.split("-")[0] );
         maxTime = Double.parseDouble( input.readLine() );
+        /* ESCRIBIR EMCABEZADP DEL REPORTE */
+        out.write("Cantidad de lineas: "+totalLineas+"\n");
 
         /* INICIALIZAR */
         inicializar();
