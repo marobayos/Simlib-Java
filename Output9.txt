@@ -1,5 +1,5 @@
 Cantidad de lineas: 45
-Promedio de líneas ocupadas: 35.73399353027344
-Proporción promedio de líneas ocupadas: 0.7940887451171875
-Cantidad de llamadas bloquedas: 1504
-Proporción de llamadas bloquedas: 0.028378964847066816
+Promedio de líneas ocupadas: 32.978492736816406
+Proporción promedio de líneas ocupadas: 0.7328553941514757
+Cantidad de llamadas bloquedas: 61
+Proporción de llamadas bloquedas: 0.012621560107593627

@@ -1,16 +1,26 @@
 package simlib;
 
 public class Event implements Comparable<Event>{
-    private byte eventType;
+    private byte eventType, origen;
     private float time;
 
     public Event(byte type, float time) {
         this.eventType = type;
         this.time = time;
+        this.origen = 2;
+    }
+    public Event(byte type, float time, byte origen) {
+        this.eventType = type;
+        this.time = time;
+        this.origen = origen;
     }
 
     public byte getType() {
         return this.eventType;
+    }
+
+    public byte getOrigen() {
+        return origen;
     }
 
     public float getTime(){

@@ -5,17 +5,17 @@ import java.util.Random;
 
 public class EjercicioTelefonia {
 
-    static final byte LLAMADA_A_B = 0, LLAMADA_B_A = 1, FIN_LLAMADA = 2, FIN_SIM = 3;
+    static final byte LLAMADA_A = 0, LLAMADA_B = 1, FIN_LLAMADA = 2, FIN_SIM = 3, LLAMADA = 1;
     static Random random;
     static int totalLineas;
-    static int meanAB, meanBA, min, max;
+    static int means[], min, max;
     static double maxTime;
     static Timer simTime;
     static ContinStat lineas;
     static SimList< Event > eventos;
     static int llamadasAtendidas;
     static int llamadasBloqueadas;
-    static byte eventType;
+    static byte eventType, origen;
 
     public static void main(String[]args)throws IOException {
         /* ABRIR ARCHIVOS */
@@ -24,8 +24,9 @@ public class EjercicioTelefonia {
 
         /* LEER Y GUARDAR PARÁMETROS */
         totalLineas = Integer.parseInt( input.readLine() );
-        meanAB = Integer.parseInt( input.readLine() );
-        meanBA = Integer.parseInt( input.readLine() );
+        means = new int[2];
+        means[(int) LLAMADA_A] = Integer.parseInt(input.readLine());
+        means[(int) LLAMADA_B] = Integer.parseInt(input.readLine());
         String in = input.readLine();
         min = Integer.parseInt( in.split("-")[1] );
         max = Integer.parseInt( in.split("-")[0] );
@@ -39,11 +40,8 @@ public class EjercicioTelefonia {
         do {
             sincronizar();
             switch ( eventType ) {
-                case LLAMADA_A_B:
-                    llamadaAB();
-                    break;
-                case LLAMADA_B_A:
-                    llamadaBA();
+                case LLAMADA:
+                    llamada();
                     break;
                 case FIN_LLAMADA:
                     finLlamada();
@@ -69,10 +67,10 @@ public class EjercicioTelefonia {
      * actualiza el tiempo de la simulación y actualiza algunas variables.
      **/
     private static void sincronizar() {
-        // Actualiza el tiempo y evento en curso en la simulación
+        // Actualiza el tiempo, origen y evento en curso en la simulación
         eventType = eventos.getFirst().getType();
         simTime.setTime(eventos.getFirst().getTime());
-
+        origen = eventos.getFirst().getOrigen();
         // Elimina el evento ya procesado
         eventos.removeFirst();
     }
@@ -96,9 +94,9 @@ public class EjercicioTelefonia {
         /* Inicializa todas las líneas como disponibles */
         lineas = new ContinStat((float)totalLineas,simTime.getTime(),"lineas");
 
-        /* Añadde primeras llamadas a la lista de eventos*/
-        eventos.add(new Event(LLAMADA_A_B, simTime.getTime() + distExponencial(meanAB)));
-        eventos.add(new Event(LLAMADA_B_A, simTime.getTime() + distExponencial(meanBA)));
+        /* Añade primeras llamadas a la lista de eventos*/
+        eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[LLAMADA_A]),LLAMADA_B));
+        eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[LLAMADA_B]),LLAMADA_B));
 
         eventos.add(new Event(FIN_SIM, (float) maxTime));
     }
@@ -107,21 +105,11 @@ public class EjercicioTelefonia {
       RUTINAS DE EVENTOS
      */
 
-    private static void llamadaAB(){
-        eventos.add(new Event(LLAMADA_A_B, simTime.getTime() + distExponencial(meanAB)));
+    private static void llamada(){
+        eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[origen]), origen));
         if (lineas.getValue()>=1){
             lineas.recordContin(lineas.getValue()-1, simTime.getTime());
             eventos.add( new Event(FIN_LLAMADA, simTime.getTime()+ distUniforme(max, min)));
-            llamadasAtendidas ++;
-        } else
-            llamadasBloqueadas++;
-    }
-
-    private static void llamadaBA(){
-        eventos.add(new Event(LLAMADA_B_A, simTime.getTime() + distExponencial(meanBA)));
-        if (lineas.getValue()>=1){
-            lineas.recordContin(lineas.getValue()-1, simTime.getTime());
-            eventos.add(new Event(FIN_LLAMADA, simTime.getTime()+ distUniforme(max, min)));
             llamadasAtendidas ++;
         } else
             llamadasBloqueadas++;
