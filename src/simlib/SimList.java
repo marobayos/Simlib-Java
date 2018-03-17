@@ -25,6 +25,14 @@ public class SimList <E> extends LinkedList<E> {
         this.maxSize = 0;
     }
 
+    public SimList(boolean sorted){
+        this("Lista", 0, sorted);
+    }
+
+    public SimList(String name, boolean sorted){
+        this(name, 0, sorted);
+    }
+
     public SimList(){
         this("List", 0, false);
     }
