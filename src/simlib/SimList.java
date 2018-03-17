@@ -21,7 +21,7 @@ public class SimList <E> extends LinkedList<E> {
         this.area = 0;
         this.lastUpdate  = timer;
         this.sorted = sorted;
-        this.name = name;
+        this.name = name.toUpperCase();
         this.maxSize = 0;
     }
 
