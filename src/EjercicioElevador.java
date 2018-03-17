@@ -24,8 +24,8 @@ public class EjercicioElevador {
 
     public static void main(String[]args)throws IOException {
         /* ABRIR ARCHIVOS */
-        BufferedReader input = new BufferedReader( new FileReader("Input.txt") );
-        BufferedWriter out = new BufferedWriter(new FileWriter("Output.txt"));
+        BufferedReader input = new BufferedReader( new FileReader("Input7.txt") );
+        BufferedWriter out = new BufferedWriter(new FileWriter("Output7.txt"));
 
         /* LEER Y GUARDAR PARÁMETROS */
         capacidad = Integer.parseInt( input.readLine() );
