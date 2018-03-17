@@ -5,9 +5,10 @@ import java.util.PriorityQueue;
 import java.util.Random;
 
 public class EjercicioElevador {
+
     static final byte LLEGADA_A = 0, LLEGADA_B = 1, LLEGADA_C = 2, DESCARGA = 3, REGRESO = 4, FIN_SIM = 5;
     static final byte IDLE = 0, BUSSY = 1;
-    static final int capacidad = 400;
+    static int capacidad;
     static int pesoEnElevador;
     static Random random;
     static int maxA, minA, valB, distC;
@@ -28,13 +29,13 @@ public class EjercicioElevador {
         BufferedWriter out = new BufferedWriter(new FileWriter("Output.txt"));
 
         /* LEER Y GUARDAR PARÁMETROS */
+        capacidad = Integer.parseInt( input.readLine() );
         String in = input.readLine();
         maxA = Integer.parseInt( in.split("-")[1] );
         minA = Integer.parseInt( in.split("-")[0] );
         valB = Integer.parseInt( input.readLine() );
         distC = Integer.parseInt( input.readLine() );
         maxTime = Double.parseDouble( input.readLine() );
-
 
         /* INICIALIZAR */
         inicializar();
@@ -61,6 +62,8 @@ public class EjercicioElevador {
                     finSim( out );
                     break;
             }
+            System.out.println(cajasFaltantes);
+            System.out.println(cajasATransportar);
         } while ( eventType != FIN_SIM );
 
         /* CERRAR ARCHIVOS */
@@ -141,7 +144,7 @@ public class EjercicioElevador {
             cajasATransportar.add( new Box(simTime.getTime(), 'A') );
             pesoEnElevador += 200;
             if (pesoEnElevador == capacidad){
-                elevador.recordContin(BUSSY, simTime.getTime());
+                cargarElevador();
                 eventos.add( new Event(DESCARGA, simTime.getTime() + 3) );
             }
         } else {
@@ -161,7 +164,7 @@ public class EjercicioElevador {
             cajasATransportar.add( new Box(simTime.getTime(), 'B' ));
             pesoEnElevador += 100;
             if (pesoEnElevador == capacidad){
-                elevador.recordContin(BUSSY, simTime.getTime());
+                cargarElevador();
                 eventos.add( new Event(DESCARGA, simTime.getTime() + 3) );
             }
         } else {
@@ -181,7 +184,7 @@ public class EjercicioElevador {
             cajasATransportar.add( new Box(simTime.getTime(), 'C') );
             pesoEnElevador += 50;
             if (pesoEnElevador == capacidad){
-                elevador.recordContin(BUSSY, simTime.getTime());
+                cargarElevador();
                 eventos.add( new Event(DESCARGA, simTime.getTime() + 3) );
             }
         } else {
@@ -200,15 +203,23 @@ public class EjercicioElevador {
             switch (caja.getBoxType()){
                 case 'A':
                     transitoA.recordDiscrete(simTime.getTime() - caja.getArriveTime());
-                case 'B':
-                    esperaB.recordDiscrete(simTime.getTime()-caja.getArriveTime()-3);
                     break;
                 case 'C':
                     totalC ++;
+                    break;
             }
             pesoEnElevador -= caja.getWeight();
         }
         cajasATransportar.clear();
+    }
+
+    static void cargarElevador(){
+        elevador.recordContin(BUSSY, simTime.getTime());
+        for (Box caja : cajasATransportar){
+            if (caja.getBoxType() == 'B'){
+                esperaB.recordDiscrete(simTime.getTime()-caja.getArriveTime());
+            }
+        }
     }
 
     /**
@@ -228,8 +239,10 @@ public class EjercicioElevador {
         }
         cajasFaltantes.clear();
         cajasFaltantes.addAll(cajasRestantes);
-        if ( pesoEnElevador == capacidad )
+        if ( pesoEnElevador == capacidad ){
+            cargarElevador();
             eventos.add( new Event( DESCARGA, simTime.getTime() + 3 ) );
+        }
     }
 
     /**
@@ -242,6 +255,7 @@ public class EjercicioElevador {
         elevador.report(bw, simTime.getTime());
         transitoA.report(bw);
         esperaB.report(bw);
+        cajasFaltantes.report(bw, simTime.getTime());
         bw.write("Promedio de cajas C transportadas por hora: "+totalC/simTime.getTime()*60);
     }
 

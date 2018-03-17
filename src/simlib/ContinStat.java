@@ -57,7 +57,7 @@ public class ContinStat<E> {
     }
 
     public void report(BufferedWriter out, float present) throws IOException {
-		out.write("REPORT DEL "+name+":\n");
+		out.write("REPORTE DEL "+name+":\n");
 		out.write("\tPromedio:\t"+getContinAve( present )+"\n");
 		out.write("\tValor mínimo: "+this.getContinMax()+"\n");
 		out.write("\tValor máximo: "+this.getContinMin()+"\n\n");

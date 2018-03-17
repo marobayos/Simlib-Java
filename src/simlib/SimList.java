@@ -1,23 +1,28 @@
 package simlib;
 
+import java.io.BufferedWriter;
+import java.io.IOException;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.LinkedList;
 
 public class SimList <E> extends LinkedList<E> {
-    protected double area;
+    private double area;
 
-    protected float lastUpdate;
+    private float lastUpdate;
 
-    protected String name;
+    private String name;
 
-    protected boolean sorted;
+    private boolean sorted;
+
+    private int maxSize;
 
     public SimList(String name, float timer, boolean sorted){
         this.area = 0;
         this.lastUpdate  = timer;
         this.sorted = sorted;
         this.name = name;
+        this.maxSize = 0;
     }
 
     public SimList(){
@@ -34,7 +39,11 @@ public class SimList <E> extends LinkedList<E> {
         return this.area/time;
     }
 
-    public void report(){}
+    public void report(BufferedWriter out, float time) throws IOException {
+        out.write("REPORTE DE LA LISTA \""+name+"\":\n");
+        out.write("\tLongitud promedio: "+this.getAvgSize(time)+"\n");
+        out.write("\tLongitud máxima: "+this.maxSize+"\n\n");
+    }
 
     public void sort(){
         this.sorted=true;
@@ -43,18 +52,24 @@ public class SimList <E> extends LinkedList<E> {
 
     public void addFirst(E element){
         super.addFirst(element);
+        if(this.size()>maxSize)
+            maxSize = this.size();
         if(sorted)
             this.sort();
     }
 
     public void addLast(E element){
         super.addLast(element);
+        if(this.size()>maxSize)
+            maxSize = this.size();
         if(sorted)
             this.sort();
     }
 
     public boolean add(E element){
         boolean res = super.add(element);
+        if(this.size()>maxSize)
+            maxSize = this.size();
         if(sorted)
             this.sort();
         return res;
@@ -62,6 +77,8 @@ public class SimList <E> extends LinkedList<E> {
 
     public boolean addAll(Collection<? extends E> c){
         boolean res = super.addAll(c);
+        if(this.size()>maxSize)
+            maxSize = this.size();
         if (this.sorted)
             sort();
         return res;
@@ -69,6 +86,8 @@ public class SimList <E> extends LinkedList<E> {
 
     public boolean addAll(int index, Collection<? extends E> c){
         boolean res = super.addAll(index, c);
+        if(this.size()>maxSize)
+            maxSize = this.size();
         if (this.sorted)
             sort();
         return res;
@@ -83,12 +102,16 @@ public class SimList <E> extends LinkedList<E> {
 
     public void add(int index, E element){
         this.add(index, element);
+        if(this.size()>maxSize)
+            maxSize = this.size();
         if(sorted)
             this.sort();
     }
 
     public boolean offer(E element){
         boolean res = this.add(element);
+        if(this.size()>maxSize)
+            maxSize = this.size();
         if(sorted)
             this.sort();
         return res;
@@ -96,12 +119,16 @@ public class SimList <E> extends LinkedList<E> {
 
     public boolean offerFirst(E element){
         boolean res = super.offerFirst(element);
+        if(this.size()>maxSize)
+            maxSize = this.size();
         if(sorted)
             this.sort();
         return res;
     }
     public boolean offerLast(E element){
         boolean res = super.offerLast(element);
+        if(this.size()>maxSize)
+            maxSize = this.size();
         if(sorted)
             this.sort();
         return res;
@@ -109,6 +136,8 @@ public class SimList <E> extends LinkedList<E> {
 
     public void push(E element){
         super.push(element);
+        if(this.size()>maxSize)
+            maxSize = this.size();
         if(sorted)
             this.sort();
     }
