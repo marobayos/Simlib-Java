@@ -150,6 +150,10 @@ public class SimList <E> extends LinkedList<E> {
             this.sort();
     }
 
+    public void setSorted(boolean sorted) {
+        this.sorted = sorted;
+    }
+
     public boolean isSorted() {
         return sorted;
     }
