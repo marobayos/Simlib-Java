@@ -1,7 +1,6 @@
 import simlib.*;
 
 import java.io.*;
-import java.util.PriorityQueue;
 import java.util.Random;
 
 public class EjercicioElevador {
@@ -79,7 +78,7 @@ public class EjercicioElevador {
      * Rutina de sincronización: elimina de la cola de eventos el evento ya realizado,
      * actualiza el tiempo de la simulación y actualiza algunas variables.
      **/
-    static void sincronizar() {
+    private static void sincronizar() {
         // Actualiza el tiempo y evento en curso en la simulación
         eventType = eventos.getFirst().getType();
         simTime.setTime(eventos.getFirst().getTime());
@@ -96,7 +95,7 @@ public class EjercicioElevador {
      * simulación, programa en la lista de eventos la primera llegada de cada tipo
      * de caja y el fin de la simulación.
      */
-    static void inicializar( ) {
+    private static void inicializar() {
         /* Para tener datos diferentes en cada simulación */
         random = new Random( );
         random.setSeed( System.nanoTime() );
@@ -137,7 +136,7 @@ public class EjercicioElevador {
      * ese caso lo carga y programa su descarga, en caso contrario solo añade la
      * caja a la cola de cajas faltantes.
      */
-    static void llegadaA() {
+    private static void llegadaA() {
         /* Programa siguiente llegada de caja tipo A */
         eventos.add(new Event(LLEGADA_A, simTime.getTime() + distUniforme(maxA, minA)));
         if(elevador.getValue() == IDLE && pesoEnElevador + 200 <= capacidad){
@@ -158,7 +157,7 @@ public class EjercicioElevador {
      * ese caso lo carga y programa su descarga, en caso contrario solo añade la
      * caja a la cola de cajas faltantes.
      */
-    static void llegadaB() {
+    private static void llegadaB() {
         eventos.add(new Event(LLEGADA_B, simTime.getTime() + valB));
         if(elevador.getValue() == IDLE && pesoEnElevador + 100 <= capacidad){
             cajasATransportar.add( new Box(simTime.getTime(), 'B' ));
@@ -178,7 +177,7 @@ public class EjercicioElevador {
      * ese caso lo carga y programa su descarga, en caso contrario solo añade la
      * caja a la cola de cajas faltantes.
      */
-    static void llegadaC() {
+    private static void llegadaC() {
         eventos.add(new Event(LLEGADA_C, simTime.getTime() + distUniforme(maxA, minA)));
         if(elevador.getValue() == IDLE && pesoEnElevador + 50 <= capacidad){
             cajasATransportar.add( new Box(simTime.getTime(), 'C') );
@@ -197,7 +196,7 @@ public class EjercicioElevador {
      * actualiza acumuladores estadísticos y variables de estado del sistema. Vacía
      * la cola de cajas a transportar.
      */
-    static void descarga(){
+    private static void descarga(){
         eventos.add(new Event(REGRESO, simTime.getTime() + 1));
         for (Box caja : cajasATransportar){
             switch (caja.getBoxType()){
@@ -213,7 +212,7 @@ public class EjercicioElevador {
         cajasATransportar.clear();
     }
 
-    static void cargarElevador(){
+    private static void cargarElevador(){
         elevador.recordContin(BUSSY, simTime.getTime());
         for (Box caja : cajasATransportar){
             if (caja.getBoxType() == 'B'){
@@ -227,7 +226,7 @@ public class EjercicioElevador {
      * que quepan en el elevador en la lista de cajas a transportar, si la capacidad
      * se completa, carga el elevador y programa su descarga.
      */
-    static void regreso(){
+    private static void regreso(){
         elevador.recordContin( IDLE, simTime.getTime() );
         SimList<Box> cajasRestantes = new SimList<>();
         for(Box caja : cajasFaltantes){
@@ -251,7 +250,7 @@ public class EjercicioElevador {
      *
      * @param bw   archivo en el que se guardarán los datos.
      */
-    static void finSim( BufferedWriter bw ) throws IOException {
+    private static void finSim(BufferedWriter bw) throws IOException {
         elevador.report(bw, simTime.getTime());
         transitoA.report(bw);
         esperaB.report(bw);
@@ -270,7 +269,7 @@ public class EjercicioElevador {
      * @param min   valor mínimo que puede retornar la distribución
      * @return  valor aleatorio uniformemente distribuido en el rango [min, max)
      */
-    static float distUniforme( int max, int min ){
+    private static float distUniforme(int max, int min){
         return min + random.nextFloat()*( max-min );
     }
 
@@ -281,7 +280,7 @@ public class EjercicioElevador {
      *
      * @return variable aleatoria perteneciente a la distribución seleccionada.
      */
-    static float distC(){
+    private static float distC(){
         double rand = random.nextDouble();
         if(distC == 0){
             if(rand<0.33){
@@ -314,7 +313,7 @@ public class EjercicioElevador {
      * @param lambda    1/media
      * @return  valor aleatorio con distribucuón exponencial.
      */
-    static float distExponencial( double lambda ){
-        return (float)(-1*lambda*Math.log(random.nextFloat()));
+    private static float distExponencial(double lambda){
+        return (float)(-1/lambda*Math.log(random.nextFloat()));
     }
 }
