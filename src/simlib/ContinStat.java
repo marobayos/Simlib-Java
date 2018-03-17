@@ -1,10 +1,9 @@
 package simlib;
 
 import java.io.BufferedWriter;
-import java.io.FileWriter;
 import java.io.IOException;
 
-public class ContinStat<E> {
+public class ContinStat{
 	private Float start;
 	private float area;
 	private Float prevValue;
