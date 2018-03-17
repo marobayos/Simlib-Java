@@ -19,8 +19,8 @@ public class EjercicioTelefonia {
 
     public static void main(String[]args)throws IOException {
         /* ABRIR ARCHIVOS */
-        BufferedReader input = new BufferedReader( new FileReader("Input8.txt") );
-        BufferedWriter out = new BufferedWriter(new FileWriter("Output8.txt"));
+        BufferedReader input = new BufferedReader( new FileReader("Input9.txt") );
+        BufferedWriter out = new BufferedWriter(new FileWriter("Output9.txt"));
 
         /* LEER Y GUARDAR PARÁMETROS */
         totalLineas = Integer.parseInt( input.readLine() );
@@ -109,7 +109,7 @@ public class EjercicioTelefonia {
         eventos.add(new Event(LLAMADA_A_B, simTime.getTime() + distExponencial(meanAB)));
         if (lineas.getValue()>=1){
             lineas.recordContin(lineas.getValue()-1, simTime.getTime());
-            eventos.add(new Event(FIN_LLAMADA, simTime.getTime()+ distUniforme(max, min)));
+            eventos.add( new Event(FIN_LLAMADA, simTime.getTime()+ distUniforme(max, min)));
             llamadasAtendidas ++;
         } else
             llamadasBloqueadas++;
@@ -138,7 +138,7 @@ public class EjercicioTelefonia {
         bw.write("Promedio de líneas ocupadas: "+(totalLineas-lineas.getContinAve(simTime.getTime()))+"\n");
         bw.write("Proporción promedio de líneas ocupadas: "+(totalLineas-lineas.getContinAve(simTime.getTime()))/(totalLineas)+"\n");
         bw.write("Cantidad de llamadas bloquedas: "+llamadasBloqueadas+"\n");
-        bw.write("Proporción de llamadas bloquedas: "+100*(double)llamadasBloqueadas/(double)(llamadasAtendidas+llamadasBloqueadas)+"\n");
+        bw.write("Proporción de llamadas bloquedas: "+(double)llamadasBloqueadas/(double)(llamadasAtendidas+llamadasBloqueadas)+"\n");
     }
 
     /**********************************
