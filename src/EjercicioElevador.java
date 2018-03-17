@@ -30,8 +30,8 @@ public class EjercicioElevador {
         /* LEER Y GUARDAR PARÁMETROS */
         capacidad = Integer.parseInt( input.readLine() );
         String in = input.readLine();
-        maxA = Integer.parseInt( in.split("-")[1] );
-        minA = Integer.parseInt( in.split("-")[0] );
+        maxA = Integer.parseInt( in.split("-")[0] );
+        minA = Integer.parseInt( in.split("-")[1] );
         valB = Integer.parseInt( input.readLine() );
         distC = Integer.parseInt( input.readLine() );
         maxTime = Double.parseDouble( input.readLine() );

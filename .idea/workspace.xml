@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f9ffc440-6bff-4ed7-aebe-716b57451ce8" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/EjercicioTelefonia.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EjercicioElevador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EjercicioElevador.java" afterDir="false" />
     </list>
@@ -15,17 +16,16 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EjercicioElevador.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/EjercicioElevador.java">
+      <file leaf-file-name="EjercicioTelefonia.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/EjercicioTelefonia.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="311">
-              <caret line="316" column="26" selection-start-line="316" selection-start-column="26" selection-end-line="316" selection-end-column="26" />
+            <state relative-caret-position="197">
+              <caret line="111" column="95" selection-start-line="111" selection-start-column="95" selection-end-line="111" selection-end-column="95" />
               <folding>
-                <element signature="e#10021#10022#0" expanded="true" />
-                <element signature="e#10080#10081#0" expanded="true" />
-                <element signature="e#10335#10716#0" />
-                <element signature="e#11473#11474#0" expanded="true" />
-                <element signature="e#11543#11544#0" expanded="true" />
+                <element signature="e#4259#4260#0" expanded="true" />
+                <element signature="e#4318#4319#0" expanded="true" />
+                <element signature="e#4529#4530#0" expanded="true" />
+                <element signature="e#4599#4600#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -34,7 +34,7 @@
       <file leaf-file-name="ContinStat.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simlib/ContinStat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="260">
+            <state relative-caret-position="636">
               <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -55,8 +55,8 @@
       <file leaf-file-name="Output.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Output.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="225">
-              <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+            <state relative-caret-position="285">
+              <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
             </state>
           </provider>
         </entry>
@@ -65,7 +65,7 @@
         <entry file="file://$PROJECT_DIR$/src/simlib/SimList.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="318">
-              <caret line="54" column="28" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
+              <caret line="54" column="28" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
             </state>
           </provider>
         </entry>
@@ -80,12 +80,14 @@
       <find>lastValue</find>
       <find>pesoATransportar</find>
       <find>cargarElevador</find>
+      <find>lineas</find>
     </findStrings>
     <replaceStrings>
       <replace>pesoATransportar</replace>
       <replace>prevValue</replace>
       <replace>pesoEnElevador</replace>
       <replace>subirElevador</replace>
+      <replace>totalLineas</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -101,10 +103,11 @@
         <option value="$PROJECT_DIR$/src/Main.java" />
         <option value="$PROJECT_DIR$/src/simlib/DiscreteStat.java" />
         <option value="$PROJECT_DIR$/src/simlib/Box.java" />
-        <option value="$PROJECT_DIR$/Input.txt" />
         <option value="$PROJECT_DIR$/src/simlib/SimList.java" />
         <option value="$PROJECT_DIR$/src/simlib/ContinStat.java" />
+        <option value="$PROJECT_DIR$/Input.txt" />
         <option value="$PROJECT_DIR$/src/EjercicioElevador.java" />
+        <option value="$PROJECT_DIR$/src/EjercicioTelefonia.java" />
       </list>
     </option>
   </component>
@@ -158,6 +161,11 @@
     <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
     <property name="nodejs_npm_path_reset_for_default_project" value="true" />
     <property name="settings.editor.selected.configurable" value="com.intellij.jarRepository.settings.RemoteRepositoriesConfigurable" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -245,7 +253,7 @@
       <option name="presentableId" value="Default" />
       <updated>1521143244136</updated>
       <workItem from="1521143245626" duration="3686000" />
-      <workItem from="1521226510556" duration="18828000" />
+      <workItem from="1521226510556" duration="20304000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;version 2&quot;">
       <created>1521144267961</created>
@@ -338,15 +346,21 @@
       <option name="project" value="LOCAL" />
       <updated>1521251836102</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="vf 1.2">
+      <created>1521252103115</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1521252103115</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="22514000" />
+    <option name="totallyTimeSpent" value="23990000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1276" height="777" extended-state="0" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -357,11 +371,11 @@
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.4960815" side_tool="true" weight="0.32859176" />
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Version Control" order="8" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" sideWeight="0.50391847" visible="true" weight="0.32859176" />
+      <window_info anchor="bottom" id="Run" order="3" sideWeight="0.50391847" visible="true" weight="0.32859176" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.1637931" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.1637931" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -557,6 +571,20 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/SimList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="318">
+          <caret line="54" column="28" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Output.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="19" column="49" lean-forward="true" selection-start-line="19" selection-start-column="49" selection-end-line="19" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/Input.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state>
@@ -564,23 +592,23 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/SimList.java">
+    <entry file="file://$PROJECT_DIR$/src/EjercicioElevador.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="318">
-          <caret line="54" column="28" lean-forward="true" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/Output.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="15" column="38" lean-forward="true" selection-start-line="15" selection-start-column="38" selection-end-line="15" selection-end-column="38" />
+        <state relative-caret-position="465">
+          <caret line="34" column="22" selection-start-line="34" selection-start-column="22" selection-end-line="34" selection-end-column="22" />
+          <folding>
+            <element signature="e#10021#10022#0" expanded="true" />
+            <element signature="e#10080#10081#0" expanded="true" />
+            <element signature="e#10335#10716#0" />
+            <element signature="e#11473#11474#0" expanded="true" />
+            <element signature="e#11543#11544#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simlib/ContinStat.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
+        <state relative-caret-position="636">
           <caret line="59" column="26" selection-start-line="59" selection-start-column="26" selection-end-line="59" selection-end-column="26" />
           <folding>
             <element signature="imports" expanded="true" />
@@ -588,16 +616,15 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EjercicioElevador.java">
+    <entry file="file://$PROJECT_DIR$/src/EjercicioTelefonia.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="311">
-          <caret line="316" column="26" selection-start-line="316" selection-start-column="26" selection-end-line="316" selection-end-column="26" />
+        <state relative-caret-position="197">
+          <caret line="111" column="95" selection-start-line="111" selection-start-column="95" selection-end-line="111" selection-end-column="95" />
           <folding>
-            <element signature="e#10021#10022#0" expanded="true" />
-            <element signature="e#10080#10081#0" expanded="true" />
-            <element signature="e#10335#10716#0" />
-            <element signature="e#11473#11474#0" expanded="true" />
-            <element signature="e#11543#11544#0" expanded="true" />
+            <element signature="e#4259#4260#0" expanded="true" />
+            <element signature="e#4318#4319#0" expanded="true" />
+            <element signature="e#4529#4530#0" expanded="true" />
+            <element signature="e#4599#4600#0" expanded="true" />
           </folding>
         </state>
       </provider>
