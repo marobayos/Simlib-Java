@@ -588,7 +588,14 @@
       <option name="project" value="LOCAL" />
       <updated>1521329979366</updated>
     </task>
-    <option name="localTasksCounter" value="27" />
+    <task id="LOCAL-00027" summary="/*Ahora solo tiene dos eventos y el archivo de entrada está corregido*/">
+      <created>1521330098826</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1521330098826</updated>
+    </task>
+    <option name="localTasksCounter" value="28" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
