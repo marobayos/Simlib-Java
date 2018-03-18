@@ -3,10 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="f9ffc440-6bff-4ed7-aebe-716b57451ce8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/InputBanco.txt" beforeDir="false" afterPath="$PROJECT_DIR$/InputBanco.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/OutputBanco.txt" beforeDir="false" afterPath="$PROJECT_DIR$/OutputBanco.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/EjercicioBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EjercicioBanco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/Event.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -24,12 +22,12 @@
       <file leaf-file-name="EjercicioBanco.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EjercicioBanco.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="85">
-              <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
+            <state relative-caret-position="358">
+              <caret line="160" column="5" lean-forward="true" selection-start-line="160" selection-start-column="5" selection-end-line="160" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4971#4972#0" expanded="true" />
-                <element signature="e#5010#5011#0" expanded="true" />
+                <element signature="e#5341#5342#0" expanded="true" />
+                <element signature="e#5372#5373#0" expanded="true" />
                 <element signature="e#5875#5876#0" expanded="true" />
                 <element signature="e#5941#5942#0" expanded="true" />
               </folding>
@@ -40,7 +38,7 @@
       <file leaf-file-name="DiscreteStat.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simlib/DiscreteStat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="105">
+            <state relative-caret-position="-374">
               <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
             </state>
           </provider>
@@ -49,7 +47,7 @@
       <file leaf-file-name="Event.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simlib/Event.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="301">
+            <state relative-caret-position="289">
               <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
               <folding>
                 <element signature="e#1131#1132#0" expanded="true" />
@@ -70,7 +68,11 @@
       </file>
       <file leaf-file-name="OutputBanco.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/OutputBanco.txt">
-          <provider selected="true" editor-type-id="text-editor" />
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="105">
+              <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+            </state>
+          </provider>
         </entry>
       </file>
       <file leaf-file-name="Timer.java" pinned="false" current-in-tab="false">
@@ -87,6 +89,15 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="60">
               <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EjercicioPartes.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EjercicioPartes.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1139">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -133,6 +144,7 @@
       <find>llamadasRechazadas</find>
       <find>max</find>
       <find>totalTIme</find>
+      <find>puertasAbiertas</find>
     </findStrings>
     <replaceStrings>
       <replace>pesoATransportar</replace>
@@ -142,6 +154,7 @@
       <replace>totalLineas</replace>
       <replace>llamadasBloqueadas</replace>
       <replace>horaCierre</replace>
+      <replace>abierto</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
@@ -167,6 +180,7 @@
         <option value="$PROJECT_DIR$/src/EjercicioTelefonia.java" />
         <option value="$PROJECT_DIR$/Output9.txt" />
         <option value="$PROJECT_DIR$/src/simlib/Event.java" />
+        <option value="$PROJECT_DIR$/OutputBanco.txt" />
         <option value="$PROJECT_DIR$/src/EjercicioBanco.java" />
         <option value="$PROJECT_DIR$/InputBanco.txt" />
       </list>
@@ -329,7 +343,7 @@
       <updated>1521143244136</updated>
       <workItem from="1521143245626" duration="3686000" />
       <workItem from="1521226510556" duration="25629000" />
-      <workItem from="1521337904037" duration="8841000" />
+      <workItem from="1521337904037" duration="12262000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;version 2&quot;">
       <created>1521144267961</created>
@@ -576,11 +590,25 @@
       <option name="project" value="LOCAL" />
       <updated>1521343348250</updated>
     </task>
-    <option name="localTasksCounter" value="36" />
+    <task id="LOCAL-00036" summary="Ejercicio banco terminado">
+      <created>1521348138597</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1521348138597</updated>
+    </task>
+    <task id="LOCAL-00037" summary="Solucion error en input, ejercicio banco ahora sí terminado">
+      <created>1521389780204</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1521389780204</updated>
+    </task>
+    <option name="localTasksCounter" value="38" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="38656000" />
+    <option name="totallyTimeSpent" value="42077000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1276" height="777" extended-state="6" />
@@ -607,7 +635,7 @@
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="6" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39934355" />
-      <window_info id="Favorites" order="5" sideWeight="0.50591016" side_tool="true" visible="true" weight="0.2468652" />
+      <window_info id="Favorites" order="5" sideWeight="0.50591016" side_tool="true" weight="0.2468652" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="right" id="Commander" order="1" weight="0.4" />
@@ -644,7 +672,9 @@
     <MESSAGE value="Corrección al numberFormatException" />
     <MESSAGE value="Rutina sincronizar" />
     <MESSAGE value="Eventos y rutinas" />
-    <option name="LAST_COMMIT_MESSAGE" value="Eventos y rutinas" />
+    <MESSAGE value="Ejercicio banco terminado" />
+    <MESSAGE value="Solucion error en input, ejercicio banco ahora sí terminado" />
+    <option name="LAST_COMMIT_MESSAGE" value="Solucion error en input, ejercicio banco ahora sí terminado" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -656,18 +686,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/EjercicioElevador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="4410">
-          <caret line="299" column="31" lean-forward="true" selection-start-line="299" selection-start-column="31" selection-end-line="299" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#11506#11507#0" expanded="true" />
-            <element signature="e#11576#11577#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simlib/Event.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="345">
@@ -955,31 +973,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/Timer.java">
+    <entry file="file://$PROJECT_DIR$/src/EjercicioPartes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EjercicioBanco.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="85">
-          <caret line="96" column="14" selection-start-line="96" selection-start-column="14" selection-end-line="96" selection-end-column="14" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4971#4972#0" expanded="true" />
-            <element signature="e#5010#5011#0" expanded="true" />
-            <element signature="e#5875#5876#0" expanded="true" />
-            <element signature="e#5941#5942#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/DiscreteStat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="105">
-          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        <state relative-caret-position="-1139">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -992,7 +989,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/simlib/Event.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="301">
+        <state relative-caret-position="289">
           <caret line="44" column="24" selection-start-line="44" selection-start-column="24" selection-end-line="44" selection-end-column="24" />
           <folding>
             <element signature="e#1131#1132#0" expanded="true" />
@@ -1001,8 +998,40 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/DiscreteStat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-374">
+          <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/Timer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/OutputBanco.txt">
-      <provider selected="true" editor-type-id="text-editor" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="26" selection-start-line="7" selection-start-column="26" selection-end-line="7" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EjercicioBanco.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="358">
+          <caret line="160" column="5" lean-forward="true" selection-start-line="160" selection-start-column="5" selection-end-line="160" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#5341#5342#0" expanded="true" />
+            <element signature="e#5372#5373#0" expanded="true" />
+            <element signature="e#5875#5876#0" expanded="true" />
+            <element signature="e#5941#5942#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/InputBanco.txt">
       <provider selected="true" editor-type-id="text-editor">

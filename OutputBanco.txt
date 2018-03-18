@@ -1,6 +1,9 @@
-Promedio de clientes en cola: 29.565735
+REPORTE DE SIMULACIÓN CON 4 CAJEROS
+
+PROMEDIO DE CLIENTES EN COLA: 47.251915
+
 REPORTE DEL TIEMPO DE ESPERA:
-	Promedio:	33.976376
+	Promedio:	59.877644
 	Valor mínimo: 0.0
-	Valor máximo: 83.3501
+	Valor máximo: 157.71164
 

@@ -8,7 +8,7 @@ public class EjercicioBanco {
     static final byte IDLE = 0, BUSSY = 1;
     static Timer simTime;
     static int horaCierre, cantCajeros;
-    static boolean puertasAbiertas;
+    static boolean abierto;
     static float meanL, meanS;
     static Event nowEvent;
     static ContinStat[] cajeros;
@@ -29,6 +29,8 @@ public class EjercicioBanco {
         meanL = Float.parseFloat( input.readLine() );
         meanS = Float.parseFloat( input.readLine() );
         cantCajeros = Integer.parseInt( input.readLine() );
+
+        out.write("REPORTE DE SIMULACIÓN CON "+cantCajeros+" CAJEROS\n\n");
 
         /* INICIALIZAR */
         inicializar();
@@ -84,7 +86,7 @@ public class EjercicioBanco {
         System.out.println(eventos.getFirst().getTime()+" "+eventos.getLast().getTime());
 
         /* Inicialmente las puertas siempre están abiertas */
-        puertasAbiertas = true;
+        abierto = true;
 
         /* Inicializamos el tiempo de espera */
         tiempoEspera = new DiscreteStat("TIEMPO DE ESPERA");
@@ -101,7 +103,6 @@ public class EjercicioBanco {
             System.out.println();
         }
 
-
         // Actualiza el tiempo, origen y evento en curso en la simulación
         nowEvent = eventos.getFirst();
         simTime.setTime(eventos.getFirst().getTime());
@@ -111,7 +112,7 @@ public class EjercicioBanco {
     }
 
     static void llegada(){
-        if( puertasAbiertas )
+        if( abierto )
             eventos.add( new Event( LLEGADA, simTime.getTime() + distExponencial( meanL ) ) );
 
         SimList< Float > colaMasCorta = colas[0];
@@ -128,7 +129,6 @@ public class EjercicioBanco {
         }
         if (colaMasCorta != null){
             colaMasCorta.addLast( simTime.getTime() );
-            //System.out.println(colaMasCorta);
         }
     }
 
@@ -146,7 +146,7 @@ public class EjercicioBanco {
     }
 
     static void cierreBanco(){
-        puertasAbiertas = false;
+        abierto = false;
     }
 
 
@@ -155,7 +155,7 @@ public class EjercicioBanco {
         for (int i = 0; i < cantCajeros; i++) {
             cont += colas[i].getAvgSize(simTime.getTime());
         }
-        out.write("Promedio de clientes en cola: "+cont+"\n");
+        out.write("PROMEDIO DE CLIENTES EN COLA: "+cont+"\n\n");
         tiempoEspera.report(out);
 
     }
