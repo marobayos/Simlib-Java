@@ -1,6 +1,6 @@
-Promedio de clientes en cola: 1825.1245
+Promedio de clientes en cola: 29.565735
 REPORTE DEL TIEMPO DE ESPERA:
-	Promedio:	2047.0125
+	Promedio:	33.976376
 	Valor mínimo: 0.0
-	Valor máximo: 3929.8477
+	Valor máximo: 83.3501
 

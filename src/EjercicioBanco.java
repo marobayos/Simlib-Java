@@ -25,7 +25,7 @@ public class EjercicioBanco {
         int inicio, fin;
         inicio = Integer.parseInt( input.readLine() );
         fin = Integer.parseInt( input.readLine() );
-        horaCierre = (fin-inicio)*60*60;
+        horaCierre = (fin-inicio)*60;
         meanL = Float.parseFloat( input.readLine() );
         meanS = Float.parseFloat( input.readLine() );
         cantCajeros = Integer.parseInt( input.readLine() );
@@ -49,7 +49,7 @@ public class EjercicioBanco {
                     finSim( out );
                     break;
             }
-            //System.out.println(eventos);
+            System.out.println(eventos);
         } while ( eventos.size()>0 );
         finSim(out);
         /* CERRAR ARCHIVOS */
@@ -94,7 +94,11 @@ public class EjercicioBanco {
     static void sincronizar(){
         for (int i = 0; i <cantCajeros; i++){
             colas[i].update(simTime.getTime());
-            //System.out.println(colas[i]);
+            System.out.print(i+": ");
+            for (int j = 0; j < colas[i].size() ; j++) {
+                System.out.print("º");
+            }
+            System.out.println();
         }
 
 
