@@ -13,6 +13,12 @@ public class Event implements Comparable<Event>{
         this.atributes = atributes;
     }
 
+    public Event(byte type, float time) {
+        this.eventType = type;
+        this.time = time;
+        this.atributes = new float[0];
+    }
+
     public byte getType() {
         return this.eventType;
     }

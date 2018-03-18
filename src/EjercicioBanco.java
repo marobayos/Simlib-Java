@@ -10,8 +10,9 @@ public class EjercicioBanco {
     static int horaCierre, cantCajeros;
     static boolean puertasAbiertas;
     static float meanL, meanS;
-    static byte eventType;
+    static Event nowEvent;
     static ContinStat[] cajeros;
+    static DiscreteStat tiempoEspera;
     static SimList<Float>[] colas;
     static SimList<Event> eventos;
 
@@ -34,7 +35,7 @@ public class EjercicioBanco {
         System.out.println("Init");
         do {
             sincronizar();
-            switch ( eventType ) {
+            switch ( nowEvent.getType() ) {
                 case LLEGADA:
                     llegada();
                     break;
@@ -48,7 +49,7 @@ public class EjercicioBanco {
                     finSim( out );
                     break;
             }
-        } while ( eventType != FIN_SIM );
+        } while ( eventos.size()>0 );
 
         /* CERRAR ARCHIVOS */
         input.close();
@@ -78,24 +79,64 @@ public class EjercicioBanco {
         
         /* Agrega a la cola los primeros eventos */
         eventos.add(new Event(LLEGADA, distExponencial( meanL )));
-        eventos.add(new Event(FIN_SERVICIO, horaCierre));
+        eventos.add(new Event(CIERRE, horaCierre));
 
         /* Inicialmente las puertas siempre están abiertas */
         puertasAbiertas = true;
+
+        /* Inicializamos el tiempo de espera */
     }
 
     static void sincronizar(){
+        // Actualiza el tiempo, origen y evento en curso en la simulación
+        nowEvent = eventos.getFirst();
+        simTime.setTime(eventos.getFirst().getTime());
 
+        // Elimina el evento ya procesado
+        eventos.removeFirst();
     }
 
-    static void llegada(){}
+    static void llegada(){
+        if( puertasAbiertas )
+            eventos.add( new Event( LLEGADA, simTime.getTime() + distExponencial( meanL ) ) );
 
-    static void finServicio(){}
+        SimList< Float > colaMasCorta = colas[0];
+        for ( int i = 0; i < cantCajeros; i++ ) {
+            if ( cajeros[i].getValue() == IDLE ){
+                cajeros[i].recordContin( BUSSY, simTime.getTime() );
+                float[] atributos = {i};
+                eventos.add( new Event( FIN_SERVICIO, simTime.getTime() + distExponencial( meanS ), atributos ) );
+                colaMasCorta = null;
+                tiempoEspera.recordDiscrete(0);
+            } else if( colas[i].size() < colaMasCorta.size() )
+                colaMasCorta = colas[i];
+        }
+        if (colaMasCorta != null){
+            colaMasCorta.addLast( simTime.getTime() );
+            colaMasCorta.update( simTime.getTime() );
+        }
+    }
 
-    static void cierreBanco(){}
+    static void finServicio(){
+        int index = (int)nowEvent.getAtribute(0);
+        cajeros[ index ].recordContin( IDLE, simTime.getTime() );
+        cambiarCola( index );
+        if( colas[ index ].size()>0 ){
+            tiempoEspera.recordDiscrete( simTime.getTime()-colas[ index ].getFirst() );
+            colas[ index ].removeFirst();
+            float[] atributos = { index };
+            eventos.add( new Event( FIN_SERVICIO, simTime.getTime() + distExponencial( meanS ), atributos ) );
+        }
+    }
+
+    static void cierreBanco(){
+        puertasAbiertas = false;
+    }
+
 
     static void finSim(BufferedWriter out){}
 
+    static void cambiarCola(int index){}
     /**
      * Distribución exponencial
      *
