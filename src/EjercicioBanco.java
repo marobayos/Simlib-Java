@@ -1,9 +1,11 @@
 import java.io.*;
+import simlib.*;
 
 public class EjercicioBanco {
     static final byte LLEGADA = 0, FIN_SERVICIO = 1, CIERRE = 2, FIN_SIM = 3;
     static int totalTime, meanL, meanS;
     static byte eventType;
+    static SimList<Float>[] colas;
 
     public static void main(String[] args)throws IOException {
         /* ABRIR ARCHIVOS */
@@ -44,7 +46,9 @@ public class EjercicioBanco {
         out.close();
     }
 
-    static void inicializar(){}
+    static void inicializar(){
+
+    }
 
     static void sincronizar(){}
 
