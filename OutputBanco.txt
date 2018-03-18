@@ -1,0 +1,6 @@
+Promedio de clientes en cola: 1825.1245
+REPORTE DEL TIEMPO DE ESPERA:
+	Promedio:	2047.0125
+	Valor mínimo: 0.0
+	Valor máximo: 3929.8477
+

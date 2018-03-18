@@ -40,4 +40,9 @@ public class Event implements Comparable<Event>{
     public int compareTo(Event event) {
         return (this.time < event.getTime()) ? -1 : ((this.time == event.getTime()) ? 0 : 1);
     }
+
+    public String toString(){
+        return eventType+" "+time;
+    }
+
 }

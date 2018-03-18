@@ -49,8 +49,9 @@ public class EjercicioBanco {
                     finSim( out );
                     break;
             }
+            //System.out.println(eventos);
         } while ( eventos.size()>0 );
-
+        finSim(out);
         /* CERRAR ARCHIVOS */
         input.close();
         out.close();
@@ -67,12 +68,12 @@ public class EjercicioBanco {
         /* Crea e inicializa todas las colas con ningún cliente en ellas */
         colas = new SimList[cantCajeros];
         for (int i = 0; i < cantCajeros; i++)
-            colas[i] = new SimList<>("Cola #"+(i+1), 0, false);
+            colas[i] = new SimList<Float>("Cola #"+(i+1), 0, false);
 
         /* Crea e inicializa todos los cajeros como disponibles */
         cajeros = new ContinStat[cantCajeros];
         for (int i = 0; i < cantCajeros; i++)
-            cajeros[i] = new ContinStat((float)IDLE, 0, "Canero #"+i);
+            cajeros[i] = new ContinStat((float)IDLE, 0, "Cajero #"+i);
 
         /* Crea la cola de eventos */
         eventos = new SimList<>("Cola de eventos", 0, true);
@@ -80,14 +81,23 @@ public class EjercicioBanco {
         /* Agrega a la cola los primeros eventos */
         eventos.add(new Event(LLEGADA, distExponencial( meanL )));
         eventos.add(new Event(CIERRE, horaCierre));
+        System.out.println(eventos.getFirst().getTime()+" "+eventos.getLast().getTime());
 
         /* Inicialmente las puertas siempre están abiertas */
         puertasAbiertas = true;
 
         /* Inicializamos el tiempo de espera */
+        tiempoEspera = new DiscreteStat("TIEMPO DE ESPERA");
+
     }
 
     static void sincronizar(){
+        for (int i = 0; i <cantCajeros; i++){
+            colas[i].update(simTime.getTime());
+            //System.out.println(colas[i]);
+        }
+
+
         // Actualiza el tiempo, origen y evento en curso en la simulación
         nowEvent = eventos.getFirst();
         simTime.setTime(eventos.getFirst().getTime());
@@ -108,12 +118,13 @@ public class EjercicioBanco {
                 eventos.add( new Event( FIN_SERVICIO, simTime.getTime() + distExponencial( meanS ), atributos ) );
                 colaMasCorta = null;
                 tiempoEspera.recordDiscrete(0);
+                break;
             } else if( colas[i].size() < colaMasCorta.size() )
                 colaMasCorta = colas[i];
         }
         if (colaMasCorta != null){
             colaMasCorta.addLast( simTime.getTime() );
-            colaMasCorta.update( simTime.getTime() );
+            //System.out.println(colaMasCorta);
         }
     }
 
@@ -122,6 +133,7 @@ public class EjercicioBanco {
         cajeros[ index ].recordContin( IDLE, simTime.getTime() );
         cambiarCola( index );
         if( colas[ index ].size()>0 ){
+            cajeros[ index ].recordContin(BUSSY, simTime.getTime());
             tiempoEspera.recordDiscrete( simTime.getTime()-colas[ index ].getFirst() );
             colas[ index ].removeFirst();
             float[] atributos = { index };
@@ -134,9 +146,26 @@ public class EjercicioBanco {
     }
 
 
-    static void finSim(BufferedWriter out){}
+    static void finSim(BufferedWriter out) throws IOException {
+        float cont = 0;
+        for (int i = 0; i < cantCajeros; i++) {
+            cont += colas[i].getAvgSize(simTime.getTime());
+        }
+        out.write("Promedio de clientes en cola: "+cont+"\n");
+        tiempoEspera.report(out);
 
-    static void cambiarCola(int index){}
+    }
+
+    static void cambiarCola(int index){
+        for (int i = 0; i < cantCajeros; i++) {
+            if (colas[i].size() + cajeros[i].getValue() > colas[index].size() + cajeros[index].getValue() + 1){
+                colas[index].addLast(colas[i].removeLast());
+                cambiarCola(i);
+                break;
+            }
+        }
+    }
+
     /**
      * Distribución exponencial
      *
@@ -144,6 +173,6 @@ public class EjercicioBanco {
      * @return  valor aleatorio con distribucuón exponencial.
      */
     private static float distExponencial(double mean){
-        return (float)(mean*Math.log(random.nextFloat()));
+        return (float)(-mean*Math.log(random.nextFloat()));
     }
 }
