@@ -1,7 +1,9 @@
 package simlib;
 
+import Exception.*;
+
 public class Event implements Comparable<Event>{
-    private byte eventType, origen;
+    private byte eventType;
     private float time;
     private float atributes[];
 
@@ -16,11 +18,12 @@ public class Event implements Comparable<Event>{
     }
 
     public float getAtribute(int atribute){
-        if(atributes.length != 0){
+        if(atribute < atributes.length){
             return atributes[atribute];
-        }
-        return (float) -10E30;
-
+        } else if(atributes.length == 0)
+            throw new EmptyListException("Lista de eventos");
+        else
+            throw new OutOfRangeException("Lista de eventos", atributes.length, atribute);
     }
 
     public float getTime(){
