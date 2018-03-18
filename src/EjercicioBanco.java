@@ -3,14 +3,14 @@ import simlib.*;
 
 public class EjercicioBanco {
     static final byte LLEGADA = 0, FIN_SERVICIO = 1, CIERRE = 2, FIN_SIM = 3;
-    static int totalTime, meanL, meanS;
+    static int totalTime, meanL, meanS, cantCajeros;
     static byte eventType;
     static SimList<Float>[] colas;
 
     public static void main(String[] args)throws IOException {
         /* ABRIR ARCHIVOS */
-        BufferedReader input = new BufferedReader( new FileReader("Input1.txt") );
-        BufferedWriter out = new BufferedWriter(new FileWriter("Output1.txt"));
+        BufferedReader input = new BufferedReader( new FileReader("InputBanco.txt") );
+        BufferedWriter out = new BufferedWriter(new FileWriter("OutputBanco.txt"));
 
         /* LEER Y GUARDAR PARÁMETROS */
         int inicio, fin;
@@ -19,6 +19,7 @@ public class EjercicioBanco {
         totalTime = (fin-inicio)*60*60;
         meanL = Integer.parseInt( input.readLine() );
         meanS = Integer.parseInt( input.readLine() );
+        cantCajeros = Integer.parseInt( input.readLine() );
 
         /* INICIALIZAR */
         inicializar();

@@ -18,8 +18,8 @@ public class EjercicioTelefonia {
 
     public static void main(String[]args)throws IOException {
         /* ABRIR ARCHIVOS */
-        BufferedReader input = new BufferedReader( new FileReader("Input9.txt") );
-        BufferedWriter out = new BufferedWriter(new FileWriter("Output9.txt"));
+        BufferedReader input = new BufferedReader( new FileReader("InputTelefonia.txt") );
+        BufferedWriter out = new BufferedWriter(new FileWriter("OutputTelefonia.txt"));
 
         /* LEER Y GUARDAR PARÁMETROS */
         totalLineas = Integer.parseInt( input.readLine() );
