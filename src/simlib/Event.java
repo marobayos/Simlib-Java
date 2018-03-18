@@ -20,6 +20,7 @@ public class Event implements Comparable<Event>{
             return atributes[atribute];
         }
         return (float) -10E30;
+
     }
 
     public float getTime(){

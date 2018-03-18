@@ -13,9 +13,9 @@ public class EjercicioTelefonia {
     static Timer simTime;
     static ContinStat lineas;
     static SimList< Event > eventos;
+    static Event  now_event;
     static int llamadasAtendidas;
     static int llamadasBloqueadas;
-    static byte eventType, origen_llamada;
 
     public static void main(String[]args)throws IOException {
         /* ABRIR ARCHIVOS */
@@ -39,7 +39,7 @@ public class EjercicioTelefonia {
         System.out.println("Init");
         do {
             sincronizar();
-            switch ( eventType ) {
+            switch ( now_event.getType() ) {
                 case LLAMADA:
                     llamada();
                     break;
@@ -50,8 +50,8 @@ public class EjercicioTelefonia {
                     finSim( out );
                     break;
             }
-            System.out.println(eventType+" "+simTime.getTime());
-        } while ( eventType != FIN_SIM );
+            System.out.println(now_event.getType()+" "+simTime.getTime());
+        } while ( now_event.getType() != FIN_SIM );
 
         /* CERRAR ARCHIVOS */
         input.close();
@@ -68,9 +68,8 @@ public class EjercicioTelefonia {
      **/
     private static void sincronizar() {
         // Actualiza el tiempo, origen y evento en curso en la simulación
-        eventType = eventos.getFirst().getType();
+        now_event = eventos.getFirst();
         simTime.setTime(eventos.getFirst().getTime());
-        origen_llamada = (byte) eventos.getFirst().getAtribute(ORIGEN);
         // Elimina el evento ya procesado
         eventos.removeFirst();
     }
@@ -95,7 +94,7 @@ public class EjercicioTelefonia {
         lineas = new ContinStat((float)totalLineas,simTime.getTime(),"lineas");
 
         /* Añade primeras llamadas a la lista de eventos*/
-        eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[LLAMADA_A]),LLAMADA_B));
+        eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[LLAMADA_A]),LLAMADA_A));
         eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[LLAMADA_B]),LLAMADA_B));
 
         eventos.add(new Event(FIN_SIM, (float) maxTime));
@@ -106,7 +105,9 @@ public class EjercicioTelefonia {
      */
 
     private static void llamada(){
-        eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[origen_llamada]), origen_llamada));
+        eventos.add(new Event(LLAMADA, simTime.getTime() +
+                distExponencial(means[(int) now_event.getAtribute(ORIGEN)]),
+                now_event.getAtribute(ORIGEN)));
         if (lineas.getValue()>=1){
             lineas.recordContin(lineas.getValue()-1, simTime.getTime());
             eventos.add( new Event(FIN_LLAMADA, simTime.getTime()+ distUniforme(max, min)));
