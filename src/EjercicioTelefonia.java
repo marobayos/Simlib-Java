@@ -5,7 +5,7 @@ import java.util.Random;
 
 public class EjercicioTelefonia {
 
-    static final byte LLAMADA_A = 0, LLAMADA_B = 1, FIN_LLAMADA = 2, FIN_SIM = 3, LLAMADA = 1;
+    static final byte LLAMADA_A = 0, LLAMADA_B = 1, FIN_LLAMADA = 2, FIN_SIM = 3, LLAMADA = 1, ORIGEN = 0;
     static Random random;
     static int totalLineas;
     static int means[], min, max;
@@ -15,7 +15,7 @@ public class EjercicioTelefonia {
     static SimList< Event > eventos;
     static int llamadasAtendidas;
     static int llamadasBloqueadas;
-    static byte eventType, origen;
+    static byte eventType, origen_llamada;
 
     public static void main(String[]args)throws IOException {
         /* ABRIR ARCHIVOS */
@@ -70,7 +70,7 @@ public class EjercicioTelefonia {
         // Actualiza el tiempo, origen y evento en curso en la simulación
         eventType = eventos.getFirst().getType();
         simTime.setTime(eventos.getFirst().getTime());
-        origen = eventos.getFirst().getOrigen();
+        origen_llamada = (byte) eventos.getFirst().getAtribute(ORIGEN);
         // Elimina el evento ya procesado
         eventos.removeFirst();
     }
@@ -106,7 +106,7 @@ public class EjercicioTelefonia {
      */
 
     private static void llamada(){
-        eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[origen]), origen));
+        eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[origen_llamada]), origen_llamada));
         if (lineas.getValue()>=1){
             lineas.recordContin(lineas.getValue()-1, simTime.getTime());
             eventos.add( new Event(FIN_LLAMADA, simTime.getTime()+ distUniforme(max, min)));
