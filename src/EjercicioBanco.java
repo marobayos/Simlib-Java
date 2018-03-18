@@ -3,7 +3,8 @@ import simlib.*;
 
 public class EjercicioBanco {
     static final byte LLEGADA = 0, FIN_SERVICIO = 1, CIERRE = 2, FIN_SIM = 3;
-    static int totalTime, meanL, meanS, cantCajeros;
+    static int totalTime, cantCajeros;
+    static float meanL, meanS;
     static byte eventType;
     static SimList<Float>[] colas;
 
@@ -17,8 +18,8 @@ public class EjercicioBanco {
         inicio = Integer.parseInt( input.readLine() );
         fin = Integer.parseInt( input.readLine() );
         totalTime = (fin-inicio)*60*60;
-        meanL = Integer.parseInt( input.readLine() );
-        meanS = Integer.parseInt( input.readLine() );
+        meanL = Float.parseFloat( input.readLine() );
+        meanS = Float.parseFloat( input.readLine() );
         cantCajeros = Integer.parseInt( input.readLine() );
 
         /* INICIALIZAR */
