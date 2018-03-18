@@ -13,6 +13,12 @@ public class Event implements Comparable<Event>{
         this.atributes = atributes;
     }
 
+    public Event(byte type, float time) {
+        this.eventType = type;
+        this.time = time;
+        this.atributes = new float[0];
+    }
+
     public byte getType() {
         return this.eventType;
     }
@@ -34,4 +40,9 @@ public class Event implements Comparable<Event>{
     public int compareTo(Event event) {
         return (this.time < event.getTime()) ? -1 : ((this.time == event.getTime()) ? 0 : 1);
     }
+
+    public String toString(){
+        return eventType+" "+time;
+    }
+
 }
