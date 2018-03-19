@@ -19,6 +19,12 @@ public class EjercicioPartes {
     static int num_total_piezas_procesadas,tarea;
     static float total_demoras_piezas_procesadas;
 
+    /*variables sobre todas las simulaciones*/
+    static int total_piezas_procesadas_simulaciones;
+    static float total_demoras_piezas_procesadas_simulaciones;
+    static float promedio_piezas_en_cola_maquina_1;
+    static float promedio_piezas_en_cola_maquina_2;
+
 
     static Random random;
     static Event evento_actual;
@@ -68,6 +74,12 @@ public class EjercicioPartes {
         bw.write("TIEMPO DE LA SIMULACION: " + tiempo_simulacion_max +" min\n");
         bw.write("\n\n-----------------------------------------------\n" +
                 "RESULATADOS:\n\n");
+
+        total_demoras_piezas_procesadas_simulaciones = 0;
+        total_piezas_procesadas_simulaciones = 0;
+        promedio_piezas_en_cola_maquina_1 = 0;
+        promedio_piezas_en_cola_maquina_2 = 0;
+
         for(int i = 0; i < 20; i++) {
             //Inicializar la Simulación
 
@@ -92,7 +104,19 @@ public class EjercicioPartes {
                         break;
                 }
             } while (evento_actual.getType() != FIN_SIMULACION);
+            total_piezas_procesadas_simulaciones += num_total_piezas_procesadas;
+            total_demoras_piezas_procesadas_simulaciones += total_demoras_piezas_procesadas;
+            promedio_piezas_en_cola_maquina_1 += colas[MAQUINA_1].getAvgSize(tiempo_simulacion.getTime());
+            promedio_piezas_en_cola_maquina_2 += colas[MAQUINA_2].getAvgSize(tiempo_simulacion.getTime());
         }
+        bw.write("\n\n----------------------------------------" +
+                "\nPROMEDIOS GENERALES\n\n");
+        bw.write("\nPROMEDIO GENERAL DE PIEZAS EN LA COLA DE LA MÁQUINA " +
+                "1: " + promedio_piezas_en_cola_maquina_1/20);
+        bw.write("\nPROMEDIO GENERAL DE PIEZAS EN LA COLA DE LA MÁQUINA " +
+                "2: " + promedio_piezas_en_cola_maquina_2/20);
+        bw.write("\nPROMEDIO DEMORAS DE LAS PIEZAS EN EL SISTEMA" +
+                ": " + total_demoras_piezas_procesadas_simulaciones/total_piezas_procesadas_simulaciones);
         br.close();
         bw.close();
 
@@ -190,8 +214,8 @@ public class EjercicioPartes {
         bw.write("PROMEDIO DE PIEZAS EN LA COLA DE LA MAQUINA 2: "
                 + colas[MAQUINA_2].getAvgSize(tiempo_simulacion.getTime())+ " \n");
         bw.write("PROMEDIO DE DEMORA DE LAS PIEZAS EN EL SISTEMA: "
-                + (total_demoras_piezas_procesadas/num_total_piezas_procesadas) + " \n");
-        System.out.println(num_total_piezas_procesadas);
+                + (total_demoras_piezas_procesadas/num_total_piezas_procesadas) + " min\n");
+        //System.out.println(num_total_piezas_procesadas);
     }
 
     static float disTriangular( double a, double c, double b){
