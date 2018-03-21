@@ -112,23 +112,24 @@ public class EjercicioBanco {
     }
 
     static void llegada(){
-        if( abierto )
+        if( abierto ){
             eventos.add( new Event( LLEGADA, simTime.getTime() + distExponencial( meanL ) ) );
 
-        SimList< Float > colaMasCorta = colas[0];
-        for ( int i = 0; i < cantCajeros; i++ ) {
-            if ( cajeros[i].getValue() == IDLE ){
-                cajeros[i].recordContin( BUSSY, simTime.getTime() );
-                float[] atributos = {i};
-                eventos.add( new Event( FIN_SERVICIO, simTime.getTime() + distExponencial( meanS ), atributos ) );
-                colaMasCorta = null;
-                tiempoEspera.recordDiscrete(0);
-                break;
-            } else if( colas[i].size() < colaMasCorta.size() )
-                colaMasCorta = colas[i];
-        }
-        if (colaMasCorta != null){
-            colaMasCorta.addLast( simTime.getTime() );
+            SimList< Float > colaMasCorta = colas[0];
+            for ( int i = 0; i < cantCajeros; i++ ) {
+                if ( cajeros[i].getValue() == IDLE ){
+                    cajeros[i].recordContin( BUSSY, simTime.getTime() );
+                    float[] atributos = {i};
+                    eventos.add( new Event( FIN_SERVICIO, simTime.getTime() + distExponencial( meanS ), atributos ) );
+                    colaMasCorta = null;
+                    tiempoEspera.recordDiscrete(0);
+                    break;
+                } else if( colas[i].size() < colaMasCorta.size() )
+                    colaMasCorta = colas[i];
+            }
+            if (colaMasCorta != null){
+                colaMasCorta.addLast( simTime.getTime() );
+            }
         }
     }
 
