@@ -34,14 +34,14 @@
       <file leaf-file-name="EjercicioServidor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EjercicioServidor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="136">
-              <caret line="141" column="51" lean-forward="false" selection-start-line="141" selection-start-column="51" selection-end-line="141" selection-end-column="51" />
+            <state relative-caret-position="1360">
+              <caret line="126" column="36" lean-forward="false" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#7019#7020#0" expanded="true" />
-                <element signature="e#7087#7088#0" expanded="true" />
-                <element signature="e#7789#7790#0" expanded="true" />
-                <element signature="e#7861#7862#0" expanded="true" />
+                <element signature="e#7088#7089#0" expanded="true" />
+                <element signature="e#7156#7157#0" expanded="true" />
+                <element signature="e#7858#7859#0" expanded="true" />
+                <element signature="e#7930#7931#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -50,8 +50,8 @@
       <file leaf-file-name="OutputServidor.txt" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/OutputServidor.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="238">
-              <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+            <state relative-caret-position="68">
+              <caret line="4" column="52" lean-forward="true" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
               <folding />
             </state>
           </provider>
@@ -60,8 +60,8 @@
       <file leaf-file-name="InputServidor.txt" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/InputServidor.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="68">
-              <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+            <state relative-caret-position="85">
+              <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
               <folding />
             </state>
           </provider>
@@ -460,7 +460,7 @@
       <workItem from="1521337904037" duration="12262000" />
       <workItem from="1521667690931" duration="4993000" />
       <workItem from="1521687636851" duration="4468000" />
-      <workItem from="1521715597033" duration="548000" />
+      <workItem from="1521715597033" duration="1017000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;version 2&quot;">
       <created>1521144267961</created>
@@ -791,11 +791,18 @@
       <option name="project" value="LOCAL" />
       <updated>1521705182373</updated>
     </task>
-    <option name="localTasksCounter" value="48" />
+    <task id="LOCAL-00048" summary="Falta Probarlo más :v">
+      <created>1521716181245</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1521716181245</updated>
+    </task>
+    <option name="localTasksCounter" value="49" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="60016000" />
+    <option name="totallyTimeSpent" value="60485000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="953" y="0" width="974" height="1087" extended-state="0" />
@@ -836,7 +843,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="&quot;Corrección a Sebas&quot;" />
     <MESSAGE value="Documentación de rutinas(inicialización, sincronización...)" />
     <MESSAGE value="Documentación de rutinas faltantes, y generación de reportes en continStat y discretStat" />
     <MESSAGE value="Corrección de erores" />
@@ -861,7 +867,8 @@
     <MESSAGE value="SimObject v2" />
     <MESSAGE value="Sincronizar" />
     <MESSAGE value="Falta Probarlo" />
-    <option name="LAST_COMMIT_MESSAGE" value="Falta Probarlo" />
+    <MESSAGE value="Falta Probarlo más :v" />
+    <option name="LAST_COMMIT_MESSAGE" value="Falta Probarlo más :v" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1166,30 +1173,30 @@
     <entry file="file://$PROJECT_DIR$/InputServidor" />
     <entry file="file://$PROJECT_DIR$/InputServidor.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="68">
-          <caret line="4" column="4" lean-forward="true" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
+        <state relative-caret-position="85">
+          <caret line="5" column="4" lean-forward="true" selection-start-line="5" selection-start-column="4" selection-end-line="5" selection-end-column="4" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EjercicioServidor.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="136">
-          <caret line="141" column="51" lean-forward="false" selection-start-line="141" selection-start-column="51" selection-end-line="141" selection-end-column="51" />
+        <state relative-caret-position="1360">
+          <caret line="126" column="36" lean-forward="false" selection-start-line="126" selection-start-column="36" selection-end-line="126" selection-end-column="36" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#7019#7020#0" expanded="true" />
-            <element signature="e#7087#7088#0" expanded="true" />
-            <element signature="e#7789#7790#0" expanded="true" />
-            <element signature="e#7861#7862#0" expanded="true" />
+            <element signature="e#7088#7089#0" expanded="true" />
+            <element signature="e#7156#7157#0" expanded="true" />
+            <element signature="e#7858#7859#0" expanded="true" />
+            <element signature="e#7930#7931#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/OutputServidor.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="14" column="29" lean-forward="false" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+        <state relative-caret-position="68">
+          <caret line="4" column="52" lean-forward="true" selection-start-line="4" selection-start-column="52" selection-end-line="4" selection-end-column="52" />
           <folding />
         </state>
       </provider>

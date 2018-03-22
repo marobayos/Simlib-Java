@@ -124,6 +124,7 @@ public class EjercicioServidor {
 
     static void renunciaCliente(){
         int index = colaClientes.indexOf( new Client( nowEvent.getTime(), 0 ) );
+        System.out.println("Renuncia");
         if (index != -1){
             SimListObject cliente = colaClientes.get(index);
             colaClientes.remove(index);
@@ -138,7 +139,7 @@ public class EjercicioServidor {
             servidor.recordContin((float) IDLE, simTime.getTime());
         }else{
             cliente = colaClientes.removeFirst();
-            tiempoEspera.recordDiscrete(simTime.getTime());
+            tiempoEspera.recordDiscrete(simTime.getTime()-cliente.getAtribute(LLEGADA));
             colaClientes.update(simTime.getTime());
             eventos.add( new Event(FIN_SERVICIO,simTime.getTime() + distExponencial(meanS)));
         }
