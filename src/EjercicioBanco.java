@@ -119,8 +119,7 @@ public class EjercicioBanco {
             for ( int i = 0; i < cantCajeros; i++ ) {
                 if ( cajeros[i].getValue() == IDLE ){
                     cajeros[i].recordContin( BUSSY, simTime.getTime() );
-                    float[] atributos = {i};
-                    eventos.add( new Event( FIN_SERVICIO, simTime.getTime() + distExponencial( meanS ), atributos ) );
+                    eventos.add( new Event(FIN_SERVICIO, simTime.getTime() + distExponencial( meanS ), (float)i ) );
                     colaMasCorta = null;
                     tiempoEspera.recordDiscrete(0);
                     break;
@@ -141,8 +140,7 @@ public class EjercicioBanco {
             cajeros[ index ].recordContin(BUSSY, simTime.getTime());
             tiempoEspera.recordDiscrete( simTime.getTime()-colas[ index ].getFirst() );
             colas[ index ].removeFirst();
-            float[] atributos = { index };
-            eventos.add( new Event( FIN_SERVICIO, simTime.getTime() + distExponencial( meanS ), atributos ) );
+            eventos.add( new Event( FIN_SERVICIO, simTime.getTime() + distExponencial( meanS ), (float)index ) );
         }
     }
 

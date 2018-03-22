@@ -101,8 +101,8 @@ public class EjercicioTelefonia {
         lineas = new ContinStat((float)totalLineas,simTime.getTime(),"lineas");
 
         /* Añade primeras llamadas a la lista de eventos*/
-        eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[LLAMADA_A]),LLAMADA_A));
-        eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[LLAMADA_B]),LLAMADA_B));
+        eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[LLAMADA_A]),(float)LLAMADA_A));
+        eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[LLAMADA_B]),(float)LLAMADA_B));
 
         eventos.add(new Event(FIN_SIM, (float) maxTime));
 

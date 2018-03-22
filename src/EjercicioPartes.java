@@ -148,7 +148,7 @@ public class EjercicioPartes {
 
 
         eventos.add(new Event(LLEGADA, distExponencial(media_llegada_pieza)
-                ,TAREA)); /* Programa el evento llegada
+                ,(float) TAREA)); /* Programa el evento llegada
                 de una pieza nueva;*/
 
         eventos.add(new Event(FIN_SIMULACION, tiempo_simulacion_max));
@@ -179,7 +179,7 @@ public class EjercicioPartes {
             eventos.add(new Event(TERMINACION,
                     tiempo_simulacion.getTime() +
                             disTriangular(medias[maquina][a], medias[maquina][c],medias[maquina][b])
-            ,tarea));
+            ,(float) tarea));
         }
 
     }
