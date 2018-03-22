@@ -17,6 +17,7 @@ public class EjercicioServidor {
     static SimList<Event> eventos;
     static SimList<SimListObject> colaClientes;
     static int clientesNoIngresan;
+    static int clientesRenuncian;
 
     public static void main(String[] args)throws IOException {
         /* ABRIR ARCHIVOS */
@@ -102,16 +103,19 @@ public class EjercicioServidor {
             } else {
                 Float values[] = {simTime.getTime(), (float)distPoisson(meanZP)};
                 SimListObject cliente = new SimListObject(0, values);
-                Float a[] = { values[1] };
                 colaClientes.add( cliente );
-                eventos.add( new Event( RENUNCIA, simTime.getTime() + distErlang( lambdaTE ), a ) );
+                eventos.add( new Event( RENUNCIA, simTime.getTime() + distErlang( lambdaTE ), values ) );
             }
         } else
             clientesNoIngresan ++;
     }
 
     static void renunciaCliente(){
-
+        int index = colaClientes.indexOf( new Client( nowEvent.getAtribute(0), 0 ) );
+        if (index != -1){
+            clientesRenuncian ++;
+            colaClientes.remove(index);
+        }
     }
 
 
