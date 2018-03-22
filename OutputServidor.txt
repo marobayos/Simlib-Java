@@ -1,28 +1,28 @@
-REPORTE DEL TIEMPO EN EL SISTEMA:
-	Promedio:	5.73079
-	Valor mínimo: 5.73079
-	Valor máximo: 5.73079
+REPORTE DEL TIEMPO DE CLIENTES EN EL SISTEMA:
+	Promedio:	10.222977
+	Valor mínimo: 0.03834547
+	Valor máximo: 41.089493
 
 REPORTE DEL TIEMPO DE ESPERA:
-	Promedio:	0.0
+	Promedio:	5.7105713
 	Valor mínimo: 0.0
-	Valor máximo: 0.0
+	Valor máximo: 37.753647
 
 REPORTE DEL TIEMPO DE CLIENTES QUE RENUNCIAN:
-	Promedio:	0.2659768
-	Valor mínimo: 0.011474609
-	Valor máximo: 1.0438232
+	Promedio:	8.101486
+	Valor mínimo: 0.45526123
+	Valor máximo: 29.922363
 
 REPORTE DE LA LISTA "COLA DE CLIENTES":
-	Longitud promedio: 0.9539103369712829
-	Longitud máxima: 3
+	Longitud promedio: 1.2880060951709746
+	Longitud máxima: 7
 
 REPORTE DEL SERVIDOR:
-	Promedio:	0.99799644947052
+	Promedio:	0.7802432179450989
 	Valor mínimo: 1.0
 	Valor máximo: 0.0
 
-NUMERO DE CLIENTES QUE RENUNCIAN: 384
+NUMERO DE CLIENTES QUE RENUNCIAN: 66
 
 NUMERO DE CLIENTES QUE NO INGRESAN: 0
 

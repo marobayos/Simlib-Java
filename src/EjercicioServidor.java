@@ -6,17 +6,15 @@ public class EjercicioServidor {
 
     static Random random;
     static final byte LLEGADA = 0, FIN_SERVICIO = 1, RENUNCIA = 2, FIN_SIM = 3;
-    static final byte IDLE = 0, BUSSY = 1, a= 0, b = 2, c = 1;
+    static final byte IDLE = 0, BUSSY = 1;
     static Timer simTime;
     static float lambdaL, meanS, meanZP, meanTolerance[] = new float[3],mean_max_tiempo_cola,
             max_tiempo_sim;
     static Event nowEvent;
     static ContinStat servidor;
-    static DiscreteStat tiempoEspera,tiempoSistema,tiempoRenuncia;
-    static SimList<Float>[] colas;
+    static DiscreteStat tiempoEspera,tiempoRenuncia, tiempoSistema;
     static SimList<Event> eventos;
     static SimList<SimListObject> colaClientes;
-    static SimListObject cliente_en_el_servidor;
     static int clientesNoIngresan;
 
     public static void main(String[] args)throws IOException {
@@ -28,9 +26,9 @@ public class EjercicioServidor {
         lambdaL = Float.parseFloat( input.readLine() );
         meanS = Float.parseFloat( input.readLine() );
         String tria[] = input.readLine().split(" ");
-        meanTolerance[a] = Float.parseFloat(tria[a]);
-        meanTolerance[b] = Float.parseFloat(tria[b]);
-        meanTolerance[c] = Float.parseFloat(tria[c]);
+        meanTolerance[0] = Float.parseFloat(tria[0]);
+        meanTolerance[1] = Float.parseFloat(tria[1]);
+        meanTolerance[2] = Float.parseFloat(tria[2]);
         mean_max_tiempo_cola = Float.parseFloat(input.readLine());
         meanZP = Float.parseFloat(input.readLine());
         max_tiempo_sim = Float.parseFloat(input.readLine());
@@ -39,6 +37,7 @@ public class EjercicioServidor {
         inicializar();
         System.out.println("Init");
         do {
+            //System.out.println(eventos);
             sincronizar();
             switch ( nowEvent.getType() ) {
                 case LLEGADA:
@@ -54,7 +53,6 @@ public class EjercicioServidor {
                     finSim( out );
                     break;
             }
-            System.out.println(eventos);
         } while ( nowEvent.getType() != FIN_SIM );
         /* CERRAR ARCHIVOS */
         input.close();
@@ -80,41 +78,48 @@ public class EjercicioServidor {
         /* Agrega a la cola los primeros eventos */
         eventos.add(new Event(LLEGADA, distExponencial( lambdaL )));
 
-        eventos.add( new Event(FIN_SIM,max_tiempo_sim));
+        eventos.add( new Event(FIN_SIM, max_tiempo_sim));
         System.out.println(eventos.getFirst().getTime()+" "+eventos.getLast().getTime());
 
         /* Inicializamos el tiempo de espera */
         tiempoEspera = new DiscreteStat("TIEMPO DE ESPERA");
-        tiempoSistema = new DiscreteStat("TIEMPO EN EL SISTEMA");
         tiempoRenuncia = new DiscreteStat("TIEMPO DE CLIENTES QUE RENUNCIAN");
-
+        tiempoSistema = new DiscreteStat("TIEMPO DE CLIENTES EN EL SISTEMA");
         clientesNoIngresan = 0;
     }
 
     static void sincronizar(){
+        colaClientes.update( simTime.getTime() );
+        System.out.print(servidor.getValue()+": ");
+        for (int i = 0; i < colaClientes.size() ; i++) {
+            System.out.print("º");
+        }
+        System.out.println();
+
         // Actualiza el tiempo, origen y evento en curso en la simulación
         nowEvent = eventos.getFirst();
         simTime.setTime( eventos.getFirst().getTime() );
 
         // Elimina el evento ya procesado
         eventos.removeFirst();
+
     }
 
     static void llegada(){
-        float tolerancia = disTriangular(meanTolerance[a], meanTolerance[c], meanTolerance[b]);
+        float tolerancia = disTriangular(meanTolerance[0], meanTolerance[1], meanTolerance[2]);
         eventos.add( new Event( LLEGADA, simTime.getTime() + distExponencial( lambdaL ) ) );
         SimListObject cliente = new SimListObject(simTime.getTime(),(float)distPoisson(meanZP));
         if( tolerancia >= colaClientes.size() ){
-            if (servidor.getValue() == IDLE){
-                servidor.recordContin(BUSSY, simTime.getTime());
-                tiempoEspera.recordDiscrete(0);
-                cliente_en_el_servidor = cliente;
-                eventos.add( new Event( FIN_SERVICIO, simTime.getTime() + distExponencial( lambdaL ) ) );
+            if ( servidor.getValue() == IDLE ){
+                float tiempoServicio =  distExponencial( meanS );
+                servidor.recordContin( BUSSY, simTime.getTime() );
+                tiempoEspera.recordDiscrete( 0  );
+                eventos.add( new Event( FIN_SERVICIO,simTime.getTime() + tiempoServicio ) );
+                tiempoSistema.recordDiscrete( tiempoServicio );
             } else {
                 colaClientes.add( cliente );
-                colaClientes.update(simTime.getTime());
                 eventos.add( new Event( RENUNCIA, simTime.getTime() + distErlang( mean_max_tiempo_cola ),
-                        cliente.getAtribute(0),cliente.getAtribute(1)) );
+                        cliente.getAtribute(0), cliente.getAtribute(1)) );
             }
         } else
             clientesNoIngresan ++;
@@ -122,38 +127,44 @@ public class EjercicioServidor {
 
     static void renunciaCliente(){
         SimListObject cliente = null;
-        for(SimListObject cl : colaClientes){
+        for( SimListObject cl : colaClientes ){
             if (cl.getIndex() == nowEvent.getAtribute(0)){
                 System.out.println("YEIII");
                 cliente = cl;
             }
         }
-        System.out.println("Renuncia ");
-        if (cliente != null){
+        if (cliente != null && colaClientes.indexOf(cliente) >= cliente.getAtribute(1)){
             colaClientes.remove(cliente);
-            colaClientes.update(simTime.getTime());
             tiempoRenuncia.recordDiscrete( simTime.getTime()-cliente.getAtribute(0));
         }
     }
 
     static void finServicio(){
         SimListObject cliente = null;
-        if(colaClientes.isEmpty()){
+        if( colaClientes.isEmpty() ){
             servidor.recordContin((float) IDLE, simTime.getTime());
-        }else{
+        } else {
+            float tiempoServicio =  distExponencial( meanS );
             cliente = colaClientes.removeFirst();
-            tiempoEspera.recordDiscrete(simTime.getTime()-cliente.getAtribute( LLEGADA ) );
-            colaClientes.update( simTime.getTime() );
-            eventos.add( new Event( FIN_SERVICIO,simTime.getTime() + distExponencial(meanS) ) );
+            Event renuncia = null;
+            for( Event cl : eventos ){
+                try {
+                    if (cl.getAtribute(0) == cliente.getIndex()) {
+                        renuncia = cl;
+                    }
+                } catch (Exception ex){
+
+                }
+            }
+            eventos.remove(renuncia);
+            tiempoEspera.recordDiscrete( simTime.getTime()-cliente.getIndex() );
+            eventos.add( new Event( FIN_SERVICIO,simTime.getTime() + tiempoServicio ) );
+            tiempoSistema.recordDiscrete( simTime.getTime() - cliente.getIndex() + tiempoServicio );
         }
-        tiempoSistema.recordDiscrete(simTime.getTime()-cliente_en_el_servidor.getAtribute(LLEGADA));
-        servidor.recordContin((float) BUSSY, simTime.getTime());
-        cliente_en_el_servidor = cliente;
     }
 
 
     static void finSim(BufferedWriter out) throws IOException {
-        float cont = 0;
         tiempoSistema.report(out);
         tiempoEspera.report(out);
         tiempoRenuncia.report(out);
@@ -201,6 +212,6 @@ public class EjercicioServidor {
     }
 
     public static float distErlang( double mean ){
-        return distExponencial(2/mean) + distExponencial(2/mean);
+        return distExponencial(mean/2) + distExponencial(mean/2);
     }
 }
