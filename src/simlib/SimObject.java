@@ -4,9 +4,9 @@ import Exception.*;
 
 public abstract class SimObject{
 
-    public Float atributes[];
+    public float atributes[];
 
-    public SimObject(Float... atributes){
+    public SimObject(float... atributes){
         this.atributes = atributes;
     }
 

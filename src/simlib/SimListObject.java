@@ -4,13 +4,12 @@ public class SimListObject extends SimObject implements Comparable<SimListObject
 
     int sorting_atribute_based;
 
-    public SimListObject(int sorting_atribute_based,Float... atributes){
+    public SimListObject(int sorting_atribute_based,float... atributes){
         this.sorting_atribute_based = sorting_atribute_based;
         this.atributes = atributes;
-
     }
 
-    public SimListObject(Float... atributes){
+    public SimListObject(float... atributes){
         this(0,atributes);
     }
 

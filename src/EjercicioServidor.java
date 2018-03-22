@@ -12,7 +12,7 @@ public class EjercicioServidor {
             max_tiempo_sim;
     static Event nowEvent;
     static ContinStat servidor;
-    static DiscreteStat tiempoEspera,tiempoSistema,tiempo_renuncia;
+    static DiscreteStat tiempoEspera,tiempoSistema,tiempoRenuncia;
     static SimList<Float>[] colas;
     static SimList<Event> eventos;
     static SimList<SimListObject> colaClientes;
@@ -35,7 +35,6 @@ public class EjercicioServidor {
         meanZP = Float.parseFloat(input.readLine());
         max_tiempo_sim = Float.parseFloat(input.readLine());
 
-
         /* INICIALIZAR */
         inicializar();
         System.out.println("Init");
@@ -57,7 +56,6 @@ public class EjercicioServidor {
             }
             System.out.println(eventos);
         } while ( nowEvent.getType() != FIN_SIM );
-        finSim(out);
         /* CERRAR ARCHIVOS */
         input.close();
         out.close();
@@ -88,7 +86,7 @@ public class EjercicioServidor {
         /* Inicializamos el tiempo de espera */
         tiempoEspera = new DiscreteStat("TIEMPO DE ESPERA");
         tiempoSistema = new DiscreteStat("TIEMPO EN EL SISTEMA");
-        tiempo_renuncia = new DiscreteStat("TIEMPO DE CLIENTES QUE RENUNCIAN");
+        tiempoRenuncia = new DiscreteStat("TIEMPO DE CLIENTES QUE RENUNCIAN");
 
         clientesNoIngresan = 0;
     }
@@ -123,13 +121,18 @@ public class EjercicioServidor {
     }
 
     static void renunciaCliente(){
-        int index = colaClientes.indexOf( new Client( nowEvent.getTime(), 0 ) );
-        System.out.println("Renuncia");
-        if (index != -1){
-            SimListObject cliente = colaClientes.get(index);
-            colaClientes.remove(index);
-            tiempo_renuncia.recordDiscrete(simTime.getTime()-cliente.getAtribute(LLEGADA));
+        SimListObject cliente = null;
+        for(SimListObject cl : colaClientes){
+            if (cl.getIndex() == nowEvent.getAtribute(0)){
+                System.out.println("YEIII");
+                cliente = cl;
+            }
+        }
+        System.out.println("Renuncia ");
+        if (cliente != null){
+            colaClientes.remove(cliente);
             colaClientes.update(simTime.getTime());
+            tiempoRenuncia.recordDiscrete( simTime.getTime()-cliente.getAtribute(0));
         }
     }
 
@@ -139,9 +142,9 @@ public class EjercicioServidor {
             servidor.recordContin((float) IDLE, simTime.getTime());
         }else{
             cliente = colaClientes.removeFirst();
-            tiempoEspera.recordDiscrete(simTime.getTime()-cliente.getAtribute(LLEGADA));
-            colaClientes.update(simTime.getTime());
-            eventos.add( new Event(FIN_SERVICIO,simTime.getTime() + distExponencial(meanS)));
+            tiempoEspera.recordDiscrete(simTime.getTime()-cliente.getAtribute( LLEGADA ) );
+            colaClientes.update( simTime.getTime() );
+            eventos.add( new Event( FIN_SERVICIO,simTime.getTime() + distExponencial(meanS) ) );
         }
         tiempoSistema.recordDiscrete(simTime.getTime()-cliente_en_el_servidor.getAtribute(LLEGADA));
         servidor.recordContin((float) BUSSY, simTime.getTime());
@@ -151,20 +154,13 @@ public class EjercicioServidor {
 
     static void finSim(BufferedWriter out) throws IOException {
         float cont = 0;
-        out.write("PROMEDIO DE TIEMPO DE ESPERA EN EL SISTEMA: "
-                + tiempoSistema.getDiscreteAverage() +"\n\n");
-        out.write("PROMEDIO DE TIEMPO DE ESPERA EN LA COLA:" +
-                " "+tiempoEspera.getDiscreteAverage()+"\n\n");
-        out.write("PROMEDIO DE ESPERA DE DE CLIENTES QUE RENUNCIAN: "+
-                tiempo_renuncia.getDiscreteAverage()+"\n\n");
-        out.write("NUMERO PROMEDIO DE CLIENTES EN LA COLA: "+
-                colaClientes.getAvgSize(simTime.getTime())+"\n\n");
-        out.write("PROMEDIO DE OCUPACION DEL SERVIDOR: "+
-                servidor.getContinAve(simTime.getTime())+"\n\n");
-        out.write("NUMERO DE CLIENTES QUE RENUNCIAN: "+tiempo_renuncia.getDiscreteObs()+"\n\n");
-        out.write("NUMERO DE CLIENTES QUE NO INGRESAN: "+ clientesNoIngresan+"\n\n");
+        tiempoSistema.report(out);
         tiempoEspera.report(out);
-
+        tiempoRenuncia.report(out);
+        colaClientes.report(out, simTime.getTime());
+        servidor.report(out, simTime.getTime());
+        out.write("NUMERO DE CLIENTES QUE RENUNCIAN: "+tiempoRenuncia.getDiscreteObs()+"\n\n");
+        out.write("NUMERO DE CLIENTES QUE NO INGRESAN: "+ clientesNoIngresan+"\n\n");
     }
 
     /**
@@ -173,7 +169,7 @@ public class EjercicioServidor {
      * @param lambda    1/lambda media de la distribución
      * @return  valor aleatorio con distribucuón exponencial.
      */
-    private static float distExponencial(double lambda){
+    private static float distExponencial( double lambda ){
         return (float)(-lambda*Math.log(random.nextFloat()));
     }
 
@@ -184,11 +180,11 @@ public class EjercicioServidor {
         if( rand <= ((b-a)/c-a) ){
             aux = Math.sqrt( ( c-a )*( b-a )*rand );
             x = a + aux;
-        }else{
+        } else {
             aux = Math.sqrt( ( c-a )*( c-b )*( 1-rand ) );
             x = c - aux;
         }
-        return (float)x;
+        return ( float )x;
     }
 
     public static int distPoisson( double lambda ){
