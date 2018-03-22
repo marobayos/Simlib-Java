@@ -1,7 +1,7 @@
 package simlib;
 
-public class Client {
-    private float arrivalTime;
+public class Client extends Comparable<Client>{
+    private Float arrivalTime;
     private int standbyTolerance;
 
     public Client(float arrivalTime, int standbyTolerance){
@@ -15,5 +15,9 @@ public class Client {
 
     public int getStandbyTolerance() {
         return standbyTolerance;
+    }
+
+    public int compareTo(Client client){
+        return this.arrivalTime.compareTo(client.getArrivalTime());
     }
 }

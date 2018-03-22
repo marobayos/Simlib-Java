@@ -3,9 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="f9ffc440-6bff-4ed7-aebe-716b57451ce8" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutputBanco.txt" beforeDir="false" afterPath="$PROJECT_DIR$/OutputBanco.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/OutputPartes.txt" beforeDir="false" afterPath="$PROJECT_DIR$/OutputPartes.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EjercicioPartes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EjercicioPartes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/Client.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -20,11 +18,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="EjercicioBanco.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="EjercicioBanco.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/EjercicioBanco.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2175">
-              <caret line="145" column="9" lean-forward="true" selection-start-line="145" selection-start-column="9" selection-end-line="145" selection-end-column="9" />
+            <state relative-caret-position="2325">
+              <caret line="159" column="33" selection-start-line="159" selection-start-column="33" selection-end-line="159" selection-end-column="33" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -32,38 +30,42 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OutputPartes.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OutputPartes.txt">
+      <file leaf-file-name="EjercicioServidor.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EjercicioServidor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-785">
-              <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="EjercicioPartes.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EjercicioPartes.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="648">
-              <caret line="112" column="42" selection-start-line="112" selection-start-column="42" selection-end-line="112" selection-end-column="42" />
+            <state relative-caret-position="549">
+              <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#9486#9487#0" expanded="true" />
-                <element signature="e#9552#9553#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="EjercicioTelefonia.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/EjercicioTelefonia.java">
+      <file leaf-file-name="Client.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/simlib/Client.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="118" column="68" selection-start-line="118" selection-start-column="68" selection-end-line="118" selection-end-column="68" />
+            <state relative-caret-position="255">
+              <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+              <folding>
+                <element signature="e#296#297#0" expanded="true" />
+                <element signature="e#330#331#0" expanded="true" />
+                <element signature="e#370#371#0" expanded="true" />
+                <element signature="e#409#410#0" expanded="true" />
+                <element signature="e#477#478#0" expanded="true" />
+                <element signature="e#515#516#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="EjercicioElevador.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EjercicioElevador.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4350">
+              <caret line="295" column="4" selection-start-line="295" selection-start-column="4" selection-end-line="307" selection-end-column="5" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#4241#4242#0" expanded="true" />
-                <element signature="e#4316#4317#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,8 +74,8 @@
       <file leaf-file-name="Event.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simlib/Event.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="24" selection-start-line="24" selection-end-line="24" />
+            <state relative-caret-position="420">
+              <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
               <folding>
                 <element signature="e#491#492#0" expanded="true" />
                 <element signature="e#528#529#0" expanded="true" />
@@ -82,33 +84,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimListObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simlib/SimListObject.java">
+      <file leaf-file-name="EjercicioTelefonia.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/EjercicioTelefonia.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+            <state relative-caret-position="15">
+              <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
               <folding>
-                <element signature="e#357#358#0" expanded="true" />
-                <element signature="e#391#392#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimObject.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simlib/SimObject.java">
+      <file leaf-file-name="InputTelefonia.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/InputTelefonia.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="150">
-              <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
+            <state>
+              <caret column="2" selection-start-column="2" selection-end-column="2" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="OutputBanco.txt" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/OutputBanco.txt">
+      <file leaf-file-name="OutputTelefonia.txt" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/OutputTelefonia.txt">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="135">
-              <caret line="9" selection-start-line="9" selection-end-line="9" />
+            <state>
+              <caret column="22" selection-start-column="22" selection-end-column="22" />
             </state>
           </provider>
         </entry>
@@ -118,15 +119,6 @@
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="30">
               <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simlib/SimList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="285">
-              <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
             </state>
           </provider>
         </entry>
@@ -153,6 +145,9 @@
       <find>max</find>
       <find>totalTIme</find>
       <find>puertasAbiertas</find>
+      <find>CIERRE</find>
+      <find>cierreBanco</find>
+      <find>meanL</find>
     </findStrings>
     <replaceStrings>
       <replace>pesoATransportar</replace>
@@ -163,16 +158,14 @@
       <replace>llamadasBloqueadas</replace>
       <replace>horaCierre</replace>
       <replace>abierto</replace>
+      <replace>RENUNCIA</replace>
+      <replace>renunciaCliente</replace>
+      <replace>lambdaL</replace>
     </replaceStrings>
   </component>
   <component name="Git.Settings">
     <option name="UPDATE_TYPE" value="MERGE" />
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
-  </component>
-  <component name="GradleLocalSettings">
-    <option name="externalProjectsViewState">
-      <projects_view />
-    </option>
   </component>
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
@@ -190,15 +183,18 @@
         <option value="$PROJECT_DIR$/out/production/SimlibJava/simlib/ContinStat.class" />
         <option value="$PROJECT_DIR$/Input9.txt" />
         <option value="$PROJECT_DIR$/src/simlib/Container.java" />
-        <option value="$PROJECT_DIR$/src/EjercicioTelefonia.java" />
         <option value="$PROJECT_DIR$/Output9.txt" />
         <option value="$PROJECT_DIR$/src/simlib/Event.java" />
-        <option value="$PROJECT_DIR$/src/EjercicioBanco.java" />
         <option value="$PROJECT_DIR$/InputBanco.txt" />
         <option value="$PROJECT_DIR$/.idea/workspace.xml" />
         <option value="$PROJECT_DIR$/OutputBanco.txt" />
         <option value="$PROJECT_DIR$/src/EjercicioPartes.java" />
         <option value="$PROJECT_DIR$/OutputPartes.txt" />
+        <option value="$PROJECT_DIR$/InputTelefonia.txt" />
+        <option value="$PROJECT_DIR$/src/EjercicioTelefonia.java" />
+        <option value="$PROJECT_DIR$/src/EjercicioBanco.java" />
+        <option value="$PROJECT_DIR$/src/EjercicioServidor.java" />
+        <option value="$PROJECT_DIR$/src/simlib/Client.java" />
       </list>
     </option>
   </component>
@@ -208,45 +204,34 @@
     <detection-done>true</detection-done>
     <sorting>DEFINITION_ORDER</sorting>
   </component>
-  <component name="ProjectFrameBounds" extendedState="4">
-    <option name="y" value="27" />
-    <option name="width" value="960" />
-    <option name="height" value="1053" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="4" />
+    <option name="y" value="23" />
+    <option name="width" value="1276" />
+    <option name="height" value="777" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="ProjectPane" proportions="" version="1">
-      <flattenPackages />
-      <showMembers />
-      <showModules />
-      <showLibraryContents />
-      <hideEmptyPackages />
-      <abbreviatePackageNames />
-      <autoscrollToSource />
-      <autoscrollFromSource />
-      <sortByType />
-      <manualOrder />
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scratches" />
       <pane id="PackagesPane" />
-      <pane id="Scope" />
       <pane id="AndroidView" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
             <path>
-              <item name="Simlib-Java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Simlib-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="SimlibJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimlibJava" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Simlib-Java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Simlib-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="SimlibJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimlibJava" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
-              <item name="Simlib-Java" type="b2602c69:ProjectViewProjectNode" />
-              <item name="Simlib-Java" type="462c0819:PsiDirectoryNode" />
+              <item name="SimlibJava" type="b2602c69:ProjectViewProjectNode" />
+              <item name="SimlibJava" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="simlib" type="462c0819:PsiDirectoryNode" />
             </path>
@@ -254,6 +239,7 @@
           <select />
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -280,7 +266,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Application.EjercicioPartes">
+  <component name="RunManager" selected="Application.EjercicioTelefonia">
     <configuration name="EjercicioBanco" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="EjercicioBanco" />
       <module name="SimlibJava" />
@@ -356,9 +342,9 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.EjercicioTelefonia" />
         <item itemvalue="Application.EjercicioPartes" />
         <item itemvalue="Application.EjercicioBanco" />
-        <item itemvalue="Application.EjercicioTelefonia" />
         <item itemvalue="Application.Main" />
         <item itemvalue="Application.EjercicioElevador" />
       </list>
@@ -377,6 +363,8 @@
       <workItem from="1521143245626" duration="3686000" />
       <workItem from="1521226510556" duration="25629000" />
       <workItem from="1521337904037" duration="12262000" />
+      <workItem from="1521667690931" duration="4993000" />
+      <workItem from="1521687636851" duration="772000" />
     </task>
     <task id="LOCAL-00001" summary="&quot;version 2&quot;">
       <created>1521144267961</created>
@@ -637,11 +625,46 @@
       <option name="project" value="LOCAL" />
       <updated>1521389780204</updated>
     </task>
-    <option name="localTasksCounter" value="38" />
+    <task id="LOCAL-00038" summary="holi">
+      <created>1521638125437</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1521638125437</updated>
+    </task>
+    <task id="LOCAL-00039" summary="holi">
+      <created>1521638271319</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1521638271319</updated>
+    </task>
+    <task id="LOCAL-00040" summary="holi">
+      <created>1521670313886</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1521670313886</updated>
+    </task>
+    <task id="LOCAL-00041" summary="holi">
+      <created>1521673018904</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1521673018904</updated>
+    </task>
+    <task id="LOCAL-00042" summary="Archivo para ejercicioServidor">
+      <created>1521692056389</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1521692056389</updated>
+    </task>
+    <option name="localTasksCounter" value="43" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="42077000" />
+    <option name="totallyTimeSpent" value="50013000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="4" y="23" width="1276" height="777" extended-state="6" />
@@ -652,47 +675,28 @@
       <window_info anchor="right" id="Palette&#9;" order="5" />
       <window_info id="Image Layers" order="2" />
       <window_info anchor="right" id="Capture Analysis" order="4" />
-      <window_info anchor="bottom" id="Event Log" order="8" side_tool="true" />
+      <window_info anchor="bottom" id="Event Log" order="8" sideWeight="0.5083333" side_tool="true" weight="0.2297593" />
       <window_info anchor="right" id="Maven Projects" order="7" />
-      <window_info anchor="bottom" id="Version Control" order="9" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.39829302" />
+      <window_info anchor="bottom" id="Version Control" order="9" weight="0.32932165" />
+      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49166667" weight="0.22190611" />
       <window_info anchor="bottom" id="Terminal" order="7" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.49408984" visible="true" weight="0.2468652" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.18338558" />
       <window_info anchor="right" id="Database" order="0" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="2" weight="0.25" />
       <window_info id="UI Designer" order="4" />
       <window_info anchor="right" id="Theme Preview" order="6" />
-      <window_info id="Favorites" order="5" sideWeight="0.50591016" side_tool="true" weight="0.2468652" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39934355" />
-      <window_info anchor="right" id="Palette" order="3" />
-      <window_info id="Designer" order="2" />
-      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
-      <window_info anchor="right" id="Capture Analysis" order="3" />
-      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
-      <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
-      <window_info anchor="bottom" id="Terminal" order="7" />
-      <window_info id="Structure" order="1" weight="0.25" />
-      <window_info anchor="right" id="Commander" order="0" weight="0.4" />
-      <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info id="Favorites" order="2" side_tool="true" />
-      <window_info anchor="bottom" id="Version Control" order="7" weight="0.32932165" />
-      <window_info anchor="bottom" id="Run" order="2" sideWeight="0.49166667" weight="0.22210066" />
-      <window_info id="Image Layers" order="2" />
-      <window_info id="Capture Tool" order="2" />
-      <window_info id="UI Designer" order="2" />
+      <window_info id="Favorites" order="5" side_tool="true" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.39824945" />
-      <window_info anchor="right" id="Theme Preview" order="3" />
-      <window_info anchor="right" id="Palette&#9;" order="3" />
+      <window_info anchor="right" content_ui="combo" id="Hierarchy" order="3" weight="0.25" />
+      <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="right" id="Commander" order="1" weight="0.4" />
       <window_info anchor="bottom" id="Message" order="0" />
-      <window_info anchor="bottom" id="Event Log" order="7" sideWeight="0.5083333" side_tool="true" weight="0.2297593" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Messages" order="7" sideWeight="0.49583334" weight="0.17986426" />
-      <window_info anchor="right" id="Maven Projects" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.24375" />
+      <window_info anchor="bottom" id="Messages" order="10" sideWeight="0.49583334" weight="0.17923187" />
     </layout>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -722,7 +726,9 @@
     <MESSAGE value="Quite eventTipe y origen_llamada, ya que hice una variable evento actual, y use los metodos del objeto evento." />
     <MESSAGE value="//Ejercicio 8 en proceso :v" />
     <MESSAGE value="//Ejercicio 8 Listo, modifique un poco simlib, es que así sale mucho más rapido cualquier ejercicio de ahora en adelante...creo :v" />
-    <option name="LAST_COMMIT_MESSAGE" value="//Ejercicio 8 Listo, modifique un poco simlib, es que así sale mucho más rapido cualquier ejercicio de ahora en adelante...creo :v" />
+    <MESSAGE value="holi" />
+    <MESSAGE value="Archivo para ejercicioServidor" />
+    <option name="LAST_COMMIT_MESSAGE" value="Archivo para ejercicioServidor" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -734,38 +740,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/simlib/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="345">
-          <caret line="25" column="90" selection-start-line="25" selection-start-column="90" selection-end-line="25" selection-end-column="90" />
-          <folding>
-            <element signature="e#491#492#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/Random.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/Timer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/Box.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="17" column="21" lean-forward="true" selection-start-line="17" selection-start-column="21" selection-end-line="17" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InputTelefonia.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
@@ -793,8 +767,6 @@
           <caret line="16" column="24" lean-forward="true" selection-start-line="16" selection-start-column="24" selection-end-line="16" selection-end-column="24" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4241#4242#0" expanded="true" />
-            <element signature="e#4316#4317#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -805,8 +777,6 @@
           <caret line="20" column="22" selection-start-line="20" selection-start-column="22" selection-end-line="20" selection-end-column="22" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#11506#11507#0" />
-            <element signature="e#11576#11577#0" />
           </folding>
         </state>
       </provider>
@@ -817,8 +787,6 @@
           <caret line="134" column="37" lean-forward="true" selection-start-line="134" selection-start-column="37" selection-end-line="134" selection-end-column="37" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#4241#4242#0" expanded="true" />
-            <element signature="e#4316#4317#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -844,13 +812,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OutputTelefonia.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="22" lean-forward="true" selection-start-column="22" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simlib/ContinStat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="468">
@@ -871,8 +832,6 @@
           <caret line="133" selection-start-line="133" selection-end-line="133" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#11506#11507#0" />
-            <element signature="e#11576#11577#0" />
           </folding>
         </state>
       </provider>
@@ -911,7 +870,6 @@
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/io/BufferedReader.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/util/Deque.java" />
     <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/util/PriorityQueue.java" />
-    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/util/LinkedList.java" />
     <entry file="file://$PROJECT_DIR$/Output.txt" />
     <entry file="file://$PROJECT_DIR$/Input.txt" />
     <entry file="file://$PROJECT_DIR$/Output8.txt" />
@@ -935,36 +893,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/InputTelefonia.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="60">
-          <caret line="4" column="5" selection-start-line="4" selection-start-column="5" selection-end-line="4" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InputElevador.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="60">
           <caret line="4" column="3" selection-start-line="4" selection-start-column="3" selection-end-line="4" selection-end-column="3" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/SimList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="285">
-          <caret line="23" column="39" selection-start-line="23" selection-start-column="39" selection-end-line="23" selection-end-column="39" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/EjercicioElevador.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1331">
-          <caret line="86" column="5" selection-start-line="86" selection-start-column="5" selection-end-line="86" selection-end-column="5" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#11506#11507#0" />
-            <element signature="e#11576#11577#0" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -982,28 +914,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="24" selection-start-line="24" selection-end-line="24" />
-          <folding>
-            <element signature="e#491#492#0" expanded="true" />
-            <element signature="e#528#529#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simlib/DiscreteStat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-374">
           <caret line="9" column="22" selection-start-line="9" selection-start-column="22" selection-end-line="9" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/Timer.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
         </state>
       </provider>
     </entry>
@@ -1014,13 +928,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/OutputBanco.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="9" selection-start-line="9" selection-end-line="9" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/InputPartes.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="54">
@@ -1028,22 +935,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/EjercicioTelefonia.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="118" column="68" selection-start-line="118" selection-start-column="68" selection-end-line="118" selection-end-column="68" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#4241#4242#0" expanded="true" />
-            <element signature="e#4316#4317#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/EjercicioPartes.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="648">
-          <caret line="112" column="42" selection-start-line="112" selection-start-column="42" selection-end-line="112" selection-end-column="42" />
+        <state relative-caret-position="-837">
+          <caret line="42" column="40" selection-start-line="42" selection-start-column="40" selection-end-line="42" selection-end-column="40" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#9486#9487#0" expanded="true" />
@@ -1054,17 +949,133 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/OutputPartes.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-785">
-          <caret line="24" column="12" lean-forward="true" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        <state relative-caret-position="15">
+          <caret line="24" column="12" selection-start-line="24" selection-start-column="12" selection-end-line="24" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/SimListObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="315">
+          <caret line="21" column="32" selection-start-line="21" selection-start-column="32" selection-end-line="21" selection-end-column="32" />
+          <folding>
+            <element signature="e#357#358#0" expanded="true" />
+            <element signature="e#391#392#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/SimObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="12" column="43" selection-start-line="12" selection-start-column="43" selection-end-line="12" selection-end-column="43" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OutputBanco.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/InputTelefonia.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="2" selection-start-column="2" selection-end-column="2" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar:///Library/Java/JavaVirtualMachines/jdk1.8.0_121.jdk/Contents/Home/src.zip!/java/util/LinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="166">
+          <caret line="969" column="25" selection-start-line="969" selection-start-column="25" selection-end-line="969" selection-end-column="25" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/SimList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="60">
+          <caret line="8" column="36" lean-forward="true" selection-start-line="8" selection-start-column="36" selection-end-line="8" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/OutputTelefonia.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="22" selection-start-column="22" selection-end-column="22" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/EjercicioBanco.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2175">
-          <caret line="145" column="9" lean-forward="true" selection-start-line="145" selection-start-column="9" selection-end-line="145" selection-end-column="9" />
+        <state relative-caret-position="2325">
+          <caret line="159" column="33" selection-start-line="159" selection-start-column="33" selection-end-line="159" selection-end-column="33" />
           <folding>
             <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EjercicioElevador.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4350">
+          <caret line="295" column="4" selection-start-line="295" selection-start-column="4" selection-end-line="307" selection-end-column="5" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EjercicioServidor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="549">
+          <caret line="65" column="32" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="420">
+          <caret line="30" column="24" selection-start-line="30" selection-start-column="24" selection-end-line="30" selection-end-column="24" />
+          <folding>
+            <element signature="e#491#492#0" expanded="true" />
+            <element signature="e#528#529#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/Timer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/EjercicioTelefonia.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="15">
+          <caret line="28" column="31" selection-start-line="28" selection-start-column="31" selection-end-line="28" selection-end-column="31" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/Client.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="17" column="5" lean-forward="true" selection-start-line="17" selection-start-column="5" selection-end-line="17" selection-end-column="5" />
+          <folding>
+            <element signature="e#296#297#0" expanded="true" />
+            <element signature="e#330#331#0" expanded="true" />
+            <element signature="e#370#371#0" expanded="true" />
+            <element signature="e#409#410#0" expanded="true" />
+            <element signature="e#477#478#0" expanded="true" />
+            <element signature="e#515#516#0" expanded="true" />
           </folding>
         </state>
       </provider>
