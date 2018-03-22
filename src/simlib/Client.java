@@ -1,6 +1,6 @@
 package simlib;
 
-public class Client extends Comparable<Client>{
+public class Client implements Comparable<Client>{
     private Float arrivalTime;
     private int standbyTolerance;
 
