@@ -32,6 +32,7 @@ public class EjercicioServidor {
         meanTolerance[b] = Float.parseFloat(tria[b]);
         meanTolerance[c] = Float.parseFloat(tria[c]);
         mean_max_tiempo_cola = Float.parseFloat(input.readLine());
+        meanZP = Float.parseFloat(input.readLine());
         max_tiempo_sim = Float.parseFloat(input.readLine());
 
 
@@ -55,7 +56,7 @@ public class EjercicioServidor {
                     break;
             }
             System.out.println(eventos);
-        } while ( eventos.size()>0 );
+        } while ( nowEvent.getType() != FIN_SIM );
         finSim(out);
         /* CERRAR ARCHIVOS */
         input.close();
@@ -80,6 +81,8 @@ public class EjercicioServidor {
 
         /* Agrega a la cola los primeros eventos */
         eventos.add(new Event(LLEGADA, distExponencial( lambdaL )));
+
+        eventos.add( new Event(FIN_SIM,max_tiempo_sim));
         System.out.println(eventos.getFirst().getTime()+" "+eventos.getLast().getTime());
 
         /* Inicializamos el tiempo de espera */
@@ -111,6 +114,7 @@ public class EjercicioServidor {
                 eventos.add( new Event( FIN_SERVICIO, simTime.getTime() + distExponencial( lambdaL ) ) );
             } else {
                 colaClientes.add( cliente );
+                colaClientes.update(simTime.getTime());
                 eventos.add( new Event( RENUNCIA, simTime.getTime() + distErlang( mean_max_tiempo_cola ),
                         cliente.getAtribute(0),cliente.getAtribute(1)) );
             }
@@ -124,6 +128,7 @@ public class EjercicioServidor {
             SimListObject cliente = colaClientes.get(index);
             colaClientes.remove(index);
             tiempo_renuncia.recordDiscrete(simTime.getTime()-cliente.getAtribute(LLEGADA));
+            colaClientes.update(simTime.getTime());
         }
     }
 
@@ -134,6 +139,7 @@ public class EjercicioServidor {
         }else{
             cliente = colaClientes.removeFirst();
             tiempoEspera.recordDiscrete(simTime.getTime());
+            colaClientes.update(simTime.getTime());
             eventos.add( new Event(FIN_SERVICIO,simTime.getTime() + distExponencial(meanS)));
         }
         tiempoSistema.recordDiscrete(simTime.getTime()-cliente_en_el_servidor.getAtribute(LLEGADA));
