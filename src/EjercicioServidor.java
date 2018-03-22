@@ -10,7 +10,7 @@ public class EjercicioServidor {
     static Timer simTime;
     static int horaCierre, cantCajeros;
     static boolean abierto;
-    static float lambdaL, meanS;
+    static float lambdaL, meanS, meanZP;
     static Event nowEvent;
     static ContinStat[] cajeros;
     static DiscreteStat tiempoEspera;
@@ -96,7 +96,7 @@ public class EjercicioServidor {
     static void sincronizar(){
         // Actualiza el tiempo, origen y evento en curso en la simulación
         nowEvent = eventos.getFirst();
-        simTime.setTime(eventos.getFirst().getTime());
+        simTime.setTime( eventos.getFirst().getTime() );
 
         // Elimina el evento ya procesado
         eventos.removeFirst();
@@ -104,6 +104,9 @@ public class EjercicioServidor {
 
     static void llegada(){
         eventos.add( new Event( LLEGADA, simTime.getTime() + distExponencial( lambdaL ) ) );
+
+        eventos.add( new Event( LLEGADA, simTime.getTime() + distExponencial( lambdaL ) ) );
+        Client cliente = new Client( simTime.getTime(), distPoisson(meanZP) );
         if( abierto ){
 
             SimList< Float > colaMasCorta = colas[0];
@@ -172,4 +175,30 @@ public class EjercicioServidor {
         return (float)(-mean*Math.log(random.nextFloat()));
     }
 
+    static float disTriangular( double a, double b, double c ){
+        double rand = random.nextDouble();
+        double x;
+        double aux;
+        if( rand <= ((b-a)/c-a) ){
+            aux = Math.sqrt(((c-a)*(b-a)*rand));
+            x = a + aux;
+        }else{
+            aux = Math.sqrt((c-a)*(c-b)*(1-rand));
+            x = c - aux;
+        }
+        return (float)x;
+    }
+
+    public static int distPoisson(double lambda) {
+        double L = Math.exp(-lambda);
+        double p = 1.0;
+        int k = 0;
+
+        do {
+            k++;
+            p *= Math.random();
+        } while (p > L);
+
+        return k - 1;
+    }
 }
