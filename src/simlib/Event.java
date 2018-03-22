@@ -6,7 +6,7 @@ public class Event extends SimObject implements Comparable<Event>{
     private byte eventType;
     private float time;
 
-    public Event(byte type, float time, float... atributes) {
+    public Event(byte type, float time, Float... atributes) {
         this.eventType = type;
         this.time = time;
         this.atributes = atributes;
@@ -15,7 +15,7 @@ public class Event extends SimObject implements Comparable<Event>{
     public Event(byte type, float time) {
         this.eventType = type;
         this.time = time;
-        this.atributes = new float[0];
+        this.atributes = new Float[0];
     }
 
     public byte getType() {

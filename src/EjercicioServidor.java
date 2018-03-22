@@ -8,14 +8,15 @@ public class EjercicioServidor {
     static final byte LLEGADA = 0, FIN_SERVICIO = 1, RENUNCIA = 2, FIN_SIM = 3;
     static final byte IDLE = 0, BUSSY = 1;
     static Timer simTime;
-    static int horaCierre, cantCajeros;
-    static boolean abierto;
     static float lambdaL, meanS, meanZP;
+    static int  lambdaTE;
     static Event nowEvent;
-    static ContinStat[] cajeros;
+    static ContinStat servidor;
     static DiscreteStat tiempoEspera;
     static SimList<Float>[] colas;
     static SimList<Event> eventos;
+    static SimList<SimListObject> colaClientes;
+    static int clientesNoIngresan;
 
     public static void main(String[] args)throws IOException {
         /* ABRIR ARCHIVOS */
@@ -26,12 +27,9 @@ public class EjercicioServidor {
         int inicio, fin;
         inicio = Integer.parseInt( input.readLine() );
         fin = Integer.parseInt( input.readLine() );
-        horaCierre = ( fin-inicio )*60;
         lambdaL = Float.parseFloat( input.readLine() );
         meanS = Float.parseFloat( input.readLine() );
-        cantCajeros = Integer.parseInt( input.readLine() );
 
-        out.write("REPORTE DE SIMULACIÓN CON "+cantCajeros+" CAJEROS\n\n");
 
         /* INICIALIZAR */
         inicializar();
@@ -60,34 +58,25 @@ public class EjercicioServidor {
         out.close();
     }
 
+    static void finServicio(){}
+
     static void inicializar(){
         /* Para tener datos diferentes en cada simulación */
-        random = new Random( );
+        random = new Random();
         random.setSeed( System.nanoTime() );
 
         /* Inicializa el tiempo */
         simTime = new Timer();
 
-        /* Crea e inicializa todas las colas con ningún cliente en ellas */
-        colas = new SimList[cantCajeros];
-        for (int i = 0; i < cantCajeros; i++)
-            colas[i] = new SimList<Float>("Cola #"+(i+1), 0, false);
-
         /* Crea e inicializa todos los cajeros como disponibles */
-        cajeros = new ContinStat[cantCajeros];
-        for (int i = 0; i < cantCajeros; i++)
-            cajeros[i] = new ContinStat((float)IDLE, 0, "Cajero #"+i);
+        servidor = new ContinStat( (float)IDLE, simTime.getTime(), "SERVIDOR" );
 
         /* Crea la cola de eventos */
         eventos = new SimList<>("Cola de eventos", 0, true);
 
         /* Agrega a la cola los primeros eventos */
         eventos.add(new Event(LLEGADA, distExponencial( lambdaL )));
-        eventos.add(new Event(RENUNCIA, horaCierre));
         System.out.println(eventos.getFirst().getTime()+" "+eventos.getLast().getTime());
-
-        /* Inicialmente las puertas siempre están abiertas */
-        abierto = true;
 
         /* Inicializamos el tiempo de espera */
         tiempoEspera = new DiscreteStat("TIEMPO DE ESPERA");
@@ -103,76 +92,44 @@ public class EjercicioServidor {
     }
 
     static void llegada(){
+        float tolerancia = disTriangular(3, 6, 15);
         eventos.add( new Event( LLEGADA, simTime.getTime() + distExponencial( lambdaL ) ) );
-
-        eventos.add( new Event( LLEGADA, simTime.getTime() + distExponencial( lambdaL ) ) );
-        Client cliente = new Client( simTime.getTime(), distPoisson(meanZP) );
-        if( abierto ){
-
-            SimList< Float > colaMasCorta = colas[0];
-            for ( int i = 0; i < cantCajeros; i++ ) {
-                if ( cajeros[i].getValue() == IDLE ){
-                    cajeros[i].recordContin( BUSSY, simTime.getTime() );
-                    float[] atributos = {i};
-                    eventos.add( new Event( FIN_SERVICIO, simTime.getTime() + distExponencial( meanS ), atributos ) );
-                    colaMasCorta = null;
-                    tiempoEspera.recordDiscrete(0);
-                    break;
-                } else if( colas[i].size() < colaMasCorta.size() )
-                    colaMasCorta = colas[i];
+        if( tolerancia >= colaClientes.size() ){
+            if (servidor.getValue() == IDLE){
+                servidor.recordContin(BUSSY, simTime.getTime());
+                tiempoEspera.recordDiscrete(0);
+                eventos.add( new Event( FIN_SERVICIO, simTime.getTime() + distExponencial( lambdaL ) ) );
+            } else {
+                Float values[] = {simTime.getTime(), (float)distPoisson(meanZP)};
+                SimListObject cliente = new SimListObject(0, values);
+                Float a[] = { values[1] };
+                colaClientes.add( cliente );
+                eventos.add( new Event( RENUNCIA, simTime.getTime() + distErlang( lambdaTE ), a ) );
             }
-            if (colaMasCorta != null){
-                colaMasCorta.addLast( simTime.getTime() );
-            }
-        }
-    }
-
-    static void finServicio(){
-        int index = (int)nowEvent.getAtribute(0);
-        cajeros[ index ].recordContin( IDLE, simTime.getTime() );
-        cambiarCola( index );
-        if( colas[ index ].size()>0 ){
-            cajeros[ index ].recordContin(BUSSY, simTime.getTime());
-            tiempoEspera.recordDiscrete( simTime.getTime()-colas[ index ].getFirst() );
-            colas[ index ].removeFirst();
-            float[] atributos = { index };
-            eventos.add( new Event( FIN_SERVICIO, simTime.getTime() + distExponencial( meanS ), atributos ) );
-        }
+        } else
+            clientesNoIngresan ++;
     }
 
     static void renunciaCliente(){
-        abierto = false;
+
     }
 
 
     static void finSim(BufferedWriter out) throws IOException {
         float cont = 0;
-        for (int i = 0; i < cantCajeros; i++) {
-            cont += colas[i].getAvgSize(simTime.getTime());
-        }
         out.write("PROMEDIO DE CLIENTES EN COLA: "+cont+"\n\n");
         tiempoEspera.report(out);
 
     }
 
-    static void cambiarCola(int index){
-        for (int i = 0; i < cantCajeros; i++) {
-            if (colas[i].size() + cajeros[i].getValue() > colas[index].size() + cajeros[index].getValue() + 1){
-                colas[index].addLast(colas[i].removeLast());
-                cambiarCola(i);
-                break;
-            }
-        }
-    }
-
     /**
      * Distribución exponencial
      *
-     * @param mean    1/lambda media de la distribución
+     * @param lambda    1/lambda media de la distribución
      * @return  valor aleatorio con distribucuón exponencial.
      */
-    private static float distExponencial(double mean){
-        return (float)(-mean*Math.log(random.nextFloat()));
+    private static float distExponencial(double lambda){
+        return (float)(-lambda*Math.log(random.nextFloat()));
     }
 
     static float disTriangular( double a, double b, double c ){
@@ -180,16 +137,16 @@ public class EjercicioServidor {
         double x;
         double aux;
         if( rand <= ((b-a)/c-a) ){
-            aux = Math.sqrt(((c-a)*(b-a)*rand));
+            aux = Math.sqrt( ( c-a )*( b-a )*rand );
             x = a + aux;
         }else{
-            aux = Math.sqrt((c-a)*(c-b)*(1-rand));
+            aux = Math.sqrt( ( c-a )*( c-b )*( 1-rand ) );
             x = c - aux;
         }
         return (float)x;
     }
 
-    public static int distPoisson(double lambda) {
+    public static int distPoisson( double lambda ){
         double L = Math.exp(-lambda);
         double p = 1.0;
         int k = 0;
@@ -200,5 +157,9 @@ public class EjercicioServidor {
         } while (p > L);
 
         return k - 1;
+    }
+
+    public static float distErlang( int mean ){
+        return distExponencial(2/mean) + distExponencial(2/mean);
     }
 }
