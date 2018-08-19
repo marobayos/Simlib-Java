@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/SimlibJava.iml" filepath="$PROJECT_DIR$/SimlibJava.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Simlib.iml" filepath="$PROJECT_DIR$/Simlib.iml" />
     </modules>
   </component>
 </project>
