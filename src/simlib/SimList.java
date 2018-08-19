@@ -8,48 +8,42 @@ import java.util.LinkedList;
 
 public class SimList <E> extends LinkedList<E> {
     private double area;
-
     private float lastUpdate;
-
     private String name;
-
     private boolean sorted;
-
     private int maxSize;
+    private Timer timer;
 
-    public SimList(String name, float timer, boolean sorted){
+    public SimList(String name, Timer timer, boolean sorted){
         this.area = 0;
-        this.lastUpdate  = timer;
+        this.lastUpdate  = timer.getTime();
+        this.timer = timer;
         this.sorted = sorted;
         this.name = name.toUpperCase();
         this.maxSize = 0;
     }
 
-    public SimList(boolean sorted){
-        this("Lista", 0, sorted);
+    public SimList(Timer timer, boolean sorted){
+        this("Lista", timer, sorted);
     }
 
-    public SimList(String name, boolean sorted){
-        this(name, 0, sorted);
+    public SimList(Timer timer){
+        this("List", timer, false);
     }
 
-    public SimList(){
-        this("List", 0, false);
+    public void update(){
+        area += this.size() * (timer.getTime() - lastUpdate);
+        this.lastUpdate = timer.getTime();
     }
 
-    public void update(float time){
-        area += this.size() * (time - lastUpdate);
-        this.lastUpdate = time;
-    }
-
-    public double getAvgSize(float time) {
-        this.update(time);
-        return this.area/time;
+    public double getAvgSize() {
+        this.update();
+        return this.area/timer.getTime();
     }
 
     public void report(BufferedWriter out, float time) throws IOException {
         out.write("REPORTE DE LA LISTA \""+name+"\":\n");
-        out.write("\tLongitud promedio: "+this.getAvgSize(time)+"\n");
+        out.write("\tLongitud promedio: "+this.getAvgSize()+"\n");
         out.write("\tLongitud máxima: "+this.maxSize+"\n\n");
     }
 

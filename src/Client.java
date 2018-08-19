@@ -1,5 +1,3 @@
-package simlib;
-
 public class Client implements Comparable<Client>{
     private Float arrivalTime;
     private int standbyTolerance;

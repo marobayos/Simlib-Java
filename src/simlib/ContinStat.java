@@ -11,23 +11,24 @@ public class ContinStat{
 	private Float max;
 	private Float min;
 	private String name;
+	private Timer timer;
 
-	public ContinStat(Float value, float present, String name) {
-		start = present;
+	public ContinStat(Float value, Timer timer, String name) {
+		start = timer.getTime();
 		area = 0;
 		prevValue = max = min = value;
-		prevTime = present;
+		prevTime = start;
 		this.name = name.toUpperCase();
 	}
 
-	public ContinStat(float present, String name) {
+	public ContinStat(Timer present, String name) {
 		this(null, present, name);
 	}
 
-	public double getContinAve(float present) {
-		area += (present - prevTime)*(double)prevValue;
-		prevTime = present;
-		return area/(present - start);
+	public double getContinAve() {
+		area += (timer.getTime() - prevTime)*(double)prevValue;
+		prevTime = timer.getTime();
+		return area/(timer.getTime() - start);
 	}
 
 	public Float getContinMax() {
@@ -38,8 +39,8 @@ public class ContinStat{
 		return min;
 	}
 
-	public void recordContin(float value, float present) {
-		area += (present - prevTime)*(double)prevValue;
+	public void recordContin(float value) {
+		area += (timer.getTime() - prevTime)*(double)prevValue;
 		if (this.prevValue == null){
 			min = value;
 		}
@@ -48,16 +49,16 @@ public class ContinStat{
 		if (value < min)
 			min = value;
 		prevValue = value;
-		prevTime = present;
+		prevTime = timer.getTime();
 	}
 
 	public float getValue() {
 	    return prevValue;
     }
 
-    public void report(BufferedWriter out, float present) throws IOException {
+    public void report(BufferedWriter out) throws IOException {
 		out.write("REPORTE DEL "+name+":\n");
-		out.write("\tPromedio:\t"+getContinAve( present )+"\n");
+		out.write("\tPromedio:\t"+getContinAve( )+"\n");
 		out.write("\tValor mínimo: "+this.getContinMax()+"\n");
 		out.write("\tValor máximo: "+this.getContinMin()+"\n\n");
 	}
