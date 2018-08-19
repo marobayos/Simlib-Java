@@ -170,7 +170,7 @@ public class EjercicioServidor {
         tiempoSistema.report(out);
         tiempoEspera.report(out);
         tiempoRenuncia.report(out);
-        colaClientes.report(out, simTime.getTime());
+        colaClientes.report(out);
         servidor.report(out);
         out.write("NUMERO DE CLIENTES QUE RENUNCIAN: "+tiempoRenuncia.getDiscreteObs()+"\n\n");
         out.write("NUMERO DE CLIENTES QUE NO INGRESAN: "+ clientesNoIngresan+"\n\n");

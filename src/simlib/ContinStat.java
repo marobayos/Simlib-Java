@@ -18,7 +18,7 @@ public class ContinStat{
 		area = 0;
 		prevValue = max = min = value;
 		prevTime = start;
-		this.name = name.toUpperCase();
+		this.name = name;
 		this.timer = timer;
 	}
 
@@ -71,9 +71,26 @@ public class ContinStat{
     }
 
     public void report(SimWriter out) throws IOException {
-		out.write("REPORTE DEL "+name+":\n");
-		out.write("\tPromedio:\t"+getContinAve( )+"\n");
-		out.write("\tValor mínimo: "+this.getContinMax()+"\n");
-		out.write("\tValor máximo: "+this.getContinMin()+"\n\n");
+		out.write("************************************************************\n");
+		out.write(this.completeLine("*  STATISTIC "+name));
+		out.write("************************************************************\n");
+		out.write(completeLine(this.completeHalfLine("*  Min = "+min)+"  Max = "+max));
+		out.write(this.completeLine("*  Time interval = "+start+" - "+timer.getTime()));
+		out.write(this.completeLine("*  Average = "+this.getContinAve()));
+		out.write("************************************************************\n\n");
+	}
+
+	private String completeHalfLine(String line){
+		while (line.length()<30){
+			line += " ";
+		}
+		return line;
+	}
+
+	private String completeLine(String line){
+		while (line.length()<59){
+			line += " ";
+		}
+		return line + "*\n";
 	}
 }

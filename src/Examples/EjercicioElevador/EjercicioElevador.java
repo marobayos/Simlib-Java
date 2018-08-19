@@ -30,13 +30,13 @@ public class EjercicioElevador {
         SimWriter out = new SimWriter("OutputElevador.txt");
 
         /* LEER Y GUARDAR PARÁMETROS */
-        capacidad = Integer.parseInt( input.readLine() );
-        String in = input.readLine();
-        maxA = Integer.parseInt( in.split("-")[0] );
-        minA = Integer.parseInt( in.split("-")[1] );
-        valB = Integer.parseInt( input.readLine() );
-        distC = Integer.parseInt( input.readLine() );
-        maxTime = Double.parseDouble( input.readLine() );
+        capacidad = input.readInt();
+        input.useDelimiter('-');
+        maxA = input.readInt();
+        minA = input.readInt();
+        valB = input.readInt();
+        distC = input.readInt();
+        maxTime = input.readDouble();
 
         /* INICIALIZAR */
         inicializar();
@@ -256,7 +256,7 @@ public class EjercicioElevador {
         elevador.report(bw);
         transitoA.report(bw);
         esperaB.report(bw);
-        cajasFaltantes.report(bw, simTime.getTime());
+        cajasFaltantes.report(bw);
         bw.write("Promedio de cajas C transportadas por hora: "+totalC/simTime.getTime()*60);
     }
 

@@ -13,14 +13,20 @@ public class SimList <E> extends LinkedList<E> {
     private boolean sorted;
     private int maxSize;
     private Timer timer;
+    private float start;
+    private int total;
 
     public SimList(String name, Timer timer, boolean sorted){
         this.area = 0;
-        this.lastUpdate  = timer.getTime();
+        this.lastUpdate = this.start = timer.getTime();
         this.timer = timer;
         this.sorted = sorted;
-        this.name = name.toUpperCase();
-        this.maxSize = 0;
+        this.name = name;
+        this.maxSize = total = 0;
+    }
+
+    public SimList(String name, Timer timer) {
+        this(name, timer, false);
     }
 
     public SimList(Timer timer, boolean sorted){
@@ -41,10 +47,25 @@ public class SimList <E> extends LinkedList<E> {
         return this.area/timer.getTime();
     }
 
-    public void report(SimWriter out, float time) throws IOException {
-        out.write("REPORTE DE LA LISTA \""+name+"\":\n");
-        out.write("\tLongitud promedio: "+this.getAvgSize()+"\n");
-        out.write("\tLongitud máxima: "+this.maxSize+"\n\n");
+    public void report(SimWriter out) throws IOException {
+        out.write("************************************************************\n");
+        out.write(this.completeLine("*  LIST "+name));
+        out.write("************************************************************\n");
+        out.write(this.completeLine("*  Time interval = "+start+" - "+timer.getTime()));
+        out.write(this.completeLine("*  Incoming = "+total));
+        out.write(this.completeLine("*  Outcoming = "+(total-this.size())));
+        out.write(this.completeLine("*  Current length = "+this.size()));
+        out.write(this.completeLine("*  Maximal length = "+maxSize));
+        out.write(this.completeLine("*  Average length = "+this.getAvgSize()));
+        out.write(this.completeLine("*  Sorted = "+sorted));
+        out.write("************************************************************\n\n");
+    }
+
+    private String completeLine(String line){
+        while (line.length()<59){
+            line += " ";
+        }
+        return line + "*\n";
     }
 
     public void sort(){
@@ -58,6 +79,7 @@ public class SimList <E> extends LinkedList<E> {
             maxSize = this.size();
         if(sorted)
             this.sort();
+        total++;
     }
 
     public void addLast(E element){
@@ -66,6 +88,7 @@ public class SimList <E> extends LinkedList<E> {
             maxSize = this.size();
         if(sorted)
             this.sort();
+        total ++;
     }
 
     public boolean add(E element){
@@ -74,6 +97,7 @@ public class SimList <E> extends LinkedList<E> {
             maxSize = this.size();
         if(sorted)
             this.sort();
+        total ++;
         return res;
     }
 
@@ -83,6 +107,7 @@ public class SimList <E> extends LinkedList<E> {
             maxSize = this.size();
         if (this.sorted)
             sort();
+        total += c.size();
         return res;
     }
 
@@ -92,6 +117,7 @@ public class SimList <E> extends LinkedList<E> {
             maxSize = this.size();
         if (this.sorted)
             sort();
+        total += c.size();
         return res;
     }
 
@@ -108,6 +134,7 @@ public class SimList <E> extends LinkedList<E> {
             maxSize = this.size();
         if(sorted)
             this.sort();
+        total ++;
     }
 
     public boolean offer(E element){
@@ -116,6 +143,7 @@ public class SimList <E> extends LinkedList<E> {
             maxSize = this.size();
         if(sorted)
             this.sort();
+        total ++;
         return res;
     }
 
@@ -125,6 +153,7 @@ public class SimList <E> extends LinkedList<E> {
             maxSize = this.size();
         if(sorted)
             this.sort();
+        total ++;
         return res;
     }
     public boolean offerLast(E element){
@@ -133,6 +162,7 @@ public class SimList <E> extends LinkedList<E> {
             maxSize = this.size();
         if(sorted)
             this.sort();
+        total ++;
         return res;
     }
 
@@ -142,6 +172,7 @@ public class SimList <E> extends LinkedList<E> {
             maxSize = this.size();
         if(sorted)
             this.sort();
+        total ++;
     }
 
     public void setSorted(boolean sorted) {

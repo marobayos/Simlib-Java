@@ -9,9 +9,14 @@ public class SimWriter {
     private BufferedWriter writer;
     private String name;
 
-    public SimWriter(String file) throws IOException {
+    public SimWriter(String file, String name) throws IOException {
         this.name = file;
-        this.writer = new BufferedWriter(new FileWriter(name));
+        this.writer = new BufferedWriter(new FileWriter(file));
+        this.write(name+"\n\n");
+    }
+
+    public SimWriter(String file) throws IOException{
+        this(file, "");
     }
 
     public void write(int value) throws IOException {
@@ -33,10 +38,4 @@ public class SimWriter {
     public void close() throws IOException {
         this.writer.close();
     }
-
-    public void report(ContinStat stat){}
-
-    public void report(DiscreteStat stat){}
-
-    public void report(SimList list){}
 }

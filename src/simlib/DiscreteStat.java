@@ -16,7 +16,7 @@ public class DiscreteStat {
 		sum = 0;
 		numObs = 0;
 		max = min = prevValue = value;
-		this.name = name.toUpperCase();
+		this.name = name;
 	}
 
 	public DiscreteStat(String name) {
@@ -58,9 +58,26 @@ public class DiscreteStat {
 	}
 
 	public void report(SimWriter out) throws IOException {
-		out.write("REPORTE DEL "+name+":\n");
-		out.write("\tPromedio:\t"+getDiscreteAverage()+"\n");
-		out.write("\tValor mínimo: "+this.min+"\n");
-		out.write("\tValor máximo: "+this.max+"\n\n");
+		out.write("************************************************************\n");
+		out.write(this.completeLine("*  STATISTIC "+name));
+		out.write("************************************************************\n");
+		out.write(completeLine(this.completeHalfLine("*  Min = "+min)+"  Max = "+max));
+		out.write(this.completeLine("*  Records = "+numObs));
+		out.write(this.completeLine("*  Average = "+this.getDiscreteAverage()));
+		out.write("************************************************************\n\n");
+	}
+
+	private String completeHalfLine(String line){
+		while (line.length()<30){
+			line += " ";
+		}
+		return line;
+	}
+
+	private String completeLine(String line){
+		while (line.length()<59){
+			line += " ";
+		}
+		return line + "*\n";
 	}
 }

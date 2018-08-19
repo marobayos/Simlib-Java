@@ -1,9 +1,14 @@
+
+
 REPORTE DE SIMULACIÓN CON 4 CAJEROS
 
-PROMEDIO DE CLIENTES EN COLA: 61.949203
+PROMEDIO DE CLIENTES EN COLA: 30.50698
 
-REPORTE DEL TIEMPO DE ESPERA:
-	Promedio:	68.8256
-	Valor mínimo: 0.0
-	Valor máximo: 140.08261
+************************************************************
+*  STATISTIC Tiempo de espera                              *
+************************************************************
+*  Min = 0.0                      Max = 90.1438            *
+*  Records = 453                                           *
+*  Average = 36.31889                                      *
+************************************************************
 

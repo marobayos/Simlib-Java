@@ -2,6 +2,8 @@ package Templates;
 
 import simlib.*;
 
+import java.io.IOException;
+
 public class MainTemplate1 {
 
     static final byte EVENTO_1 = 0, EVENTO_2 = 1, EVENTO_3 = 2, FIN_SIM = 3;
@@ -89,9 +91,9 @@ public class MainTemplate1 {
         //Proceso del evento 3
     }
 
-    static void finSim(SimWriter out){
-        out.report(stat1);
-        out.report(stat2);
+    static void finSim(SimWriter out) throws IOException {
+        stat1.report(out);
+        stat2.report(out);
     }
 
 }

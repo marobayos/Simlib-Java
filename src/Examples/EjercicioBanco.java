@@ -96,7 +96,7 @@ public class EjercicioBanco {
         abierto = true;
 
         /* Inicializamos el tiempo de espera */
-        tiempoEspera = new DiscreteStat("TIEMPO DE ESPERA");
+        tiempoEspera = new DiscreteStat("Tiempo de espera");
 
     }
 

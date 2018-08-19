@@ -1,20 +1,39 @@
-REPORTE DEL ESTADO DEL ELEVADOR:
-	Promedio:	0.6495339870452881
-	Valor mínimo: 1.0
-	Valor máximo: 0.0
 
-REPORTE DEL TIEMPO DE TRÁNSITO PARA CAJAS A:
-	Promedio:	10.529297
-	Valor mínimo: 3.0
-	Valor máximo: 19.479218
 
-REPORTE DEL TIEMPO DE ESPERA PARA CAJAS B:
-	Promedio:	5.091019
-	Valor mínimo: 0.0
-	Valor máximo: 11.492386
+************************************************************
+*  STATISTIC ESTADO DEL ELEVADOR                           *
+************************************************************
+*  Min = 0.0                    Max = 1.0                  *
+*  Time interval = 0.0 - 480.0                             *
+*  Average = 0.6490159630775452                            *
+************************************************************
 
-REPORTE DE LA LISTA "CAJAS FALTANTES":
-	Longitud promedio: 2.02123924891154
-	Longitud máxima: 7
+************************************************************
+*  STATISTIC Tiempo de tránsito para cajas A               *
+************************************************************
+*  Min = 3.0                    Max = 17.721611            *
+*  Records = 93                                            *
+*  Average = 9.898619                                      *
+************************************************************
 
-Promedio de cajas C transportadas por hora: 11.5
+************************************************************
+*  STATISTIC Tiempo de espera para cajas B                 *
+************************************************************
+*  Min = 0.0                    Max = 14.15271             *
+*  Records = 78                                            *
+*  Average = 6.004059                                      *
+************************************************************
+
+************************************************************
+*  LIST Cajas faltantes                                    *
+************************************************************
+*  Time interval = 0.0 - 480.0                             *
+*  Incoming = 334                                          *
+*  Outcoming = 330                                         *
+*  Current length = 4                                      *
+*  Maximal length = 7                                      *
+*  Average length = 1.9819714883963266                     *
+*  Sorted = false                                          *
+************************************************************
+
+Promedio de cajas C transportadas por hora: 12.0
