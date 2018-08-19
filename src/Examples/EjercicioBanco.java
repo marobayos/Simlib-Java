@@ -82,7 +82,7 @@ public class EjercicioBanco {
         /* Crea e inicializa todos los cajeros como disponibles */
         cajeros = new ContinStat[cantCajeros];
         for (int i = 0; i < cantCajeros; i++)
-            cajeros[i] = new ContinStat((float)IDLE, simTime, "Cajero #"+i);
+            cajeros[i] = new ContinStat("Cajero #"+i, (float)IDLE, simTime);
 
         /* Crea la cola de eventos */
         eventos = new SimList<>("Cola de eventos", simTime, true);

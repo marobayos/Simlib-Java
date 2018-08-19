@@ -13,7 +13,7 @@ public class ContinStat{
 	private String name;
 	private Timer timer;
 
-	public ContinStat(Float value, Timer timer, String name) {
+	public ContinStat( String name, Float value, Timer timer) {
 		start = timer.getTime();
 		area = 0;
 		prevValue = max = min = value;
@@ -22,8 +22,21 @@ public class ContinStat{
 		this.timer = timer;
 	}
 
-	public ContinStat(Timer present, String name) {
-		this(null, present, name);
+	public ContinStat( String name, int value, Timer timer){
+		this(name, (float)value, timer);
+	}
+
+	public ContinStat( String name, double value, Timer timer){
+		start = timer.getTime();
+		area = 0;
+		prevValue = max = min = (float)value;
+		prevTime = start;
+		this.name = name.toUpperCase();
+		this.timer = timer;
+	}
+
+	public ContinStat( String name, Timer timer) {
+		this(name, null, timer);
 	}
 
 	public double getContinAve() {

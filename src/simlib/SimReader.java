@@ -7,14 +7,14 @@ public class SimReader {
     private String name;
     private char delimiter;
 
-    public SimReader(String name, char delimiter) throws FileNotFoundException {
-        this.name = name;
-        this.reader = new BufferedReader(new FileReader(name));
+    public SimReader(String file, char delimiter) throws FileNotFoundException {
+        this.name = file;
+        this.reader = new BufferedReader(new FileReader(file));
         this.delimiter = delimiter;
     }
 
-    public SimReader(String name) throws FileNotFoundException {
-        this(name, ' ');
+    public SimReader(String file) throws FileNotFoundException {
+        this(file, ' ');
     }
 
     public void useDelimiter(char delimit){

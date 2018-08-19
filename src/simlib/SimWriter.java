@@ -33,4 +33,10 @@ public class SimWriter {
     public void close() throws IOException {
         this.writer.close();
     }
+
+    public void report(ContinStat stat){}
+
+    public void report(DiscreteStat stat){}
+
+    public void report(SimList list){}
 }

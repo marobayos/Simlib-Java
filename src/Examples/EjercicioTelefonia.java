@@ -99,7 +99,7 @@ public class EjercicioTelefonia {
         eventos = new SimList<Event>("Lista de Eventos", simTime, true);
 
         /* Inicializa todas las líneas como disponibles */
-        lineas = new ContinStat((float)totalLineas,simTime,"lineas");
+        lineas = new ContinStat("lineas",(float)totalLineas,simTime);
 
         /* Añade primeras llamadas a la lista de eventos*/
         eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[LLAMADA_A]),(float)LLAMADA_A));

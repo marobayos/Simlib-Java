@@ -121,7 +121,7 @@ public class EjercicioElevador {
         cajasFaltantes = new SimList("Cajas faltantes", simTime, false);
 
         /* Inicializa las variables de estado y acumuladores */
-        elevador = new ContinStat((float)0.0, simTime, "estado del elevador");
+        elevador = new ContinStat( "estado del elevador", (float)0.0, simTime);
         transitoA = new DiscreteStat("Tiempo de tránsito para cajas A");
         esperaB = new DiscreteStat("Tiempo de espera para cajas B");
         totalC = 0;

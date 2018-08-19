@@ -70,7 +70,7 @@ public class EjercicioServidor {
         simTime = new Timer();
 
         /* Crea e inicializa todos los cajeros como disponibles */
-        servidor = new ContinStat( (float)IDLE, simTime, "SERVIDOR" );
+        servidor = new ContinStat( "SERVIDOR", (float)IDLE, simTime );
 
         colaClientes = new SimList<>("Cola de Clientes", simTime,false);
 
