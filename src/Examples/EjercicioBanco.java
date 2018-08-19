@@ -1,3 +1,5 @@
+package Examples;
+
 import java.io.*;
 import simlib.*;
 import java.util.Random;
@@ -16,19 +18,24 @@ public class EjercicioBanco {
     static SimList<Float>[] colas;
     static SimList<Event> eventos;
 
-    public static void main(String[] args)throws IOException {
+    public static void main(String[] args) throws Exception {
         /* ABRIR ARCHIVOS */
-        BufferedReader input = new BufferedReader( new FileReader("InputBanco.txt") );
-        BufferedWriter out = new BufferedWriter(new FileWriter("OutputBanco.txt"));
+        SimReader input = new SimReader("InputBanco.txt");
+        SimWriter out = new SimWriter("OutputBanco.txt");
 
         /* LEER Y GUARDAR PARÁMETROS */
         int inicio, fin;
-        inicio = Integer.parseInt( input.readLine() );
-        fin = Integer.parseInt( input.readLine() );
+        inicio = input.readInt();
+        System.out.println(inicio);
+        fin = input.readInt();
+        System.out.println(fin);
         horaCierre = (fin-inicio)*60;
-        meanL = Float.parseFloat( input.readLine() );
-        meanS = Float.parseFloat( input.readLine() );
-        cantCajeros = Integer.parseInt( input.readLine() );
+        meanL = input.readFloat();
+        System.out.println(meanL);
+        meanS = input.readFloat();
+        System.out.println(meanS);
+        cantCajeros = input.readInt();
+        System.out.println(cantCajeros);
 
         out.write("REPORTE DE SIMULACIÓN CON "+cantCajeros+" CAJEROS\n\n");
 
@@ -36,6 +43,7 @@ public class EjercicioBanco {
         inicializar();
         System.out.println("Init");
         do {
+
             sincronizar();
             switch ( nowEvent.getType() ) {
                 case LLEGADA:
@@ -66,19 +74,18 @@ public class EjercicioBanco {
 
         /* Inicializa el tiempo */
         simTime = new Timer();
-
         /* Crea e inicializa todas las colas con ningún cliente en ellas */
         colas = new SimList[cantCajeros];
         for (int i = 0; i < cantCajeros; i++)
-            colas[i] = new SimList<Float>("Cola #"+(i+1), 0, false);
+            colas[i] = new SimList<Float>("Cola #"+(i+1), simTime, false);
 
         /* Crea e inicializa todos los cajeros como disponibles */
         cajeros = new ContinStat[cantCajeros];
         for (int i = 0; i < cantCajeros; i++)
-            cajeros[i] = new ContinStat((float)IDLE, 0, "Cajero #"+i);
+            cajeros[i] = new ContinStat((float)IDLE, simTime, "Cajero #"+i);
 
         /* Crea la cola de eventos */
-        eventos = new SimList<>("Cola de eventos", 0, true);
+        eventos = new SimList<>("Cola de eventos", simTime, true);
         
         /* Agrega a la cola los primeros eventos */
         eventos.add(new Event(LLEGADA, distExponencial( meanL )));
@@ -94,8 +101,9 @@ public class EjercicioBanco {
     }
 
     static void sincronizar(){
+          //IMPRIME EN CONSOLA DE MANERA GRAFICA EL ESTADO DE LAS COLAS Y LOS CAJEROS
         for (int i = 0; i <cantCajeros; i++){
-            colas[i].update(simTime.getTime());
+            colas[i].update();
             System.out.print(i+": ");
             for (int j = 0; j < colas[i].size() ; j++) {
                 System.out.print("º");
@@ -118,7 +126,7 @@ public class EjercicioBanco {
             SimList< Float > colaMasCorta = colas[0];
             for ( int i = 0; i < cantCajeros; i++ ) {
                 if ( cajeros[i].getValue() == IDLE ){
-                    cajeros[i].recordContin( BUSSY, simTime.getTime() );
+                    cajeros[i].recordContin( BUSSY );
                     eventos.add( new Event(FIN_SERVICIO, simTime.getTime() + distExponencial( meanS ), (float)i ) );
                     colaMasCorta = null;
                     tiempoEspera.recordDiscrete(0);
@@ -134,10 +142,10 @@ public class EjercicioBanco {
 
     static void finServicio(){
         int index = (int)nowEvent.getAtribute(0);
-        cajeros[ index ].recordContin( IDLE, simTime.getTime() );
+        cajeros[ index ].recordContin( IDLE );
         cambiarCola( index );
         if( colas[ index ].size()>0 ){
-            cajeros[ index ].recordContin(BUSSY, simTime.getTime());
+            cajeros[ index ].recordContin( BUSSY );
             tiempoEspera.recordDiscrete( simTime.getTime()-colas[ index ].getFirst() );
             colas[ index ].removeFirst();
             eventos.add( new Event( FIN_SERVICIO, simTime.getTime() + distExponencial( meanS ), (float)index ) );
@@ -149,10 +157,10 @@ public class EjercicioBanco {
     }
 
 
-    static void finSim(BufferedWriter out) throws IOException {
+    static void finSim(SimWriter out) throws IOException {
         float cont = 0;
         for (int i = 0; i < cantCajeros; i++) {
-            cont += colas[i].getAvgSize(simTime.getTime());
+            cont += colas[i].getAvgSize();
         }
         out.write("PROMEDIO DE CLIENTES EN COLA: "+cont+"\n\n");
         tiempoEspera.report(out);

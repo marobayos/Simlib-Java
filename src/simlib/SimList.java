@@ -41,7 +41,7 @@ public class SimList <E> extends LinkedList<E> {
         return this.area/timer.getTime();
     }
 
-    public void report(BufferedWriter out, float time) throws IOException {
+    public void report(SimWriter out, float time) throws IOException {
         out.write("REPORTE DE LA LISTA \""+name+"\":\n");
         out.write("\tLongitud promedio: "+this.getAvgSize()+"\n");
         out.write("\tLongitud máxima: "+this.maxSize+"\n\n");

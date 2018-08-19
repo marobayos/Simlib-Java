@@ -1,6 +1,6 @@
 package simlib;
 
-import Exception.*;
+import simlib.Exception.*;
 
 public abstract class SimObject{
 

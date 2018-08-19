@@ -1,3 +1,5 @@
+package Examples;
+
 import simlib.*;
 import java.io.*;
 import java.util.Random;
@@ -20,8 +22,8 @@ public class EjercicioTelefonia {
 
     public static void main( String[]args )throws IOException {
         /* ABRIR ARCHIVOS */
-        BufferedReader input = new BufferedReader( new FileReader("InputTelefonia.txt") );
-        BufferedWriter out = new BufferedWriter(new FileWriter("OutputTelefonia.txt"));
+        SimReader input = new SimReader("InputTelefonia.txt");
+        SimWriter out = new SimWriter("OutputTelefonia.txt");
 
         /* LEER Y GUARDAR PARÁMETROS */
         totalLineas = Integer.parseInt( input.readLine() );
@@ -38,7 +40,6 @@ public class EjercicioTelefonia {
         /* INICIALIZAR */
 
         double it = 0;
-        while( x<0.045 ) {
 
             inicializar();
             System.out.println("Init");
@@ -59,7 +60,7 @@ public class EjercicioTelefonia {
             } while ( now_event.getType() != FIN_SIM );
             it++;
             System.out.println(it);
-        }
+
         /* CERRAR ARCHIVOS */
         input.close();
         out.close();
@@ -95,10 +96,10 @@ public class EjercicioTelefonia {
         simTime = new Timer( );
 
         /* Inicializa la lista de eventos */
-        eventos = new SimList<Event>("Lista de Eventos", 0, true);
+        eventos = new SimList<Event>("Lista de Eventos", simTime, true);
 
         /* Inicializa todas las líneas como disponibles */
-        lineas = new ContinStat((float)totalLineas,simTime.getTime(),"lineas");
+        lineas = new ContinStat((float)totalLineas,simTime,"lineas");
 
         /* Añade primeras llamadas a la lista de eventos*/
         eventos.add(new Event(LLAMADA, simTime.getTime() + distExponencial(means[LLAMADA_A]),(float)LLAMADA_A));
@@ -119,7 +120,7 @@ public class EjercicioTelefonia {
                 distExponencial(means[(int) now_event.getAtribute(ORIGEN)]),
                 now_event.getAtribute(ORIGEN)));
         if (lineas.getValue()>=1){
-            lineas.recordContin(lineas.getValue()-1, simTime.getTime());
+            lineas.recordContin(lineas.getValue()-1);
             eventos.add( new Event(FIN_LLAMADA, simTime.getTime()+ distUniforme(max, min)));
             llamadasAtendidas ++;
         } else
@@ -127,7 +128,7 @@ public class EjercicioTelefonia {
     }
 
     private static void finLlamada(){
-        lineas.recordContin(lineas.getValue()+1, simTime.getTime());
+        lineas.recordContin(lineas.getValue()+1);
     }
     /**
      * Fin de la simulación: Actualiza una última vez las variables del sistema, y
@@ -135,12 +136,12 @@ public class EjercicioTelefonia {
      *
      * @param bw   archivo en el que se guardarán los datos.
      */
-    private static void finSim(BufferedWriter bw) throws IOException {
+    private static void finSim(SimWriter bw) throws IOException {
 
         x = (double)llamadasBloqueadas/(double)(llamadasAtendidas+llamadasBloqueadas);
 
-        bw.write("Promedio de líneas ocupadas: "+(totalLineas-lineas.getContinAve(simTime.getTime()))+"\n");
-        bw.write("Proporción promedio de líneas ocupadas: "+(totalLineas-lineas.getContinAve(simTime.getTime()))/(totalLineas)+"\n");
+        bw.write("Promedio de líneas ocupadas: "+(totalLineas-lineas.getContinAve())+"\n");
+        bw.write("Proporción promedio de líneas ocupadas: "+(totalLineas-lineas.getContinAve())/(totalLineas)+"\n");
         bw.write("Cantidad de llamadas bloquedas: "+llamadasBloqueadas+"\n");
         bw.write("Proporción de llamadas bloquedas: "+(double)llamadasBloqueadas/(double)(llamadasAtendidas+llamadasBloqueadas)+"\n");
     }

@@ -23,34 +23,38 @@ public class SimReader {
 
     private String nextToken() throws IOException {
         String token = "";
-        char last = (char)reader.read();
-        while (last == delimiter || last == '\n'){
-            last = (char)reader.read();
+        int last = reader.read();
+        while ((char)last == delimiter || (char)last == '\n' || last == -1){
+            last = reader.read();
         }
-        while (last != delimiter && last != '\n'){
-            token = token + last;
-            last = (char)reader.read();
+        while ((char)last != delimiter && (char)last != '\n' && last != -1){
+            token = token + (char)last;
+            last = reader.read();
         }
         return token;
     }
 
-    private int readInt() throws IOException {
+    public int readInt() throws IOException {
         return Integer.parseInt(this.nextToken());
     }
 
-    private float readFloat() throws IOException {
+    public float readFloat() throws IOException {
         return Float.parseFloat(this.nextToken());
     }
 
-    private double readDouble() throws IOException {
+    public double readDouble() throws IOException {
         return Double.parseDouble(this.nextToken());
     }
 
-    private String read() throws IOException {
+    public String read() throws IOException {
         return this.nextToken();
     }
 
-    private String readLine() throws IOException {
+    public String readLine() throws IOException {
         return this.reader.readLine();
+    }
+
+    public void close() throws IOException {
+        this.reader.close();
     }
 }

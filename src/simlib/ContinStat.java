@@ -19,6 +19,7 @@ public class ContinStat{
 		prevValue = max = min = value;
 		prevTime = start;
 		this.name = name.toUpperCase();
+		this.timer = timer;
 	}
 
 	public ContinStat(Timer present, String name) {
@@ -40,7 +41,7 @@ public class ContinStat{
 	}
 
 	public void recordContin(float value) {
-		area += (timer.getTime() - prevTime)*(double)prevValue;
+		area += (this.timer.getTime() - prevTime)*(double)prevValue;
 		if (this.prevValue == null){
 			min = value;
 		}
@@ -56,7 +57,7 @@ public class ContinStat{
 	    return prevValue;
     }
 
-    public void report(BufferedWriter out) throws IOException {
+    public void report(SimWriter out) throws IOException {
 		out.write("REPORTE DEL "+name+":\n");
 		out.write("\tPromedio:\t"+getContinAve( )+"\n");
 		out.write("\tValor mínimo: "+this.getContinMax()+"\n");

@@ -1,3 +1,5 @@
+package Examples;
+
 import simlib.*;
 import java.io.*;
 import java.util.Random;
@@ -19,8 +21,8 @@ public class EjercicioServidor {
 
     public static void main(String[] args)throws IOException {
         /* ABRIR ARCHIVOS */
-        BufferedReader input = new BufferedReader( new FileReader("InputServidor.txt") );
-        BufferedWriter out = new BufferedWriter(new FileWriter("OutputServidor.txt"));
+        SimReader input = new SimReader("InputServidor.txt");
+        SimWriter out = new SimWriter("OutputServidor.txt");
 
         /* LEER Y GUARDAR PARÁMETROS */
         lambdaL = Float.parseFloat( input.readLine() );
@@ -68,12 +70,12 @@ public class EjercicioServidor {
         simTime = new Timer();
 
         /* Crea e inicializa todos los cajeros como disponibles */
-        servidor = new ContinStat( (float)IDLE, simTime.getTime(), "SERVIDOR" );
+        servidor = new ContinStat( (float)IDLE, simTime, "SERVIDOR" );
 
-        colaClientes = new SimList<>("Cola de Clientes", 0,false);
+        colaClientes = new SimList<>("Cola de Clientes", simTime,false);
 
         /* Crea la cola de eventos */
-        eventos = new SimList<>("Cola de eventos", 0, true);
+        eventos = new SimList<>("Cola de eventos", simTime, true);
 
         /* Agrega a la cola los primeros eventos */
         eventos.add(new Event(LLEGADA, distExponencial( lambdaL )));
@@ -89,7 +91,7 @@ public class EjercicioServidor {
     }
 
     static void sincronizar(){
-        colaClientes.update( simTime.getTime() );
+        colaClientes.update();
         System.out.print(servidor.getValue()+": ");
         for (int i = 0; i < colaClientes.size() ; i++) {
             System.out.print("º");
@@ -112,7 +114,7 @@ public class EjercicioServidor {
         if( tolerancia >= colaClientes.size() ){
             if ( servidor.getValue() == IDLE ){
                 float tiempoServicio =  distExponencial( meanS );
-                servidor.recordContin( BUSSY, simTime.getTime() );
+                servidor.recordContin( BUSSY );
                 tiempoEspera.recordDiscrete( 0  );
                 eventos.add( new Event( FIN_SERVICIO,simTime.getTime() + tiempoServicio ) );
                 tiempoSistema.recordDiscrete( tiempoServicio );
@@ -142,7 +144,7 @@ public class EjercicioServidor {
     static void finServicio(){
         SimListObject cliente = null;
         if( colaClientes.isEmpty() ){
-            servidor.recordContin((float) IDLE, simTime.getTime());
+            servidor.recordContin((float) IDLE);
         } else {
             float tiempoServicio =  distExponencial( meanS );
             cliente = colaClientes.removeFirst();
@@ -164,12 +166,12 @@ public class EjercicioServidor {
     }
 
 
-    static void finSim(BufferedWriter out) throws IOException {
+    static void finSim(SimWriter out) throws IOException {
         tiempoSistema.report(out);
         tiempoEspera.report(out);
         tiempoRenuncia.report(out);
         colaClientes.report(out, simTime.getTime());
-        servidor.report(out, simTime.getTime());
+        servidor.report(out);
         out.write("NUMERO DE CLIENTES QUE RENUNCIAN: "+tiempoRenuncia.getDiscreteObs()+"\n\n");
         out.write("NUMERO DE CLIENTES QUE NO INGRESAN: "+ clientesNoIngresan+"\n\n");
     }

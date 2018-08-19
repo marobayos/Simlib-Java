@@ -1,3 +1,5 @@
+package Examples.EjercicioElevador;
+
 public class Box implements Comparable<Box> {
     private float arriveTime;
     private char boxType;

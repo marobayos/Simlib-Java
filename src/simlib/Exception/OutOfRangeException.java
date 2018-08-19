@@ -1,4 +1,4 @@
-package Exception;
+package simlib.Exception;
 
 public class OutOfRangeException extends RuntimeException {
 	public OutOfRangeException(String name, int size, int index) {

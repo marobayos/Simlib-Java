@@ -57,7 +57,7 @@ public class DiscreteStat {
 		return sum/numObs;
 	}
 
-	public void report(BufferedWriter out) throws IOException {
+	public void report(SimWriter out) throws IOException {
 		out.write("REPORTE DEL "+name+":\n");
 		out.write("\tPromedio:\t"+getDiscreteAverage()+"\n");
 		out.write("\tValor mínimo: "+this.min+"\n");

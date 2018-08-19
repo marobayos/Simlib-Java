@@ -1,3 +1,5 @@
+package Examples.EjercicioElevador;
+
 import simlib.*;
 
 import java.io.*;
@@ -15,17 +17,17 @@ public class EjercicioElevador {
     static Timer simTime;
     static DiscreteStat transitoA, esperaB;
     static int totalC;
-    static SimList< Box > cajasATransportar;
+    static SimList<Box> cajasATransportar;
     static SimList< Event > eventos;
-    static SimList< Box > cajasFaltantes;
+    static SimList<Box> cajasFaltantes;
     static ContinStat elevador;
     static byte eventType;
     static int viajes = 0;
 
     public static void main(String[]args)throws IOException {
         /* ABRIR ARCHIVOS */
-        BufferedReader input = new BufferedReader( new FileReader("InputElevador.txt") );
-        BufferedWriter out = new BufferedWriter(new FileWriter("OutputElevador.txt"));
+        SimReader input = new SimReader("InputElevador.txt") ;
+        SimWriter out = new SimWriter("OutputElevador.txt");
 
         /* LEER Y GUARDAR PARÁMETROS */
         capacidad = Integer.parseInt( input.readLine() );
@@ -87,7 +89,7 @@ public class EjercicioElevador {
         eventos.removeFirst();
 
         //Actualiza acumuladores estadísticos
-        cajasFaltantes.update(simTime.getTime());
+        cajasFaltantes.update();
     }
 
     /**
@@ -104,7 +106,7 @@ public class EjercicioElevador {
         simTime = new Timer( );
 
         /* Inicializa la lista de eventos */
-        eventos = new SimList<Event>("Lista de Eventos", 0, true);
+        eventos = new SimList<Event>("Lista de Eventos", simTime, true);
 
         /* Programa la primera llevada de cada tipo de caja */
         eventos.add( new Event( LLEGADA_A , simTime.getTime()+distUniforme( maxA, minA ) ) );
@@ -115,11 +117,11 @@ public class EjercicioElevador {
         eventos.add( new Event( FIN_SIM , (float)maxTime ) );
 
         /* Inicializa las demás colas y listas */
-        cajasATransportar = new SimList<Box>("Cajas a transportar", 0, false);
-        cajasFaltantes = new SimList("Cajas faltantes", 0, false);
+        cajasATransportar = new SimList<Box>("Cajas a transportar", simTime, false);
+        cajasFaltantes = new SimList("Cajas faltantes", simTime, false);
 
         /* Inicializa las variables de estado y acumuladores */
-        elevador = new ContinStat((float)0.0, simTime.getTime(), "estado del elevador");
+        elevador = new ContinStat((float)0.0, simTime, "estado del elevador");
         transitoA = new DiscreteStat("Tiempo de tránsito para cajas A");
         esperaB = new DiscreteStat("Tiempo de espera para cajas B");
         totalC = 0;
@@ -213,7 +215,7 @@ public class EjercicioElevador {
     }
 
     private static void cargarElevador(){
-        elevador.recordContin(BUSSY, simTime.getTime());
+        elevador.recordContin( BUSSY );
         for (Box caja : cajasATransportar){
             if (caja.getBoxType() == 'B'){
                 esperaB.recordDiscrete(simTime.getTime()-caja.getArriveTime());
@@ -227,8 +229,8 @@ public class EjercicioElevador {
      * se completa, carga el elevador y programa su descarga.
      */
     private static void regreso(){
-        elevador.recordContin( IDLE, simTime.getTime() );
-        SimList<Box> cajasRestantes = new SimList<>();
+        elevador.recordContin( IDLE );
+        SimList<Box> cajasRestantes = new SimList<>(simTime);
         for(Box caja : cajasFaltantes){
             if (caja.getWeight() + pesoEnElevador <= capacidad){
                 cajasATransportar.add(caja);
@@ -250,8 +252,8 @@ public class EjercicioElevador {
      *
      * @param bw   archivo en el que se guardarán los datos.
      */
-    private static void finSim(BufferedWriter bw) throws IOException {
-        elevador.report(bw, simTime.getTime());
+    private static void finSim(SimWriter bw) throws IOException {
+        elevador.report(bw);
         transitoA.report(bw);
         esperaB.report(bw);
         cajasFaltantes.report(bw, simTime.getTime());

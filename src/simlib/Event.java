@@ -1,7 +1,5 @@
 package simlib;
 
-import Exception.*;
-
 public class Event extends SimObject implements Comparable<Event>{
     private byte eventType;
     private float time;

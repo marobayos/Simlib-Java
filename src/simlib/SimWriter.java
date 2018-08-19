@@ -9,24 +9,28 @@ public class SimWriter {
     private BufferedWriter writer;
     private String name;
 
-    public SimWriter(String file) throws Exception {
+    public SimWriter(String file) throws IOException {
         this.name = file;
         this.writer = new BufferedWriter(new FileWriter(name));
     }
 
-    private void write(int value) throws IOException {
+    public void write(int value) throws IOException {
         this.writer.write(value);
     }
 
-    private void write(float value) throws IOException {
+    public void write(float value) throws IOException {
         this.writer.write(Float.toString(value));
     }
 
-    private void write(double value) throws IOException {
+    public void write(double value) throws IOException {
         this.writer.write(Double.toString(value));
     }
 
-    private void write(String value) throws IOException {
+    public void write(String value) throws IOException {
         this.writer.write(value);
+    }
+
+    public void close() throws IOException {
+        this.writer.close();
     }
 }

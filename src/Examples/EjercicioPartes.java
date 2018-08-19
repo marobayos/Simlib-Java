@@ -1,3 +1,5 @@
+package Examples;
+
 import simlib.*;
 
 import java.util.Random;
@@ -106,8 +108,8 @@ public class EjercicioPartes {
             } while (evento_actual.getType() != FIN_SIMULACION);
             total_piezas_procesadas_simulaciones += num_total_piezas_procesadas;
             total_demoras_piezas_procesadas_simulaciones += total_demoras_piezas_procesadas;
-            promedio_piezas_en_cola_maquina_1 += colas[MAQUINA_1].getAvgSize(tiempo_simulacion.getTime());
-            promedio_piezas_en_cola_maquina_2 += colas[MAQUINA_2].getAvgSize(tiempo_simulacion.getTime());
+            promedio_piezas_en_cola_maquina_1 += colas[MAQUINA_1].getAvgSize();
+            promedio_piezas_en_cola_maquina_2 += colas[MAQUINA_2].getAvgSize();
         }
         bw.write("\n\n----------------------------------------" +
                 "\nPROMEDIOS GENERALES\n\n");
@@ -137,11 +139,11 @@ public class EjercicioPartes {
         total_demoras_piezas_procesadas = 0;
 
         //Inicializar la lista de eventos
-        eventos = new SimList<>(true);
+        eventos = new SimList<>(tiempo_simulacion, true);
 
         //Inicializar las colas de las máquinas
-        colas[MAQUINA_1] = new SimList<>();
-        colas[MAQUINA_2] = new SimList<>();
+        colas[MAQUINA_1] = new SimList<>(tiempo_simulacion);
+        colas[MAQUINA_2] = new SimList<>(tiempo_simulacion);
 
         //Poner las maquinas disponibles
        maquinas[MAQUINA_1] = maquinas[MAQUINA_2] = null;
@@ -173,7 +175,7 @@ public class EjercicioPartes {
 
         if(maquinas[maquina] != null)/*Si la maquina esta ocupada*/{
             colas[maquina].add(pieza_actual);
-            colas[maquina].update(tiempo_simulacion.getTime());
+            colas[maquina].update();
         }else{
             maquinas[maquina] = pieza_actual;
             eventos.add(new Event(TERMINACION,
@@ -210,9 +212,9 @@ public class EjercicioPartes {
     public static void finSimulacion(BufferedWriter bw) throws IOException {
 
         bw.write("PROMEDIO DE PIEZAS EN LA COLA DE LA MAQUINA 1: "
-                + colas[MAQUINA_1].getAvgSize(tiempo_simulacion.getTime())+ " \n");
+                + colas[MAQUINA_1].getAvgSize()+ " \n");
         bw.write("PROMEDIO DE PIEZAS EN LA COLA DE LA MAQUINA 2: "
-                + colas[MAQUINA_2].getAvgSize(tiempo_simulacion.getTime())+ " \n");
+                + colas[MAQUINA_2].getAvgSize()+ " \n");
         bw.write("PROMEDIO DE DEMORA DE LAS PIEZAS EN EL SISTEMA: "
                 + (total_demoras_piezas_procesadas/num_total_piezas_procesadas) + " min\n");
         //System.out.println(num_total_piezas_procesadas);
