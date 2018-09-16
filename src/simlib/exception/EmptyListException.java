@@ -1,8 +1,8 @@
-package simlib.Exception;
+package simlib.exception;
 
 public class EmptyListException extends RuntimeException {
 	public EmptyListException(String name) {
-		super("The " + name + " is empty");
+		super(name + " is empty");
 	}
 }
 

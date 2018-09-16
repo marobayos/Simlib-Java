@@ -1,7 +1,7 @@
-package simlib.Exception;
+package simlib.exception;
 
 public class OutOfRangeException extends RuntimeException {
 	public OutOfRangeException(String name, int size, int index) {
-		super("The " + name + " has not "+index+" beause has only "+size);
+		super(name + " can't have attribute "+index+" because it has only "+size+" positions.");
 	}
 }

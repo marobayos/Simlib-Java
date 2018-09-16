@@ -9,12 +9,12 @@ import java.util.LinkedList;
 public class SimList <E> extends LinkedList<E> {
     private double area;
     private float lastUpdate;
-    private String name;
+    protected String name;
     private boolean sorted;
     private int maxSize;
     private Timer timer;
     private float start;
-    private int total;
+    protected int total;
 
     public SimList(String name, Timer timer, boolean sorted){
         this.area = 0;
