@@ -1,4 +1,7 @@
-package simlib;
+package simlib.collection;
+
+import simlib.SimWriter;
+import simlib.Timer;
 
 import java.io.BufferedWriter;
 import java.io.IOException;
@@ -49,7 +52,7 @@ public class SimList <E> extends LinkedList<E> {
 
     public void report(SimWriter out) throws IOException {
         out.write("************************************************************\n");
-        out.write(this.completeLine("*  LIST "+name));
+        out.write(this.completeLine("*  SIM LIST "+name));
         out.write("************************************************************\n");
         out.write(this.completeLine("*  Time interval = "+start+" - "+timer.getTime()));
         out.write(this.completeLine("*  Incoming = "+total));

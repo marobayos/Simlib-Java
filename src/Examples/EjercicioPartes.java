@@ -1,6 +1,7 @@
 package Examples;
 
 import simlib.*;
+import simlib.collection.SimList;
 
 import java.util.Random;
 import java.util.StringTokenizer;

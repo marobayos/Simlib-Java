@@ -1,6 +1,8 @@
 package Examples;
 
 import simlib.*;
+import simlib.collection.SimList;
+
 import java.io.*;
 import java.util.Random;
 

@@ -2,6 +2,8 @@ package Examples;
 
 import java.io.*;
 import simlib.*;
+import simlib.collection.SimList;
+
 import java.util.Random;
 
 public class EjercicioBanco {

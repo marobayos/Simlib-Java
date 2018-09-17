@@ -1,6 +1,7 @@
 package Templates;
 
 import simlib.*;
+import simlib.collection.SimList;
 
 import java.io.IOException;
 
