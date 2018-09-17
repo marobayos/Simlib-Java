@@ -1,17 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="198620d2-dfef-4267-bf1f-a268b4d56623" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/simlib/SimLib.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/simlib/collection/EventsList.java" afterDir="false" />
+    <list default="true" id="198620d2-dfef-4267-bf1f-a268b4d56623" name="Default" comment="New EventsList class and SimList moved to the correct Package.">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/EjercicioBanco.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/EjercicioBanco.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/EjercicioElevador/EjercicioElevador.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/EjercicioElevador/EjercicioElevador.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/EjercicioPartes.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/EjercicioPartes.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/EjercicioServidor.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/EjercicioServidor.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/EjercicioTelefonia.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/EjercicioTelefonia.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Examples/EjercicioBanco.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Examples/EjercicioElevador/Box.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Examples/EjercicioElevador/EjercicioElevador.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Examples/EjercicioPartes.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Examples/EjercicioServidor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Examples/EjercicioTelefonia.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Templates/MainTemplate1.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Templates/MainTemplate1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/SimList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/SimList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/ContinStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/elements/ContinStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/DiscreteStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/elements/DiscreteStat.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/elements/Event.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/elements/Facility.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/Random.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/Random.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/SimListObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/SimObject.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/SimReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/io/SimReader.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/SimWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/io/SimWriter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/Store.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/elements/Store.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/Timer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/elements/Timer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/collection/ArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/ArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/collection/Collection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/Collection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/collection/EventsList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/EventsList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/collection/LinkedList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/LinkedList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/collection/PriorityQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/PriorityQueue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/collection/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/Queue.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/collection/SimList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/SimList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/collection/Stack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/Stack.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -26,7 +44,7 @@
       <file leaf-file-name="LinkedList.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simlib/collection/LinkedList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
+            <state relative-caret-position="460">
               <caret line="48" column="21" lean-forward="true" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
@@ -45,29 +63,50 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PriorityQueue.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simlib/collection/PriorityQueue.java">
+      <file leaf-file-name="Timer.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simlib/elements/Timer.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="121">
-              <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
+            <state relative-caret-position="40">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ContinStat.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simlib/ContinStat.java">
+      <file leaf-file-name="Event.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simlib/elements/Event.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="94" column="5" lean-forward="true" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
+            <state relative-caret-position="320">
+              <caret line="39" column="77" selection-start-line="39" selection-start-column="77" selection-end-line="39" selection-end-column="77" />
+              <folding>
+                <element signature="e#349#350#0" expanded="true" />
+                <element signature="e#400#401#0" expanded="true" />
+                <element signature="e#464#465#0" expanded="true" />
+                <element signature="e#514#515#0" expanded="true" />
+                <element signature="e#688#689#0" expanded="true" />
+                <element signature="e#725#726#0" expanded="true" />
+                <element signature="e#754#755#0" expanded="true" />
+                <element signature="e#786#787#0" expanded="true" />
+                <element signature="e#972#973#0" expanded="true" />
+                <element signature="e#1013#1014#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DiscreteStat.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simlib/DiscreteStat.java">
+      <file leaf-file-name="Facility.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simlib/elements/Facility.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-419">
-              <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
+            <state relative-caret-position="40">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Random.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simlib/Random.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-1339">
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -75,91 +114,44 @@
       <file leaf-file-name="EventsList.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/simlib/collection/EventsList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="481">
-              <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+            <state relative-caret-position="467">
+              <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#203#204#0" expanded="true" />
-                <element signature="e#237#238#0" expanded="true" />
-                <element signature="e#278#279#0" expanded="true" />
-                <element signature="e#297#298#0" expanded="true" />
-                <element signature="e#383#384#0" expanded="true" />
-                <element signature="e#402#403#0" expanded="true" />
-                <element signature="e#483#484#0" expanded="true" />
-                <element signature="e#517#518#0" expanded="true" />
-                <element signature="e#547#548#0" expanded="true" />
-                <element signature="e#573#574#0" expanded="true" />
-                <element signature="e#609#610#0" expanded="true" />
-                <element signature="e#635#636#0" expanded="true" />
+                <element signature="e#668#669#0" expanded="true" />
+                <element signature="e#711#712#0" expanded="true" />
+                <element signature="e#745#746#0" expanded="true" />
+                <element signature="e#771#772#0" expanded="true" />
+                <element signature="e#838#839#0" expanded="true" />
+                <element signature="e#872#873#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimList.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simlib/collection/SimList.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="241">
-              <caret line="54" column="44" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="LinkedList.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_181/src.zip!/java/util/LinkedList.java">
+      <file leaf-file-name="Store.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simlib/elements/Store.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="40">
-              <caret line="336" column="19" selection-start-line="336" selection-start-column="19" selection-end-line="336" selection-end-column="19" />
+              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Event.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simlib/Event.java">
+      <file leaf-file-name="ContinStat.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simlib/elements/ContinStat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="21">
-              <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
+            <state relative-caret-position="80">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Queue.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simlib/collection/Queue.java">
+      <file leaf-file-name="DiscreteStat.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simlib/elements/DiscreteStat.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="122">
-              <caret line="28" column="19" selection-start-line="28" selection-start-column="19" selection-end-line="28" selection-end-column="19" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#offer#0;class#Queue#0" />
-                <element signature="method#poll#0;class#Queue#0" />
-                <element signature="method#remove#0;class#Queue#0" />
-                <element signature="method#clear#0;class#Queue#0" />
-                <element signature="method#search#0;class#Queue#0" />
-                <element signature="method#get#0;class#Queue#0" />
-                <element signature="method#report#0;class#Queue#0" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Stack.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simlib/collection/Stack.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="561">
-              <caret line="62" column="5" selection-start-line="62" selection-start-column="5" selection-end-line="62" selection-end-column="5" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="method#push#0;class#Stack#0" />
-                <element signature="method#pop#0;class#Stack#0" />
-                <element signature="method#remove#0;class#Stack#0" />
-                <element signature="method#clear#0;class#Stack#0" />
-                <element signature="method#search#0;class#Stack#0" />
-                <element signature="method#get#0;class#Stack#0" />
-                <element signature="method#report#0;class#Stack#0" />
-              </folding>
+            <state relative-caret-position="20">
+              <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
             </state>
           </provider>
         </entry>
@@ -209,6 +201,9 @@
         <option value="$PROJECT_DIR$/src/simlib/ContinStat.java" />
         <option value="$PROJECT_DIR$/src/simlib/Event.java" />
         <option value="$PROJECT_DIR$/src/simlib/collection/SimList.java" />
+        <option value="$PROJECT_DIR$/src/simlib/Random.java" />
+        <option value="$PROJECT_DIR$/src/simlib/elements/SimListObject.java" />
+        <option value="$PROJECT_DIR$/src/simlib/elements/Event.java" />
         <option value="$PROJECT_DIR$/src/simlib/collection/EventsList.java" />
       </list>
     </option>
@@ -250,20 +245,6 @@
               <item name="SimLib" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="simlib" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimLib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simlib" type="462c0819:PsiDirectoryNode" />
-              <item name="collection" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimLib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="simlib" type="462c0819:PsiDirectoryNode" />
-              <item name="exception" type="462c0819:PsiDirectoryNode" />
             </path>
           </expand>
           <select />
@@ -372,7 +353,7 @@
       <updated>1536512195091</updated>
       <workItem from="1536512217357" duration="3195000" />
       <workItem from="1537116966642" duration="12373000" />
-      <workItem from="1537145976163" duration="1516000" />
+      <workItem from="1537145976163" duration="2532000" />
     </task>
     <task id="LOCAL-00001" summary="New Collection package and abstract class, with 5 new data structures.">
       <created>1537129557107</created>
@@ -381,15 +362,21 @@
       <option name="project" value="LOCAL" />
       <updated>1537129557107</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="New EventsList class and SimList moved to the correct Package.">
+      <created>1537147590609</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1537147590609</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="17084000" />
+    <option name="totallyTimeSpent" value="18100000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
-    <editor active="true" />
     <layout>
       <window_info anchor="right" id="Palette" order="3" />
       <window_info anchor="bottom" id="TODO" order="7" />
@@ -429,7 +416,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="New Collection package and abstract class, with 5 new data structures." />
-    <option name="LAST_COMMIT_MESSAGE" value="New Collection package and abstract class, with 5 new data structures." />
+    <MESSAGE value="New EventsList class and SimList moved to the correct Package." />
+    <option name="LAST_COMMIT_MESSAGE" value="New EventsList class and SimList moved to the correct Package." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -471,7 +459,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/ContinStat.java">
+    <entry file="file://$PROJECT_DIR$/src/simlib/elements/ContinStat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="5" column="13" selection-start-line="5" selection-start-column="13" selection-end-line="5" selection-end-column="13" />
@@ -544,7 +532,7 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/DiscreteStat.java">
+    <entry file="file://$PROJECT_DIR$/src/simlib/elements/DiscreteStat.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="740">
           <caret line="49" column="24" lean-forward="true" selection-start-line="49" selection-start-column="24" selection-end-line="49" selection-end-column="24" />
@@ -619,6 +607,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
           <caret line="4" column="14" selection-start-line="4" selection-start-column="14" selection-end-line="4" selection-end-column="14" />
+          <folding>
+            <element signature="e#126#127#0" expanded="true" />
+            <element signature="e#169#170#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -636,23 +628,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/collection/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="300">
-          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/SimLib.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="340">
-          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simlib/collection/Collection.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="341">
@@ -665,20 +640,6 @@
             <element signature="method#report#0;class#Collection#0" />
             <element signature="method#completeLine#0;class#Collection#0" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/ContinStat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="94" column="5" lean-forward="true" selection-start-line="94" selection-start-column="5" selection-end-line="94" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/DiscreteStat.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-419">
-          <caret line="29" column="26" selection-start-line="29" selection-start-column="26" selection-end-line="29" selection-end-column="26" />
         </state>
       </provider>
     </entry>
@@ -716,33 +677,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/collection/LinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="48" column="21" lean-forward="true" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="class#Node#0;class#LinkedList#0" />
-            <element signature="method#insertFront#0;class#LinkedList#0" />
-            <element signature="method#insertBack#0;class#LinkedList#0" />
-            <element signature="method#removeFront#0;class#LinkedList#0" />
-            <element signature="method#removeBack#0;class#LinkedList#0" />
-            <element signature="method#remove#0;class#LinkedList#0" />
-            <element signature="method#clear#0;class#LinkedList#0" />
-            <element signature="method#find#0;class#LinkedList#0" />
-            <element signature="method#get#0;class#LinkedList#0" />
-            <element signature="method#report#0;class#LinkedList#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/Event.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="21">
-          <caret line="10" column="5" lean-forward="true" selection-start-line="10" selection-start-column="5" selection-end-line="10" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simlib/collection/PriorityQueue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="121">
@@ -760,31 +694,158 @@
     <entry file="file://$PROJECT_DIR$/src/simlib/collection/SimList.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="241">
-          <caret line="54" column="44" selection-start-line="54" selection-start-column="44" selection-end-line="54" selection-end-column="44" />
+          <caret line="52" column="44" selection-start-line="52" selection-start-column="44" selection-end-line="52" selection-end-column="44" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/collection/EventsList.java">
+    <entry file="file://$PROJECT_DIR$/src/simlib/SimLib.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="481">
-          <caret line="31" column="1" lean-forward="true" selection-start-line="31" selection-start-column="1" selection-end-line="31" selection-end-column="1" />
+        <state relative-caret-position="380">
+          <caret line="19" column="22" selection-start-line="19" selection-start-column="22" selection-end-line="19" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/io/SimReader.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="13" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/io/SimWriter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="7" column="13" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/collection/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="300">
+          <caret line="19" column="21" selection-start-line="19" selection-start-column="21" selection-end-line="19" selection-end-column="21" />
           <folding>
             <element signature="imports" expanded="true" />
-            <element signature="e#203#204#0" expanded="true" />
-            <element signature="e#237#238#0" expanded="true" />
-            <element signature="e#278#279#0" expanded="true" />
-            <element signature="e#297#298#0" expanded="true" />
-            <element signature="e#383#384#0" expanded="true" />
-            <element signature="e#402#403#0" expanded="true" />
-            <element signature="e#483#484#0" expanded="true" />
-            <element signature="e#517#518#0" expanded="true" />
-            <element signature="e#547#548#0" expanded="true" />
-            <element signature="e#573#574#0" expanded="true" />
-            <element signature="e#609#610#0" expanded="true" />
-            <element signature="e#635#636#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/collection/LinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="460">
+          <caret line="48" column="21" lean-forward="true" selection-start-line="48" selection-start-column="21" selection-end-line="48" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="class#Node#0;class#LinkedList#0" />
+            <element signature="method#insertFront#0;class#LinkedList#0" />
+            <element signature="method#insertBack#0;class#LinkedList#0" />
+            <element signature="method#removeFront#0;class#LinkedList#0" />
+            <element signature="method#removeBack#0;class#LinkedList#0" />
+            <element signature="method#remove#0;class#LinkedList#0" />
+            <element signature="method#clear#0;class#LinkedList#0" />
+            <element signature="method#find#0;class#LinkedList#0" />
+            <element signature="method#get#0;class#LinkedList#0" />
+            <element signature="method#report#0;class#LinkedList#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/elements/ContinStat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/elements/DiscreteStat.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="6" column="13" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/elements/SimObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="4" column="22" selection-start-line="4" selection-start-column="22" selection-end-line="4" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/elements/SimListObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/elements/Facility.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/elements/Store.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/elements/Timer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Examples/EjercicioBanco.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="200">
+          <caret line="151" column="34" selection-start-line="151" selection-start-column="34" selection-end-line="151" selection-end-column="34" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/Random.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1339">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/elements/Event.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="39" column="77" selection-start-line="39" selection-start-column="77" selection-end-line="39" selection-end-column="77" />
+          <folding>
+            <element signature="e#349#350#0" expanded="true" />
+            <element signature="e#400#401#0" expanded="true" />
+            <element signature="e#464#465#0" expanded="true" />
+            <element signature="e#514#515#0" expanded="true" />
+            <element signature="e#688#689#0" expanded="true" />
+            <element signature="e#725#726#0" expanded="true" />
+            <element signature="e#754#755#0" expanded="true" />
+            <element signature="e#786#787#0" expanded="true" />
+            <element signature="e#972#973#0" expanded="true" />
+            <element signature="e#1013#1014#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/collection/EventsList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="467">
+          <caret line="43" column="1" lean-forward="true" selection-start-line="43" selection-start-column="1" selection-end-line="43" selection-end-column="1" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#668#669#0" expanded="true" />
+            <element signature="e#711#712#0" expanded="true" />
+            <element signature="e#745#746#0" expanded="true" />
+            <element signature="e#771#772#0" expanded="true" />
+            <element signature="e#838#839#0" expanded="true" />
+            <element signature="e#872#873#0" expanded="true" />
           </folding>
         </state>
       </provider>

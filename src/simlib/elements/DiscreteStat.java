@@ -1,7 +1,7 @@
-package simlib;
+package simlib.elements;
 
-import java.io.BufferedWriter;
-import java.io.FileWriter;
+import simlib.io.SimWriter;
+
 import java.io.IOException;
 
 public class DiscreteStat {

@@ -1,7 +1,7 @@
 package simlib.collection;
 
-import simlib.SimWriter;
-import simlib.Timer;
+import simlib.io.SimWriter;
+import simlib.elements.Timer;
 import simlib.exception.*;
 
 import java.io.IOException;

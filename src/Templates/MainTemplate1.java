@@ -1,7 +1,12 @@
 package Templates;
 
-import simlib.*;
 import simlib.collection.SimList;
+import simlib.elements.ContinStat;
+import simlib.elements.DiscreteStat;
+import simlib.elements.Event;
+import simlib.elements.Timer;
+import simlib.io.SimReader;
+import simlib.io.SimWriter;
 
 import java.io.IOException;
 

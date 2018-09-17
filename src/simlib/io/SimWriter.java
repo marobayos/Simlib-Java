@@ -1,4 +1,4 @@
-package simlib;
+package simlib.io;
 
 import java.io.BufferedWriter;
 import java.io.FileNotFoundException;

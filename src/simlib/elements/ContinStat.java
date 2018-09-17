@@ -1,6 +1,7 @@
-package simlib;
+package simlib.elements;
 
-import java.io.BufferedWriter;
+import simlib.io.SimWriter;
+
 import java.io.IOException;
 
 public class ContinStat{

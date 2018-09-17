@@ -29,10 +29,6 @@ public class Random {
 		   927711160,  364849192, 2049576050,  638580085,  547070247
 		};
 
-	// Note there is no constructor here.  Objects are never instantiated.
-
-	// The next routine supplies a random float on the interval from 0 to 1
-	// the input is a stream # from 1 to 100
 	public static float rand(int stream) {
 		long zi, lowprd, hi31;
 

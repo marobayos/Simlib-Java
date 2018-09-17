@@ -1,4 +1,4 @@
-package simlib;
+package simlib.elements;
 
 public class Facility {
     private static final byte IDLE = 0, BUSSY = 1;

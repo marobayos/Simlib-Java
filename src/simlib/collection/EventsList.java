@@ -1,7 +1,7 @@
 package simlib.collection;
 
-import simlib.Event;
-import simlib.Timer;
+import simlib.elements.Event;
+import simlib.elements.Timer;
 
 public class EventsList extends Collection{
     private PriorityQueue<Event> data;
@@ -28,5 +28,17 @@ public class EventsList extends Collection{
 
     public int size(){
         return data.size;
+    }
+
+    public byte getType(){
+        return data.peek().getType();
+    }
+
+    public float getTime(){
+        return data.peek().getTime();
+    }
+
+    public float getAttribute( int index ){
+        return data.peek().getAttribute( index );
     }
 }

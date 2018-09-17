@@ -1,6 +1,6 @@
 package simlib.collection;
 
-import simlib.Timer;
+import simlib.elements.Timer;
 
 public class PriorityQueue<E extends Comparable> extends Collection {
 

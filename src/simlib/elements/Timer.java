@@ -1,4 +1,4 @@
-package simlib;
+package simlib.elements;
 
 public class Timer {
 	private float present;
