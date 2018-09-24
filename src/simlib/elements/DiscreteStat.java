@@ -39,6 +39,10 @@ public class DiscreteStat {
 		return min;
 	}
 
+	public float getValue() {
+	    return prevValue;
+	}
+	
 	public void recordDiscrete(float value) {
 		sum += value;
 		numObs += 1;
