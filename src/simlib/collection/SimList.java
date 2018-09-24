@@ -1,7 +1,7 @@
 package simlib.collection;
 
-import simlib.io.SimWriter;
 import simlib.elements.Timer;
+import simlib.io.SimWriter;
 
 import java.io.IOException;
 import java.util.Collection;
@@ -17,25 +17,25 @@ public class SimList <E> extends LinkedList<E> {
     private float start;
     protected int total;
 
-    public SimList(String name, Timer timer, boolean sorted){
+    public SimList(String name, boolean sorted){
         this.area = 0;
+        this.timer = Timer.getTimer();
         this.lastUpdate = this.start = timer.getTime();
-        this.timer = timer;
         this.sorted = sorted;
         this.name = name;
         this.maxSize = total = 0;
     }
 
     public SimList(String name, Timer timer) {
-        this(name, timer, false);
+        this(name, false);
     }
 
     public SimList(Timer timer, boolean sorted){
-        this("Lista", timer, sorted);
+        this("Lista", sorted);
     }
 
     public SimList(Timer timer){
-        this("List", timer, false);
+        this("List", false);
     }
 
     public void update(){

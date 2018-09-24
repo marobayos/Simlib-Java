@@ -1,7 +1,7 @@
 package simlib.collection;
 
-import simlib.io.SimWriter;
 import simlib.elements.Timer;
+import simlib.io.SimWriter;
 import simlib.exception.OutOfRangeException;
 
 import java.io.IOException;
@@ -9,8 +9,8 @@ import java.io.IOException;
 public class ArrayList<E> extends Collection{
     Object[] data;
 
-    public ArrayList(String name, Timer timer) {
-        super(name, timer);
+    public ArrayList(String name) {
+        super(name);
         this.data = new Object[15];
     }
 

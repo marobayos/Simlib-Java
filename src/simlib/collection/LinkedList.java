@@ -1,15 +1,14 @@
 package simlib.collection;
 
 import simlib.io.SimWriter;
-import simlib.elements.Timer;
 import simlib.exception.*;
 
 import java.io.IOException;
 
 public class LinkedList<E> extends Collection{
 
-    public LinkedList(String name, Timer timer) {
-        super(name, timer);
+    public LinkedList(String name) {
+        super(name);
     }
 
     private class Node<E>{

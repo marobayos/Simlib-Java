@@ -1,12 +1,8 @@
 package Templates;
 
-import simlib.collection.SimList;
-import simlib.elements.ContinStat;
-import simlib.elements.DiscreteStat;
-import simlib.elements.Event;
-import simlib.elements.Timer;
-import simlib.io.SimReader;
-import simlib.io.SimWriter;
+import simlib.collection.*;
+import simlib.elements.*;
+import simlib.io.*;
 
 import java.io.IOException;
 
@@ -15,7 +11,7 @@ public class MainTemplate1 {
     static final byte EVENTO_1 = 0, EVENTO_2 = 1, EVENTO_3 = 2, FIN_SIM = 3;
 
     static Timer timer;             // Reloj de la simulación
-    static SimList<Event> events;   // Lista de eventos
+    static EventsList events;   // Lista de eventos
     static Event nowEvent;          // Evento que está en curso
 
     // Variables de estado
@@ -64,10 +60,10 @@ public class MainTemplate1 {
         timer = new Timer();
 
         // Inicializa la cola de eventos de la simulacion
-        events = new SimList<>("Cola de eventos", timer, true);
+        events = new EventsList( timer );
 
         // Añade el primer evento a la cola de eventos
-        events.add(new Event( EVENTO_1, 0.0000 ) );
+        events.add(new Event( EVENTO_1, 0.0001 ) );
 
         stat1 = new DiscreteStat("Variable discreta");       // Ambos tipos de variable se pueden inicializar con o sin primer valor
 

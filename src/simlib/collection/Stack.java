@@ -1,15 +1,14 @@
 package simlib.collection;
 
 import simlib.io.SimWriter;
-import simlib.elements.Timer;
 import simlib.exception.EmptyListException;
 import simlib.exception.OutOfRangeException;
 
 import java.io.IOException;
 
 public class Stack<E> extends Collection {
-    public Stack(String name, Timer timer) {
-        super(name, timer);
+    public Stack(String name) {
+        super(name);
     }
 
     private class Node<E>{

@@ -1,13 +1,11 @@
 package simlib.collection;
 
-import simlib.elements.Timer;
-
 public class PriorityQueue<E extends Comparable> extends Collection {
 
     java.util.PriorityQueue<E> data;
 
-    public PriorityQueue(String name, Timer timer) {
-        super(name, timer);
+    public PriorityQueue(String name) {
+        super(name);
         data = new java.util.PriorityQueue<>();
     }
 

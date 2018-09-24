@@ -1,7 +1,6 @@
 package simlib.collection;
 
 import simlib.io.SimWriter;
-import simlib.elements.Timer;
 import simlib.exception.EmptyListException;
 import simlib.exception.OutOfRangeException;
 
@@ -9,8 +8,8 @@ import java.io.IOException;
 
 public class Queue<E> extends Collection {
 
-    public Queue(String name, Timer timer) {
-        super(name, timer);
+    public Queue(String name) {
+        super(name);
     }
 
     private class Node<E>{

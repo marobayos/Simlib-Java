@@ -6,8 +6,8 @@ import simlib.elements.Timer;
 public class EventsList extends Collection{
     private PriorityQueue<Event> data;
 
-    public EventsList(String name, Timer timer) {
-        super(name, timer);
+    public EventsList () {
+        super("Events list");
     }
 
     public void add( Event event ){
@@ -18,27 +18,15 @@ public class EventsList extends Collection{
         data.offer( new Event( type, time, atributes ) );
     }
 
-    public Event remove(){
+    public Event removeFirst(){
         return data.poll();
     }
 
-    public Event first(){
+    public Event getFirst(){
         return data.peek();
     }
 
     public int size(){
         return data.size;
-    }
-
-    public byte getType(){
-        return data.peek().getType();
-    }
-
-    public float getTime(){
-        return data.peek().getTime();
-    }
-
-    public float getAttribute( int index ){
-        return data.peek().getAttribute( index );
     }
 }

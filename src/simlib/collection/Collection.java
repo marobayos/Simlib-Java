@@ -1,7 +1,7 @@
 package simlib.collection;
 
-import simlib.io.SimWriter;
 import simlib.elements.Timer;
+import simlib.io.SimWriter;
 
 import java.io.IOException;
 
@@ -15,10 +15,10 @@ public abstract class Collection {
     protected int maxSize;
     protected int total;
 
-    public Collection(String name, Timer timer){
+    public Collection(String name){
         area = lastUpdate = start = size = total = maxSize = 0;
         this.name = name;
-        this.timer = timer;
+        this.timer = Timer.getTimer();
     };
 
     public double getAvgSize() {
