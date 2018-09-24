@@ -4,7 +4,7 @@ public class Timer {
 	private float present;
 	private static final Timer timer;
 
-	public Timer() {
+	private Timer() {
 		present = 0;
 	}
 	
