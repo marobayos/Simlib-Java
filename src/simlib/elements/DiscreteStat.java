@@ -53,7 +53,7 @@ public class DiscreteStat {
 			min = value;
 	}
 
-	public float getDiscreteAverage() {
+	public float getDiscreteAve() {
 		return sum/numObs;
 	}
 
