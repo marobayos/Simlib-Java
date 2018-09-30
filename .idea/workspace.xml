@@ -2,12 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="198620d2-dfef-4267-bf1f-a268b4d56623" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/Examples/jobshop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Examples/tscomp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/tscomp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/SimLib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/SimLib.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/collection/Collection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/Collection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/collection/PriorityQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/PriorityQueue.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -19,44 +14,18 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="tscomp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Examples/tscomp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="220">
-              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="jobshop.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Examples/jobshop.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="140">
-              <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimLib.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simlib/SimLib.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="828">
-              <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
-              <folding>
-                <element signature="imports" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ArrayList.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="ArrayList.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/simlib/collection/ArrayList.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="148">
-              <caret line="94" column="26" lean-forward="true" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
+            <state relative-caret-position="180">
+              <caret line="9" selection-start-line="9" selection-end-line="9" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="e#906#907#0" expanded="true" />
+                <element signature="e#944#945#0" expanded="true" />
+                <element signature="e#1352#1353#0" expanded="true" />
+                <element signature="e#1384#1385#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -74,7 +43,7 @@
         <entry file="file://$PROJECT_DIR$/src/simlib/collection/Stack.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="1080">
-              <caret line="64" column="17" lean-forward="true" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
+              <caret line="64" column="17" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
             </state>
           </provider>
         </entry>
@@ -159,7 +128,6 @@
         <option value="$PROJECT_DIR$/src/Examples/TimesharedComputer/Job.java" />
         <option value="$PROJECT_DIR$/src/simlib/elements/Event.java" />
         <option value="$PROJECT_DIR$/src/simlib/Random.java" />
-        <option value="$PROJECT_DIR$/src/simlib/collection/ArrayList.java" />
         <option value="$PROJECT_DIR$/src/simlib/exception/EmptyListException.java" />
         <option value="$PROJECT_DIR$/src/simlib/exception/HasAlreadyElements.java" />
         <option value="$PROJECT_DIR$/src/simlib/elements/DiscreteStat.java" />
@@ -179,6 +147,7 @@
         <option value="$PROJECT_DIR$/src/simlib/SimLib.java" />
         <option value="$PROJECT_DIR$/src/Examples/tscomp.java" />
         <option value="$PROJECT_DIR$/src/Examples/jobshop.java" />
+        <option value="$PROJECT_DIR$/src/simlib/collection/ArrayList.java" />
       </list>
     </option>
   </component>
@@ -216,12 +185,6 @@
               <item name="SimLib" type="b2602c69:ProjectViewProjectNode" />
               <item name="SimLib" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimLib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Examples" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimLib" type="b2602c69:ProjectViewProjectNode" />
@@ -389,7 +352,7 @@
       <workItem from="1538163373044" duration="4643000" />
       <workItem from="1538241343340" duration="2469000" />
       <workItem from="1538269894727" duration="11624000" />
-      <workItem from="1538319180758" duration="5420000" />
+      <workItem from="1538319180758" duration="5683000" />
     </task>
     <task id="LOCAL-00001" summary="New Collection package and abstract class, with 5 new data structures.">
       <created>1537129557107</created>
@@ -426,11 +389,25 @@
       <option name="project" value="LOCAL" />
       <updated>1538322097840</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Final version of simlib, timer and events queue has changed drastically.&#10;First example added, all runs correctly.">
+      <created>1538325944349</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1538325944349</updated>
+    </task>
+    <task id="LOCAL-00007" summary="Final version of simlib, timer and events queue has changed drastically.&#10;First example added, all runs correctly.">
+      <created>1538326130594</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1538326130594</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="55296000" />
+    <option name="totallyTimeSpent" value="55559000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -610,7 +587,13 @@
     <entry file="file://$PROJECT_DIR$/src/Examples/EjercicioBanco.java" />
     <entry file="file://$PROJECT_DIR$/src/simlib/elements/Timer.java" />
     <entry file="file://$PROJECT_DIR$/src/simlib/collection/blablabla.java" />
-    <entry file="file://$PROJECT_DIR$/src/simlib/elements/Timer.java" />
+    <entry file="file://$PROJECT_DIR$/src/simlib/elements/Timer.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="40">
+          <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/simlib/collection/EventsList.java" />
     <entry file="file://$PROJECT_DIR$/src/Templates/MainTemplate1.java" />
     <entry file="file://$PROJECT_DIR$/src/simlib/collection/SimList.java" />
@@ -779,13 +762,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/collection/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="148">
-          <caret line="94" column="26" lean-forward="true" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simlib/collection/Queue.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-672">
@@ -796,7 +772,7 @@
     <entry file="file://$PROJECT_DIR$/src/simlib/collection/Stack.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1080">
-          <caret line="64" column="17" lean-forward="true" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
+          <caret line="64" column="17" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -835,6 +811,20 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="140">
           <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/collection/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="9" selection-start-line="9" selection-end-line="9" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#906#907#0" expanded="true" />
+            <element signature="e#944#945#0" expanded="true" />
+            <element signature="e#1352#1353#0" expanded="true" />
+            <element signature="e#1384#1385#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
