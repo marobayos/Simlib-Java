@@ -1,13 +1,18 @@
 package simlib;
 
 import simlib.elements.Event;
+import simlib.elements.Element;
+import simlib.collection.Collection;
+import simlib.io.SimWriter;
 
-import java.util.HashSet;
+import java.io.IOException;
+import java.util.LinkedList;
 import java.util.PriorityQueue;
+import java.util.HashSet;
 
 public class SimLib {
     /************************************************************
-     *           EVENTS AND TIME MANAGEMENT COMPONENT           *
+     *      EVENTS, ELEMENTS AND TIME MANAGEMENT COMPONENT      *
      ************************************************************/
     public static float simTime;
     public static int eventType;

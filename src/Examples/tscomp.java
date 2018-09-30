@@ -1,9 +1,7 @@
 package Examples;
 
-import simlib.collection.Queue;
-import simlib.elements.DiscreteStat;
-import simlib.elements.Facility;
-import simlib.elements.Resource;
+import simlib.collection.*;
+import simlib.elements.*;
 import simlib.io.*;
 
 import java.io.IOException;
@@ -56,7 +54,7 @@ public class tscomp {
             /* Initialize simlib */
             initSimlib();
 
-            /* Initialize the statistical counter. */
+            /* Initialize the statistical counters and simulation elements. */
             numResponses = 0;
             responseTime = new DiscreteStat("Response times");
             CPU = new Resource<Job>("CPU");
@@ -173,7 +171,7 @@ public class tscomp {
     static void report() throws IOException {
         responseTime.report( writer );
         CPU.report( writer );
-        System.out.println("Terminó de imprimir el reporte");
+        queueCPU.report( writer );
     }
 
     static class Job {

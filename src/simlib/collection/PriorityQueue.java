@@ -1,5 +1,9 @@
 package simlib.collection;
 
+import simlib.io.SimWriter;
+
+import java.io.IOException;
+
 public class PriorityQueue<E extends Comparable> extends Collection {
 
     java.util.PriorityQueue<E> data;
@@ -7,6 +11,11 @@ public class PriorityQueue<E extends Comparable> extends Collection {
     public PriorityQueue(String name) {
         super(name);
         data = new java.util.PriorityQueue<>();
+    }
+
+    @Override
+    public void report(SimWriter out) throws IOException {
+        super.report( out, "PRIORITY QUEUE");
     }
 
     public void clear(){

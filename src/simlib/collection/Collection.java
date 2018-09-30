@@ -31,7 +31,7 @@ public abstract class Collection {
         this.lastUpdate = simTime;
     }
 
-    protected void report(SimWriter out, String kind) throws IOException {
+    protected void report( SimWriter out, String kind ) throws IOException {
         out.write("************************************************************\n");
         out.write(this.completeLine("*  "+kind+" "+name));
         out.write("************************************************************\n");
@@ -44,7 +44,9 @@ public abstract class Collection {
         out.write("************************************************************\n\n");
     }
 
-    private String completeLine(String line){
+    public abstract void report( SimWriter out ) throws IOException;
+
+    private String completeLine( String line ){
         while (line.length()<59){
             line += " ";
         }
