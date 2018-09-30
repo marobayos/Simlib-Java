@@ -1,15 +1,14 @@
 package simlib.collection;
 
-import simlib.elements.Timer;
 import simlib.io.SimWriter;
 
 import java.io.IOException;
+import static simlib.SimLib.*;
 
 public abstract class Collection {
     private double area;
     private float lastUpdate;
     protected String name;
-    private Timer timer;
     private float start;
     protected int size;
     protected int maxSize;
@@ -18,26 +17,25 @@ public abstract class Collection {
     public Collection(String name){
         area = lastUpdate = start = size = total = maxSize = 0;
         this.name = name;
-        this.timer = Timer.getTimer();
     };
 
     public double getAvgSize() {
         this.update();
-        return this.area/timer.getTime();
+        return this.area/simTime;
     }
 
     protected void update(){
         if( this.size > maxSize )
             maxSize = this.size;
-        area += this.size * (timer.getTime() - lastUpdate);
-        this.lastUpdate = timer.getTime();
+        area += this.size * (simTime - lastUpdate);
+        this.lastUpdate = simTime;
     }
 
     protected void report(SimWriter out, String kind) throws IOException {
         out.write("************************************************************\n");
         out.write(this.completeLine("*  "+kind+" "+name));
         out.write("************************************************************\n");
-        out.write(this.completeLine("*  Time interval = "+start+" - "+timer.getTime()));
+        out.write(this.completeLine("*  Time interval = "+start+" - "+simTime));
         out.write(this.completeLine("*  Incoming = "+total));
         out.write(this.completeLine("*  Outcoming = "+(total-this.size)));
         out.write(this.completeLine("*  Current length = "+this.size));

@@ -1,20 +1,17 @@
 package simlib.elements;
 
-public class Store {
+import simlib.io.SimWriter;
+import java.io.IOException;
+import static simlib.SimLib.*;
+
+public class Store extends Element{
     private long capacity;
     private long used;
-    private String name;
-    private float start;
-    private Timer timer;
-    private float area;
-    private float lastUpdate;
 
-    public Store(String name, long capacity, Timer timer){
-        this.name = name;
+    public Store(String name, long capacity){
+        super( name );
         this.capacity = capacity;
-        this.timer = timer;
-        this.start = timer.getTime();
-        this.area = this.lastUpdate = (float)0;
+        this.used = 0;
     }
 
     public void setCapacity(long capacity){
@@ -61,8 +58,26 @@ public class Store {
         this.used -= amount;
     }
 
-    private void update(){
-        area += ( timer.getTime() - lastUpdate )*used;
-        lastUpdate = timer.getTime();
+     void update(){
+        area += ( simTime - lastUpdate )*used;
+        lastUpdate = simTime;
+    }
+
+    public double getAverage(){
+        update();
+        return area/( simTime-start );
+    }
+
+    @Override
+    public void report(SimWriter out) throws IOException {
+        this.update();
+        out.write("************************************************************\n");
+        out.write(this.completeLine("*  STORE "+name));
+        out.write("************************************************************\n");
+        out.write(this.completeLine("*  Capacity = "+capacity));
+        out.write(this.completeLine("*  Status = "+ used +" used, "+ (capacity-used) +" avaliable"));
+        out.write(this.completeLine("*  Average = "+this.getAverage()));
+        out.write(this.completeLine("*  Time interval = "+start+" - "+simTime));
+        out.write("************************************************************\n\n");
     }
 }

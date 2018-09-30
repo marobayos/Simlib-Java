@@ -1,52 +1,68 @@
 package simlib.elements;
 
+import simlib.exception.*;
 import simlib.io.SimWriter;
 
 import java.io.IOException;
 
 import static simlib.SimLib.*;
 
-public class Facility extends Element{
-    private static final byte IDLE = 0, BUSSY = 1;
-    private byte status;
+public class Resource<E> extends Element{
+    private E element;
     private int request;
 
-    public Facility(String name){
+    public Resource(String name){
         super( name );
         this.request = 0;
-        this.status = 0;
+        this.element = null;
     }
 
     @Override
     public void report(SimWriter out) throws IOException {
         this.update();
         out.write("************************************************************\n");
-        out.write(this.completeLine("*  FACILITY "+name));
+        out.write(this.completeLine("*  RESOURCE "+name));
         out.write("************************************************************\n");
-        out.write(completeLine("*  Status = "+(this.isIdle()?"IDLE":"BUSSY")));
+        out.write(completeLine("*  Status = "+ (this.isIdle()?"IDLE":"BUSSY")));
         out.write(this.completeLine("*  Average = "+this.getAverage()));
         out.write(this.completeLine("*  Time interval = "+start+" - "+simTime));
         out.write(this.completeLine("*  Request = "+request));
         out.write("************************************************************\n\n");
     }
 
-    public void setIdle(){
-        this.update();
-        status = IDLE;
+    public E remove(){
+        update();
+        E value = this.element;
+        this.element = null;
+        return value;
     }
 
-    public void setBussy(){
-        this.update();
-        status = BUSSY;
-        request ++;
+    public void emplace(E element){
+        update();
+        if( this.element!=null )
+            throw new HasAlreadyElements(this.name);
+        this.element = element;
+        request++;
+    }
+
+    public E getElement(){
+        return this.element;
+    }
+
+    public E replace(E element){
+        update();
+        E value = this.element;
+        this.element = element;
+        request++;
+        return value;
     }
 
     public boolean isIdle(){
-        return this.status == IDLE;
+        return this.element == null;
     }
 
     public boolean isBussy(){
-        return this.status == BUSSY;
+        return this.element != null;
     }
 
     public double getAverage(){
@@ -55,7 +71,8 @@ public class Facility extends Element{
     }
 
      void update(){
-        area += (simTime - lastUpdate)*status;
+        if(element != null)
+            area += (simTime - lastUpdate);
         lastUpdate = simTime;
     }
 }

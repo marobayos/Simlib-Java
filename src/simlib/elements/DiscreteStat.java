@@ -1,7 +1,6 @@
 package simlib.elements;
 
 import simlib.io.SimWriter;
-
 import java.io.IOException;
 
 public class DiscreteStat {
@@ -9,13 +8,13 @@ public class DiscreteStat {
 	private int numObs;
 	private Float max;
 	private Float min;
-	private Float prevValue;
+	private Float lastUpdate;
 	private String name;
 
 	public DiscreteStat(Float value, String name){
 		sum = 0;
 		numObs = 0;
-		max = min = prevValue = value;
+		max = min = lastUpdate = value;
 		this.name = name;
 	}
 
@@ -23,33 +22,29 @@ public class DiscreteStat {
 		this(null, name);
 	}
 
-	public float getDiscreteSum() {
+	public float getSum() {
 		return sum;
 	}
 
-	public int getDiscreteObs() {
+	public int getRequest() {
 		return numObs;
 	}
 
-	public float getDiscreteMax() {
+	public float getMax() {
 		return max;
 	}
 
-	public float getDiscreteMin() {
+	public float getMin() {
 		return min;
 	}
 
-	public float getValue() {
-	    return prevValue;
-	}
-	
 	public void recordDiscrete(float value) {
 		sum += value;
 		numObs += 1;
 		if (max == null){
 			max = value;
 			min = value;
-			prevValue = value;
+			lastUpdate = value;
 		}
 		if (value > max)
 			max = value;
@@ -57,17 +52,17 @@ public class DiscreteStat {
 			min = value;
 	}
 
-	public float getDiscreteAve() {
+	public float getAverage() {
 		return sum/numObs;
 	}
 
 	public void report(SimWriter out) throws IOException {
 		out.write("************************************************************\n");
-		out.write(this.completeLine("*  STATISTIC "+name));
+		out.write(this.completeLine("*  DISCRETE STATISTIC "+name));
 		out.write("************************************************************\n");
 		out.write(completeLine(this.completeHalfLine("*  Min = "+min)+"  Max = "+max));
 		out.write(this.completeLine("*  Records = "+numObs));
-		out.write(this.completeLine("*  Average = "+this.getDiscreteAverage()));
+		out.write(this.completeLine("*  Average = "+this.getAverage()));
 		out.write("************************************************************\n\n");
 	}
 

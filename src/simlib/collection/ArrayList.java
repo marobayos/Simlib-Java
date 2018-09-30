@@ -1,6 +1,5 @@
 package simlib.collection;
 
-import simlib.elements.Timer;
 import simlib.io.SimWriter;
 import simlib.exception.OutOfRangeException;
 
@@ -66,6 +65,8 @@ public class ArrayList<E> extends Collection{
     }
 
     public E remove( int index ){
+        if( data.length <= index )
+            throw new OutOfRangeException( name, size, index );
         update();
         E value = (E) data[index];
         moveLeft(index);

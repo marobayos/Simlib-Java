@@ -24,13 +24,17 @@ public class SimReader {
     private String nextToken() throws IOException {
         String token = "";
         int last = reader.read();
-        while ((char)last == delimiter || (char)last == '\n' || last == -1){
+
+        while ((char)last == delimiter || (char)last == '\n' || last <= 31){
             last = reader.read();
         }
-        while ((char)last != delimiter && (char)last != '\n' && last != -1){
+
+        while ((char)last != delimiter && (char)last != '\n' && last > 31){
             token = token + (char)last;
             last = reader.read();
         }
+
+        System.out.println(token);
         return token;
     }
 

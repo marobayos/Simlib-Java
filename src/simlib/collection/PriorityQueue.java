@@ -43,5 +43,4 @@ public class PriorityQueue<E extends Comparable> extends Collection {
         }
         return false;
     }
-
 }

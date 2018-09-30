@@ -46,7 +46,7 @@ public class Queue<E> extends Collection {
             throw new EmptyListException(this.name);
         E data = head.data;
         head = head.next;
-        if( head.next == null)
+        if( head == null)
             tail = null;
         size --;
         return data;
