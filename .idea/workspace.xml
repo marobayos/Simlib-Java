@@ -1,29 +1,13 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="198620d2-dfef-4267-bf1f-a268b4d56623" name="Default" comment="Now EventsList is a singleton class, the usser now can only create one instance">
-      <change afterPath="$PROJECT_DIR$/src/Examples/TimesharedComputer/main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/simlib/SimLib.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/simlib/elements/Element.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/simlib/elements/Resource.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/simlib/exception/HasAlreadyElements.java" afterDir="false" />
+    <list default="true" id="198620d2-dfef-4267-bf1f-a268b4d56623" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/Examples/jobshop.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Templates/MainTemplate1.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/Random.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/collection/ArrayList.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/ArrayList.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Examples/tscomp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Examples/tscomp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/simlib/SimLib.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/SimLib.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/simlib/collection/Collection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/Collection.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/collection/EventsList.java" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/simlib/collection/PriorityQueue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/PriorityQueue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/collection/Queue.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/collection/Queue.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/collection/SimList.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/elements/ContinStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/elements/ContinStat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/elements/DiscreteStat.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/elements/DiscreteStat.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/elements/Event.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/elements/Event.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/elements/Facility.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/elements/Facility.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/elements/Store.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/elements/Store.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/elements/Timer.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/io/SimReader.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/io/SimReader.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/simlib/io/SimWriter.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/simlib/io/SimWriter.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -35,11 +19,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="main.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Examples/TimesharedComputer/main.java">
+      <file leaf-file-name="tscomp.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Examples/tscomp.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="96">
-              <caret line="174" column="29" selection-start-line="174" selection-start-column="29" selection-end-line="174" selection-end-column="29" />
+            <state relative-caret-position="220">
+              <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -47,25 +31,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SimWriter.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simlib/io/SimWriter.java">
+      <file leaf-file-name="jobshop.java" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Examples/jobshop.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="461">
-              <caret line="41" selection-start-line="41" selection-end-line="41" />
+            <state relative-caret-position="140">
+              <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="DiscreteStat.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simlib/elements/DiscreteStat.java">
+      <file leaf-file-name="SimLib.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simlib/SimLib.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="101">
-              <caret line="59" selection-start-line="59" selection-end-line="59" />
+            <state relative-caret-position="828">
+              <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
               <folding>
                 <element signature="imports" expanded="true" />
-                <element signature="e#407#408#0" expanded="true" />
-                <element signature="e#430#431#0" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ArrayList.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simlib/collection/ArrayList.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="148">
+              <caret line="94" column="26" lean-forward="true" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
             </state>
           </provider>
         </entry>
@@ -73,35 +64,30 @@
       <file leaf-file-name="Queue.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/simlib/collection/Queue.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="110">
+            <state relative-caret-position="-672">
               <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tscomp.in" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tscomp.in">
+      <file leaf-file-name="Stack.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simlib/collection/Stack.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="80">
-              <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+            <state relative-caret-position="1080">
+              <caret line="64" column="17" lean-forward="true" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="tscomp.out" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/tscomp.out">
+      <file leaf-file-name="Collection.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/simlib/collection/Collection.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="3660">
-              <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SimReader.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/simlib/io/SimReader.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="126">
-              <caret line="27" column="71" selection-start-line="27" selection-start-column="71" selection-end-line="27" selection-end-column="71" />
+            <state relative-caret-position="360">
+              <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+              <folding>
+                <element signature="imports" expanded="true" />
+                <element signature="method#completeLine#0;class#Collection#0" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -165,18 +151,14 @@
         <option value="$PROJECT_DIR$/src/simlib/collection/Stack.java" />
         <option value="$PROJECT_DIR$/src/simlib/elements/Timer.java" />
         <option value="$PROJECT_DIR$/src/simlib/collection/blablabla.java" />
-        <option value="$PROJECT_DIR$/src/Examples/jobshop.java" />
         <option value="$PROJECT_DIR$/src/Examples/TimeSharedComputer/jobshop.java" />
         <option value="$PROJECT_DIR$/src/Examples/TimeSharedComputer/Job.java" />
         <option value="$PROJECT_DIR$/src/Examples/TimeSharedComputer/TimeSharedComputer/Job.java" />
         <option value="$PROJECT_DIR$/src/Examples/TimeSharedComputer/main.java" />
         <option value="$PROJECT_DIR$/src/simlib/collection/EventsList.java" />
-        <option value="$PROJECT_DIR$/src/simlib/collection/PriorityQueue.java" />
         <option value="$PROJECT_DIR$/src/Examples/TimesharedComputer/Job.java" />
         <option value="$PROJECT_DIR$/src/simlib/elements/Event.java" />
         <option value="$PROJECT_DIR$/src/simlib/Random.java" />
-        <option value="$PROJECT_DIR$/src/simlib/SimLib.java" />
-        <option value="$PROJECT_DIR$/src/simlib/collection/Collection.java" />
         <option value="$PROJECT_DIR$/src/simlib/collection/ArrayList.java" />
         <option value="$PROJECT_DIR$/src/simlib/exception/EmptyListException.java" />
         <option value="$PROJECT_DIR$/src/simlib/exception/HasAlreadyElements.java" />
@@ -187,11 +169,16 @@
         <option value="$PROJECT_DIR$/src/simlib/elements/Store.java" />
         <option value="$PROJECT_DIR$/src/simlib/elements/ContinStat.java" />
         <option value="$PROJECT_DIR$/src/simlib/io/SimReader.java" />
-        <option value="$PROJECT_DIR$/tscomp.in" />
         <option value="$PROJECT_DIR$/src/simlib/collection/Queue.java" />
         <option value="$PROJECT_DIR$/tscomp.out" />
         <option value="$PROJECT_DIR$/src/simlib/io/SimWriter.java" />
+        <option value="$PROJECT_DIR$/tscomp.in" />
         <option value="$PROJECT_DIR$/src/Examples/TimesharedComputer/main.java" />
+        <option value="$PROJECT_DIR$/src/simlib/collection/PriorityQueue.java" />
+        <option value="$PROJECT_DIR$/src/simlib/collection/Collection.java" />
+        <option value="$PROJECT_DIR$/src/simlib/SimLib.java" />
+        <option value="$PROJECT_DIR$/src/Examples/tscomp.java" />
+        <option value="$PROJECT_DIR$/src/Examples/jobshop.java" />
       </list>
     </option>
   </component>
@@ -235,13 +222,6 @@
               <item name="SimLib" type="462c0819:PsiDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="Examples" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="SimLib" type="b2602c69:ProjectViewProjectNode" />
-              <item name="SimLib" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="Examples" type="462c0819:PsiDirectoryNode" />
-              <item name="TimesharedComputer" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="SimLib" type="b2602c69:ProjectViewProjectNode" />
@@ -409,7 +389,7 @@
       <workItem from="1538163373044" duration="4643000" />
       <workItem from="1538241343340" duration="2469000" />
       <workItem from="1538269894727" duration="11624000" />
-      <workItem from="1538319180758" duration="2486000" />
+      <workItem from="1538319180758" duration="5420000" />
     </task>
     <task id="LOCAL-00001" summary="New Collection package and abstract class, with 5 new data structures.">
       <created>1537129557107</created>
@@ -439,11 +419,18 @@
       <option name="project" value="LOCAL" />
       <updated>1537803798183</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Final version of simlib, timer and events queue has changed drastically.&#10;First example added, all runs correctly.">
+      <created>1538322097839</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1538322097840</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="52362000" />
+    <option name="totallyTimeSpent" value="55296000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="784" extended-state="6" />
@@ -459,11 +446,11 @@
       <window_info anchor="right" id="Maven Projects" order="7" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Version Control" order="11" weight="0.06288344" />
-      <window_info active="true" anchor="bottom" id="Run" order="3" visible="true" weight="0.26533744" />
+      <window_info anchor="bottom" id="Run" order="3" visible="true" weight="0.26533744" />
       <window_info anchor="bottom" id="Terminal" order="9" />
       <window_info id="Capture Tool" order="6" />
       <window_info id="Designer" order="3" />
-      <window_info content_ui="combo" id="Project" order="0" weight="0.30332828" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.30257186" />
       <window_info anchor="right" id="Database" order="6" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
@@ -520,7 +507,8 @@
     <MESSAGE value="New EventsList class and SimList moved to the correct Package." />
     <MESSAGE value="All in the correct folder, past exercises deleted." />
     <MESSAGE value="Now Timer is a singleton class, the usser now can only create one instance" />
-    <option name="LAST_COMMIT_MESSAGE" value="Now Timer is a singleton class, the usser now can only create one instance" />
+    <MESSAGE value="Final version of simlib, timer and events queue has changed drastically.&#10;First example added, all runs correctly." />
+    <option name="LAST_COMMIT_MESSAGE" value="Final version of simlib, timer and events queue has changed drastically.&#10;First example added, all runs correctly." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -528,13 +516,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/simlib/collection/Queue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="680">
-          <caret line="69" column="5" selection-start-line="69" selection-start-column="5" selection-end-line="69" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simlib/collection/Stack.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="640">
@@ -635,53 +616,6 @@
     <entry file="file://$PROJECT_DIR$/src/simlib/collection/SimList.java" />
     <entry file="file://$PROJECT_DIR$/src/Examples/TimesharedComputer/Job.java" />
     <entry file="file://$PROJECT_DIR$/src/simlib/Random.java" />
-    <entry file="file://$PROJECT_DIR$/src/simlib/SimLib.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="142">
-          <caret line="11" column="28" selection-start-line="11" selection-start-column="28" selection-end-line="11" selection-end-column="28" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#remove_event#0;class#SimLib#0" />
-            <element signature="e#3718#3719#0" expanded="true" />
-            <element signature="e#3744#3745#0" expanded="true" />
-            <element signature="e#3787#3788#0" expanded="true" />
-            <element signature="e#3813#3814#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/collection/Stack.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="681">
-          <caret line="64" column="17" lean-forward="true" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/collection/Collection.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="224">
-          <caret line="37" column="77" selection-start-line="37" selection-start-column="77" selection-end-line="37" selection-end-column="77" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="method#completeLine#0;class#Collection#0" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/collection/ArrayList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="67" column="34" lean-forward="true" selection-start-line="67" selection-start-column="34" selection-end-line="67" selection-end-column="34" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/collection/PriorityQueue.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="584">
-          <caret line="38" column="17" lean-forward="true" selection-start-line="38" selection-start-column="17" selection-end-line="38" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simlib/exception/OutOfRangeException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="100">
@@ -693,13 +627,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
           <caret line="2" column="56" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/elements/Element.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="700">
-          <caret line="35" column="18" selection-start-line="35" selection-start-column="18" selection-end-line="35" selection-end-column="18" />
+          <folding>
+            <element signature="e#121#122#0" expanded="true" />
+            <element signature="e#192#193#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -707,6 +638,10 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="61">
           <caret line="29" column="9" selection-start-line="29" selection-start-column="9" selection-end-line="29" selection-end-column="9" />
+          <folding>
+            <element signature="e#1114#1115#0" expanded="true" />
+            <element signature="e#1147#1148#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -750,13 +685,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/collection/LinkedList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="260">
-          <caret line="61" column="40" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/simlib/exception/EmptyListException.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="40">
@@ -789,10 +717,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/collection/Queue.java">
+    <entry file="file://$PROJECT_DIR$/src/simlib/io/SimWriter.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="110">
-          <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+        <state relative-caret-position="461">
+          <caret line="41" selection-start-line="41" selection-end-line="41" />
         </state>
       </provider>
     </entry>
@@ -808,34 +736,105 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/simlib/io/SimWriter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="461">
-          <caret line="41" selection-start-line="41" selection-end-line="41" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/tscomp.in">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="80">
-          <caret line="4" column="2" lean-forward="true" selection-start-line="4" selection-start-column="2" selection-end-line="4" selection-end-column="2" />
+          <caret line="4" column="4" selection-start-line="4" selection-start-column="4" selection-end-line="4" selection-end-column="4" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/tscomp.out">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3660">
-          <caret line="183" lean-forward="true" selection-start-line="183" selection-end-line="183" />
+        <state relative-caret-position="-409">
+          <caret line="117" lean-forward="true" selection-start-line="117" selection-end-line="117" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Examples/TimesharedComputer/main.java">
+    <entry file="file://$PROJECT_DIR$/src/simlib/elements/Element.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="96">
-          <caret line="174" column="29" selection-start-line="174" selection-start-column="29" selection-end-line="174" selection-end-column="29" />
+        <state relative-caret-position="411">
+          <caret line="34" column="25" selection-start-line="34" selection-start-column="25" selection-end-line="34" selection-end-column="25" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/collection/LinkedList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="260">
+          <caret line="61" column="40" selection-start-line="61" selection-start-column="22" selection-end-line="61" selection-end-column="40" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/collection/PriorityQueue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="280">
+          <caret line="20" column="24" lean-forward="true" selection-start-line="20" selection-start-column="24" selection-end-line="20" selection-end-column="24" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#383#384#0" expanded="true" />
+            <element signature="e#430#431#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/collection/ArrayList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="148">
+          <caret line="94" column="26" lean-forward="true" selection-start-line="94" selection-start-column="26" selection-end-line="94" selection-end-column="26" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/collection/Queue.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-672">
+          <caret line="48" column="16" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/collection/Stack.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1080">
+          <caret line="64" column="17" lean-forward="true" selection-start-line="64" selection-start-column="17" selection-end-line="64" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/collection/Collection.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="360">
+          <caret line="18" column="25" selection-start-line="18" selection-start-column="25" selection-end-line="18" selection-end-column="25" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="method#completeLine#0;class#Collection#0" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/simlib/SimLib.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="828">
+          <caret line="73" column="17" selection-start-line="73" selection-start-column="17" selection-end-line="73" selection-end-column="17" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Examples/tscomp.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="11" column="21" selection-start-line="11" selection-start-column="21" selection-end-line="11" selection-end-column="21" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Examples/jobshop.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="140">
+          <caret line="7" column="66" selection-start-line="7" selection-start-column="66" selection-end-line="7" selection-end-column="66" />
         </state>
       </provider>
     </entry>
