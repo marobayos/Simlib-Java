@@ -15,7 +15,7 @@ public class SimLib {
      *      EVENTS, ELEMENTS AND TIME MANAGEMENT COMPONENT      *
      ************************************************************/
     public static float simTime;
-    public static int eventType;
+        public static int eventType;
     public static float[] eventAttributes;
 
     private static PriorityQueue<Event> events;
@@ -50,7 +50,7 @@ public class SimLib {
      * @param time the time to remove events
      * @return if at least one event was removed
      */
-    public static boolean remove_event( float time ){
+    public static boolean removeEvent( float time ){
         HashSet<Event> removed = new HashSet<>();
         while( !events.isEmpty() && events.element().getTime() >= time ){
             Event  event = events.remove();

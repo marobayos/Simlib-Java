@@ -38,7 +38,7 @@ public class DiscreteStat {
 		return min;
 	}
 
-	public void recordDiscrete(float value) {
+	public void record(float value) {
 		sum += value;
 		numObs += 1;
 		if (max == null){

@@ -29,21 +29,21 @@ public class ContinStat extends Element{
 		this(name, null);
 	}
 
-	public double getContinAve() {
+	public double getAverage() {
 		area += (simTime - lastUpdate)*(double)prevValue;
 		lastUpdate = simTime;
 		return area/(simTime - start);
 	}
 
-	public Float getContinMax() {
+	public Float getMax() {
 		return max;
 	}
 
-	public Float getContinMin() {
+	public Float getMin() {
 		return min;
 	}
 
-	public void recordContin(float value) {
+	public void record(float value) {
 		update();
 		if (this.prevValue == null){
 			max = min = value;
@@ -67,7 +67,7 @@ public class ContinStat extends Element{
 		out.write("************************************************************\n");
 		out.write(completeLine(this.completeHalfLine("*  Min = "+min)+"  Max = "+max));
 		out.write(this.completeLine("*  Time interval = "+start+" - "+simTime));
-		out.write(this.completeLine("*  Average = "+this.getContinAve()));
+		out.write(this.completeLine("*  Average = "+this.getAverage()));
 		out.write("************************************************************\n\n");
 	}
 

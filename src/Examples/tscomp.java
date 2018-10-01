@@ -3,10 +3,9 @@ package Examples;
 import simlib.collection.*;
 import simlib.elements.*;
 import simlib.io.*;
+import static simlib.SimLib.*;
 
 import java.io.IOException;
-
-import static simlib.SimLib.*;
 
 public class tscomp {
     static final byte EVENT_ARRIVAL = 1, EVENT_END_CPU_RUN = 2, EVENT_END_SIMULATION = 3;
@@ -70,7 +69,6 @@ public class tscomp {
             /* Run the simulation until it terminates after an end-simulation event
             (type EVENT_END_SIMULATION) occurs. */
             do {
-                System.out.println("\t --- "+numResponses);
 
                 /* Determine the next event. */
                 timing();
