@@ -144,7 +144,7 @@ public class tscomp {
             /* This job is finished, so collect response-time statistics and send it
                back to its terminal, i.e., schedule another arrival from the same
                terminal. */
-            responseTime.recordDiscrete( simTime-job.arriveTime);
+            responseTime.record( simTime-job.arriveTime);
             eventSchedule(simTime + expon(meanThink, STREAM_THINK), EVENT_ARRIVAL);
 
             /* Increment the number of completed jobs. */

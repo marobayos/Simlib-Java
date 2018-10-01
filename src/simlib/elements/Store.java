@@ -4,7 +4,7 @@ import simlib.io.SimWriter;
 import java.io.IOException;
 import static simlib.SimLib.*;
 
-public class Store extends Element{
+public class Store<E> extends Element{
     private long capacity;
     private long used;
 
