@@ -15,7 +15,7 @@ public class SimLib {
      *      EVENTS, ELEMENTS AND TIME MANAGEMENT COMPONENT      *
      ************************************************************/
     public static float simTime;
-        public static int eventType;
+    public static int eventType;
     public static float[] eventAttributes;
 
     private static PriorityQueue<Event> events;

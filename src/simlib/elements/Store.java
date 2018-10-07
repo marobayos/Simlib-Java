@@ -18,6 +18,18 @@ public class Store<E> extends Element{
         this.capacity = capacity;
     }
 
+    public long getCapacity() {
+        return capacity;
+    }
+
+    public boolean hasSpace(){
+        return capacity!=used;
+    }
+
+    public boolean isFull(){
+        return capacity!=used;
+    }
+
     public void enter(){
         this.update();
         if ( this.used + 1 > this.capacity ){

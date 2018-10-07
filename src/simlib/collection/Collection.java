@@ -57,7 +57,7 @@ public abstract class Collection {
         return size;
     }
 
-    public boolean empty(){
+    public boolean isEmpty(){
         return size == 0;
     }
 }

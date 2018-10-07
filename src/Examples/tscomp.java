@@ -179,5 +179,6 @@ public class tscomp {
             this.remainingTime = expon(meanService, STREAM_SERVICE);
             this.arriveTime = simTime;
         }
+
     }
 }
