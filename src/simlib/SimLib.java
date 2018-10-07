@@ -27,10 +27,14 @@ public class SimLib {
     }
 
     public static void timing(){
-        simTime = events.element().getTime();
-        eventType = events.element().getType();
-        eventAttributes = events.element().getAttributes();
-        events.remove();
+        try{
+            simTime = events.element().getTime();
+            eventType = events.element().getType();
+            eventAttributes = events.element().getAttributes();
+            events.remove();
+        } catch (Exception e){
+            System.exit(1);
+        }
     }
 
     /**
