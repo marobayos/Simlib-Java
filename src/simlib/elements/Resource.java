@@ -72,7 +72,7 @@ public class Resource<E> extends Element{
 
      void update(){
         if(element != null)
-            area += (simTime - lastUpdate);
-        lastUpdate = simTime;
+            this.area += (simTime - this.lastUpdate);
+        this.lastUpdate = simTime;
     }
 }
