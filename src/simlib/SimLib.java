@@ -45,8 +45,14 @@ public class SimLib {
      * @param attributes attributes of the event
      */
     public static void eventSchedule(double time, byte type, float... attributes) {
+        if( time < 0 ){
+            throw new EventTimeException();
+        } else if( time < simTime ){
+            throw new PasstEventException();
+        }
         events.offer(new Event(type, time, attributes));
     }
+
 
     /**
      * Remove all events in a given time
