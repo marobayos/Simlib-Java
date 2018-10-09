@@ -3,6 +3,7 @@ package simlib;
 import simlib.elements.Event;
 import simlib.elements.Element;
 import simlib.collection.Collection;
+import simlib.exception.*;
 import simlib.io.SimWriter;
 
 import java.io.IOException;
@@ -27,14 +28,10 @@ public class SimLib {
     }
 
     public static void timing(){
-        try{
-            simTime = events.element().getTime();
-            eventType = events.element().getType();
-            eventAttributes = events.element().getAttributes();
-            events.remove();
-        } catch (Exception e){
-            System.exit(1);
-        }
+        simTime = events.element().getTime();
+        eventType = events.element().getType();
+        eventAttributes = events.element().getAttributes();
+        events.remove();
     }
 
     /**
@@ -52,7 +49,6 @@ public class SimLib {
         }
         events.offer(new Event(type, time, attributes));
     }
-
 
     /**
      * Remove all events in a given time
@@ -152,6 +148,15 @@ public class SimLib {
         return a + u*(b-a);
     }
 
+    public static double Normal(double mi, double sigma, int istrm)
+    {
+        int i;
+        double SUM = 0.0;
+        for (i=0; i<12; i++)  SUM += rand(istrm);
+        return (SUM-6.0)*sigma + mi;
+    }
+
+
     public static float erlang(int m, float mean, int stream) {
         float mean_exponential, sum;
 
@@ -161,6 +166,21 @@ public class SimLib {
             sum += expon(mean_exponential, stream);
         return sum;
     }
+
+    public static double triag(double mod, double min, double max, int stream)
+    {
+        double RN,BMA,CMA,TR;
+
+        RN = rand(stream);
+        BMA=mod-min;
+        CMA=max-min;
+        if  (RN<BMA/CMA)
+            TR= min + Math.sqrt(BMA*CMA*RN);
+        else
+            TR=max-Math.sqrt(CMA*(1.0-RN)*(max-mod));
+        return (TR);
+    }
+
 
     public static int randomInteger(float probDistrib[], int stream) {
         float u = rand(stream);
