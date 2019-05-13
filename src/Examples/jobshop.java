@@ -58,7 +58,7 @@ public class jobshop {
         writer.write("Job-shop model\n\n");
         writer.write("Number of work stations "+numStations+"\n\n");
         writer.write("Number of machines in each station     ");
-        for (int j = 1; j <= numStations; ++j)
+        for (int j = 0; j < numStations; j++)
             writer.write(stations[j].getCapacity()+" ");
         writer.write("\n\nNumber of job types "+ numJobTypes +"\n\n");
         writer.write("Number of tasks for each job type      ");
